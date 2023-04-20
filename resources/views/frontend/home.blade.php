@@ -1,12 +1,6 @@
 @extends('frontend.body.master')
 
 @section('content')
-    
-
-
-
-
-
     <a class="close_side_menu" href="javascript:void(0);"></a>
 
     <!-- Start Banner Area -->
@@ -28,8 +22,8 @@
                                 <a class="rbt-btn btn-gradient hover-icon-reverse" href="#">
                                     <span class="icon-reverse-wrapper">
                                         <span class="btn-text">View Course</span>
-                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                        <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                        <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                                     </span>
                                 </a>
                             </div>
@@ -40,137 +34,56 @@
                     <div class="content">
                         <div class="banner-card pb--60 swiper rbt-dot-bottom-center banner-swiper-active">
                             <div class="swiper-wrapper">
-                                <!-- Start Single Card  -->
-                                <div class="swiper-slide">
-                                    <div class="rbt-card variation-01 rbt-hover">
-                                        <div class="rbt-card-img">
-                                            <a href="course-details.html">
-                                                <img src="assets/images/course/classic-lms-01.jpg" alt="Card image">
-                                                <div class="rbt-badge-3 bg-white">
-                                                    <span>-40%</span>
-                                                    <span>Off</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="rbt-card-body">
-                                            <ul class="rbt-meta">
-                                                <li><i class="feather-book"></i>12 Lessons</li>
-                                                <li><i class="feather-users"></i>50 Students</li>
-                                            </ul>
-                                            <h4 class="rbt-card-title"><a href="course-details.html">React</a>
-                                            </h4>
-                                            <p class="rbt-card-text">It is a long established fact that a reader
-                                                will be distracted.</p>
-                                            <div class="rbt-review">
-                                                <div class="rating">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                                <span class="rating-count"> (15 Reviews)</span>
-                                            </div>
-                                            <div class="rbt-card-bottom">
-                                                <div class="rbt-price">
-                                                    <span class="current-price">$70</span>
-                                                    <span class="off-price">$120</span>
-                                                </div>
-                                                <a class="rbt-btn-link" href="course-details.html">Learn More<i
-                                                        class="feather-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Card  -->
 
-                                <!-- Start Single Card  -->
-                                <div class="swiper-slide">
-                                    <div class="rbt-card variation-01 rbt-hover">
-                                        <div class="rbt-card-img">
-                                            <a href="course-details.html">
-                                                <img src="assets/images/course/course-01.jpg" alt="Card image">
-                                                <div class="rbt-badge-3 bg-white">
-                                                    <span>-40%</span>
-                                                    <span>Off</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="rbt-card-body">
-                                            <ul class="rbt-meta">
-                                                <li><i class="feather-book"></i>12 Lessons</li>
-                                                <li><i class="feather-users"></i>50 Students</li>
-                                            </ul>
-                                            <h4 class="rbt-card-title"><a href="course-details.html">React</a>
-                                            </h4>
-                                            <p class="rbt-card-text">It is a long established fact that a reader
-                                                will be distracted.</p>
-                                            <div class="rbt-review">
-                                                <div class="rating">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                                <span class="rating-count"> (15 Reviews)</span>
+                                @foreach ($uc_kurs as $item)
+                                    <!-- Start Single Card  -->
+                                    <div class="swiper-slide">
+                                        <div class="rbt-card variation-01 rbt-hover">
+                                            <div class="rbt-card-img">
+                                                <a href="course-details.html">
+                                                    <img src="{{ $item->image == null ? url('assets/images/course/course-online-01.jpg') : url('assets' . $item->image) }}"
+                                                        alt="Card image">
+                                                    <div class="rbt-badge-3 bg-white">
+                                                        <span>-40%</span>
+                                                        <span>Off</span>
+                                                    </div>
+                                                </a>
                                             </div>
-                                            <div class="rbt-card-bottom">
-                                                <div class="rbt-price">
-                                                    <span class="current-price">$70</span>
-                                                    <span class="off-price">$120</span>
+                                            <div class="rbt-card-body">
+                                                <ul class="rbt-meta">
+                                                    <li><i class="feather-book"></i>12 Lessons</li>
+                                                    <li><i class="feather-users"></i>50 Students</li>
+                                                </ul>
+                                                <h4 class="rbt-card-title"><a href="course-details.html"> {{$item->title}} </a>
+                                                </h4>
+                                                <p class="rbt-card-text">It is a long established fact that a reader
+                                                    will be distracted.</p>
+                                                <div class="rbt-review">
+                                                    <div class="rating">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                    <span class="rating-count"> (15 Reviews)</span>
                                                 </div>
-                                                <a class="rbt-btn-link" href="course-details.html">Learn More<i
-                                                        class="feather-arrow-right"></i></a>
+                                                <div class="rbt-card-bottom">
+                                                    <div class="rbt-price">
+                                                        <span class="current-price">$70</span>
+                                                        <span class="off-price">$120</span>
+                                                    </div>
+                                                    <a class="rbt-btn-link" href="course-details.html">Learn More<i
+                                                            class="feather-arrow-right"></i></a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- End Single Card  -->
+                                    <!-- End Single Card  -->
+                                @endforeach
 
-                                <!-- Start Single Card  -->
-                                <div class="swiper-slide">
-                                    <div class="rbt-card variation-01 rbt-hover">
-                                        <div class="rbt-card-img">
-                                            <a href="course-details.html">
-                                                <img src="assets/images/course/course-online-01.jpg" alt="Card image">
-                                                <div class="rbt-badge-3 bg-white">
-                                                    <span>-40%</span>
-                                                    <span>Off</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="rbt-card-body">
-                                            <ul class="rbt-meta">
-                                                <li><i class="feather-book"></i>12 Lessons</li>
-                                                <li><i class="feather-users"></i>50 Students</li>
-                                            </ul>
-                                            <h4 class="rbt-card-title"><a href="course-details.html">React</a>
-                                            </h4>
-                                            <p class="rbt-card-text">It is a long established fact that a reader
-                                                will be distracted.</p>
-                                            <div class="rbt-review">
-                                                <div class="rating">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                                <span class="rating-count"> (15 Reviews)</span>
-                                            </div>
-                                            <div class="rbt-card-bottom">
-                                                <div class="rbt-price">
-                                                    <span class="current-price">$70</span>
-                                                    <span class="off-price">$120</span>
-                                                </div>
-                                                <a class="rbt-btn-link" href="course-details.html">Learn More<i
-                                                        class="feather-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Card  -->
+
+
                             </div>
                             <div class="rbt-swiper-pagination"></div>
                         </div>
@@ -188,24 +101,27 @@
             <div class="row g-5 align-items-start mb--30">
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="section-title">
-                        <h4 class="title">Popular Categories.</h4>
+                        <h4 class="title">Popüler Kategoriler</h4>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="read-more-btn text-start text-md-end">
-                        <a class="rbt-btn rbt-switch-btn bg-primary-opacity btn-sm" href="archive.html">
-                            <span data-text="View All">View All</span>
+                        <a class="rbt-btn rbt-switch-btn bg-primary-opacity btn-sm" href="{{route('front.categories')}}">
+                            <span data-text="View All">Hepsini Gör</span>
                         </a>
                     </div>
                 </div>
             </div>
             <div class="row g-5">
+
+                @foreach ($categories as $item)
+                    
                 <!-- Start Category Box Layout  -->
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <a class="rbt-cat-box rbt-cat-box-1 list-style" href="course-filter-one-toggle.html">
                         <div class="inner">
                             <div class="thumbnail">
-                                <img src="assets/images/category/image/web-design.jpg" alt="Icons Images">
+                                <img src="{{$item->image == null ? url("/assets/images/category/image/web-design.jpg") : url("assets".$item->image)}}  " alt="Icons Images">
                             </div>
                             <div class="content">
                                 <h5 class="title">Web Design</h5>
@@ -217,131 +133,10 @@
                     </a>
                 </div>
                 <!-- End Category Box Layout  -->
-                <!-- Start Category Box Layout  -->
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <a class="rbt-cat-box rbt-cat-box-1 list-style" href="course-filter-one-toggle.html">
-                        <div class="inner">
-                            <div class="thumbnail">
-                                <img src="assets/images/category/image/graphic-design.jpg" alt="Icons Images">
-                            </div>
-                            <div class="content">
-                                <h5 class="title">Graphic Design</h5>
-                                <div class="read-more-btn">
-                                    <span class="rbt-btn-link">25 Courses<i class="feather-arrow-right"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- End Category Box Layout  -->
 
-                <!-- Start Category Box Layout  -->
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <div class="rbt-cat-box rbt-cat-box-1 list-style">
-                        <div class="inner">
-                            <div class="thumbnail">
-                                <img src="assets/images/category/image/personal-development.jpg" alt="Icons Images">
-                            </div>
-                            <div class="content">
-                                <h5 class="title">Personal Development</h5>
-                                <div class="read-more-btn">
-                                    <span class="rbt-btn-link">14 Courses<i class="feather-arrow-right"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Category Box Layout  -->
+                @endforeach
 
-                <!-- Start Category Box Layout  -->
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <a class="rbt-cat-box rbt-cat-box-1 list-style" href="course-filter-one-toggle.html">
-                        <div class="inner">
-                            <div class="thumbnail">
-                                <img src="assets/images/category/image/software.jpg" alt="Icons Images">
-                            </div>
-                            <div class="content">
-                                <h5 class="title">IT and Software</h5>
-                                <div class="read-more-btn">
-                                    <span class="rbt-btn-link">12 Courses<i class="feather-arrow-right"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- End Category Box Layout  -->
 
-                <!-- Start Category Box Layout  -->
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <a class="rbt-cat-box rbt-cat-box-1 list-style" href="course-filter-one-toggle.html">
-                        <div class="inner">
-                            <div class="thumbnail">
-                                <img src="assets/images/category/image/sales.jpg" alt="Icons Images">
-                            </div>
-                            <div class="content">
-                                <h5 class="title">Sales Marketing</h5>
-                                <div class="read-more-btn">
-                                    <span class="rbt-btn-link">30 Courses<i class="feather-arrow-right"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- End Category Box Layout  -->
-
-                <!-- Start Category Box Layout  -->
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <a class="rbt-cat-box rbt-cat-box-1 list-style" href="course-filter-one-toggle.html">
-                        <div class="inner">
-                            <div class="thumbnail">
-                                <img src="assets/images/category/image/arts.jpg" alt="Icons Images">
-                            </div>
-                            <div class="content">
-                                <h5 class="title">Art & Humanities</h5>
-                                <div class="read-more-btn">
-                                    <span class="rbt-btn-link">15 Courses<i class="feather-arrow-right"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- End Category Box Layout  -->
-
-                <!-- Start Category Box Layout  -->
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <a class="rbt-cat-box rbt-cat-box-1 list-style" href="course-filter-one-toggle.html">
-                        <div class="inner">
-                            <div class="thumbnail">
-                                <img src="assets/images/category/image/mobile.jpg" alt="Icons Images">
-                            </div>
-                            <div class="content">
-                                <h5 class="title">Mobile Application</h5>
-                                <div class="read-more-btn">
-                                    <span class="rbt-btn-link">40 Courses<i class="feather-arrow-right"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- End Category Box Layout  -->
-
-                <!-- Start Category Box Layout  -->
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <a class="rbt-cat-box rbt-cat-box-1 list-style" href="course-filter-one-toggle.html">
-                        <div class="inner">
-                            <div class="thumbnail">
-                                <img src="assets/images/category/image/finance.jpg" alt="Icons Images">
-                            </div>
-                            <div class="content">
-                                <h5 class="title">Finance & Accounting</h5>
-                                <div class="read-more-btn">
-                                    <span class="rbt-btn-link">20 Courses<i class="feather-arrow-right"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- End Category Box Layout  -->
             </div>
 
         </div>
@@ -354,7 +149,8 @@
                 <div class="col-lg-5 col-md-12 col-12">
                     <div class="inner">
                         <div class="section-title text-center text-lg-start">
-                            <h4 class="title"><strong>Subscribe</strong> <br /> <span class="w-400">Our Newsletter</span></h4>
+                            <h4 class="title"><strong>Subscribe</strong> <br /> <span class="w-400">Our
+                                    Newsletter</span></h4>
                         </div>
                     </div>
                 </div>
@@ -363,9 +159,9 @@
                         <input type="email" placeholder="Enter Your E-Email">
                         <button type="submit" class="rbt-btn btn-md btn-gradient hover-icon-reverse">
                             <span class="icon-reverse-wrapper">
-                        <span class="btn-text">Subscribe</span>
-                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                <span class="btn-text">Subscribe</span>
+                                <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                             </span>
                         </button>
                     </form>
@@ -395,11 +191,12 @@
             <!-- Start Card Area -->
             <div class="row g-5">
                 <!-- Start Single Course  -->
-                <div class="col-lg-4 col-md-6 col-sm-12 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12" data-sal-delay="150" data-sal="slide-up"
+                    data-sal-duration="800">
                     <div class="rbt-card variation-01 rbt-hover">
                         <div class="rbt-card-img">
                             <a href="course-details.html">
-                                <img src="assets/images/course/classic-lms-01.jpg" alt="Card image">
+                                <img src="/assets/images/course/classic-lms-01.jpg" alt="Card image">
                                 <div class="rbt-badge-3 bg-white">
                                     <span>-40%</span>
                                     <span>Off</span>
@@ -437,7 +234,7 @@
                             <div class="rbt-author-meta mb--10">
                                 <div class="rbt-avater">
                                     <a href="#">
-                                        <img src="assets/images/client/avatar-02.png" alt="Sophia Jaymes">
+                                        <img src="/assets/images/client/avatar-02.png" alt="Sophia Jaymes">
                                     </a>
                                 </div>
                                 <div class="rbt-author-info">
@@ -458,11 +255,12 @@
                 <!-- End Single Course  -->
 
                 <!-- Start Single Course  -->
-                <div class="col-lg-4 col-md-6 col-sm-12 col-12" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12" data-sal-delay="200" data-sal="slide-up"
+                    data-sal-duration="800">
                     <div class="rbt-card variation-01 rbt-hover">
                         <div class="rbt-card-img">
                             <a href="course-details.html">
-                                <img src="assets/images/course/classic-lms-02.jpg" alt="Card image">
+                                <img src="/assets/images/course/classic-lms-02.jpg" alt="Card image">
                                 <div class="rbt-badge-3 bg-white">
                                     <span>-40%</span>
                                     <span>Off</span>
@@ -498,7 +296,7 @@
                             <div class="rbt-author-meta mb--10">
                                 <div class="rbt-avater">
                                     <a href="#">
-                                        <img src="assets/images/client/avatar-02.png" alt="Sophia Jaymes">
+                                        <img src="/assets/images/client/avatar-02.png" alt="Sophia Jaymes">
                                     </a>
                                 </div>
                                 <div class="rbt-author-info">
@@ -519,11 +317,12 @@
                 <!-- End Single Course  -->
 
                 <!-- Start Single Course  -->
-                <div class="col-lg-4 col-md-6 col-sm-12 col-12" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12" data-sal-delay="250" data-sal="slide-up"
+                    data-sal-duration="800">
                     <div class="rbt-card variation-01 rbt-hover">
                         <div class="rbt-card-img">
                             <a href="course-details.html">
-                                <img src="assets/images/course/classic-lms-03.jpg" alt="Card image">
+                                <img src="/assets/images/course/classic-lms-03.jpg" alt="Card image">
                                 <div class="rbt-badge-3 bg-white">
                                     <span>-40%</span>
                                     <span>Off</span>
@@ -559,7 +358,7 @@
                             <div class="rbt-author-meta mb--20">
                                 <div class="rbt-avater">
                                     <a href="#">
-                                        <img src="assets/images/client/avatar-03.png" alt="Sophia Jaymes">
+                                        <img src="/assets/images/client/avatar-03.png" alt="Sophia Jaymes">
                                     </a>
                                 </div>
                                 <div class="rbt-author-info">
@@ -580,11 +379,12 @@
                 <!-- End Single Course  -->
 
                 <!-- Start Single Card  -->
-                <div class="col-lg-4 col-md-6 col-sm-12 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12" data-sal-delay="150" data-sal="slide-up"
+                    data-sal-duration="800">
                     <div class="rbt-card variation-01 rbt-hover">
                         <div class="rbt-card-img">
                             <a href="course-details.html">
-                                <img src="assets/images/course/classic-lms-04.jpg" alt="Card image">
+                                <img src="/assets/images/course/classic-lms-04.jpg" alt="Card image">
                                 <div class="rbt-badge-3 bg-white">
                                     <span>-40%</span>
                                     <span>Off</span>
@@ -620,7 +420,7 @@
                             <div class="rbt-author-meta mb--20">
                                 <div class="rbt-avater">
                                     <a href="#">
-                                        <img src="assets/images/client/avater-01.png" alt="Sophia Jaymes">
+                                        <img src="/assets/images/client/avater-01.png" alt="Sophia Jaymes">
                                     </a>
                                 </div>
                                 <div class="rbt-author-info">
@@ -642,11 +442,12 @@
                 <!-- End Single Card  -->
 
                 <!-- Start Single Card  -->
-                <div class="col-lg-4 col-md-6 col-sm-12 col-12" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12" data-sal-delay="200" data-sal="slide-up"
+                    data-sal-duration="800">
                     <div class="rbt-card variation-01 rbt-hover">
                         <div class="rbt-card-img">
                             <a href="course-details.html">
-                                <img src="assets/images/course/classic-lms-05.jpg" alt="Card image">
+                                <img src="/assets/images/course/classic-lms-05.jpg" alt="Card image">
                                 <div class="rbt-badge-3 bg-white">
                                     <span>-40%</span>
                                     <span>Off</span>
@@ -682,7 +483,7 @@
                             <div class="rbt-author-meta mb--20">
                                 <div class="rbt-avater">
                                     <a href="#">
-                                        <img src="assets/images/client/avatar-02.png" alt="Sophia Jaymes">
+                                        <img src="/assets/images/client/avatar-02.png" alt="Sophia Jaymes">
                                     </a>
                                 </div>
                                 <div class="rbt-author-info">
@@ -703,11 +504,12 @@
                 <!-- End Single Card  -->
 
                 <!-- Start Single Card  -->
-                <div class="col-lg-4 col-md-6 col-sm-12 col-12" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12" data-sal-delay="250" data-sal="slide-up"
+                    data-sal-duration="800">
                     <div class="rbt-card variation-01 rbt-hover">
                         <div class="rbt-card-img">
                             <a href="course-details.html">
-                                <img src="assets/images/course/classic-lms-06.jpg" alt="Card image">
+                                <img src="/assets/images/course/classic-lms-06.jpg" alt="Card image">
                                 <div class="rbt-badge-3 bg-white">
                                     <span>-40%</span>
                                     <span>Off</span>
@@ -743,7 +545,7 @@
                             <div class="rbt-author-meta mb--20">
                                 <div class="rbt-avater">
                                     <a href="#">
-                                        <img src="assets/images/client/avatar-03.png" alt="Sophia Jaymes">
+                                        <img src="/assets/images/client/avatar-03.png" alt="Sophia Jaymes">
                                     </a>
                                 </div>
                                 <div class="rbt-author-info">
@@ -786,7 +588,7 @@
                         <div class="inner">
                             <div class="clint-info-wrapper">
                                 <div class="thumb">
-                                    <img src="assets/images/testimonial/client-01.png" alt="Clint Images">
+                                    <img src="/assets/images/testimonial/client-01.png" alt="Clint Images">
                                 </div>
                                 <div class="client-info">
                                     <h5 class="title">Martha Maldonado</h5>
@@ -815,7 +617,7 @@
                         <div class="inner">
                             <div class="clint-info-wrapper">
                                 <div class="thumb">
-                                    <img src="assets/images/testimonial/client-02.png" alt="Clint Images">
+                                    <img src="/assets/images/testimonial/client-02.png" alt="Clint Images">
                                 </div>
                                 <div class="client-info">
                                     <h5 class="title">Michael D. Lovelady</h5>
@@ -844,7 +646,7 @@
                         <div class="inner">
                             <div class="clint-info-wrapper">
                                 <div class="thumb">
-                                    <img src="assets/images/testimonial/client-03.png" alt="Clint Images">
+                                    <img src="/assets/images/testimonial/client-03.png" alt="Clint Images">
                                 </div>
                                 <div class="client-info">
                                     <h5 class="title">Valerie J. Creasman</h5>
@@ -896,7 +698,7 @@
                     <div class="rbt-card variation-02 rbt-hover">
                         <div class="rbt-card-img">
                             <a href="course-details.html">
-                                <img src="assets/images/blog/blog-grid-01.jpg" alt="Card image"> </a>
+                                <img src="/assets/images/blog/blog-grid-01.jpg" alt="Card image"> </a>
                         </div>
                         <div class="rbt-card-body">
                             <h5 class="rbt-card-title"><a href="course-details.html">Is lms The Most Trending
@@ -904,7 +706,12 @@
                             <p class="rbt-card-text">It is a long established fact that a reader.</p>
                             <div class="rbt-card-bottom">
                                 <a class="transparent-button" href="course-details.html">Learn
-                                    More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
+                                    More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg">
+                                            <g stroke="#27374D" fill="none" fill-rule="evenodd">
+                                                <path d="M10.614 0l5.629 5.629-5.63 5.629" />
+                                                <path stroke-linecap="square" d="M.663 5.572h14.594" />
+                                            </g>
+                                        </svg></i></a>
                             </div>
                         </div>
                     </div>
@@ -916,7 +723,7 @@
                     <div class="rbt-card variation-02 rbt-hover">
                         <div class="rbt-card-img">
                             <a href="course-details.html">
-                                <img src="assets/images/blog/blog-grid-02.jpg" alt="Card image"> </a>
+                                <img src="/assets/images/blog/blog-grid-02.jpg" alt="Card image"> </a>
                         </div>
                         <div class="rbt-card-body">
                             <h5 class="rbt-card-title"><a href="course-details.html">Learn How More Money With
@@ -924,7 +731,12 @@
                             <p class="rbt-card-text">It is a long established fact that a reader.</p>
                             <div class="rbt-card-bottom">
                                 <a class="transparent-button" href="course-details.html">Learn
-                                    More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
+                                    More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg">
+                                            <g stroke="#27374D" fill="none" fill-rule="evenodd">
+                                                <path d="M10.614 0l5.629 5.629-5.63 5.629" />
+                                                <path stroke-linecap="square" d="M.663 5.572h14.594" />
+                                            </g>
+                                        </svg></i></a>
                             </div>
                         </div>
                     </div>
@@ -936,7 +748,7 @@
                     <div class="rbt-card variation-02 rbt-hover">
                         <div class="rbt-card-img">
                             <a href="course-details.html">
-                                <img src="assets/images/blog/blog-grid-03.jpg" alt="Card image"> </a>
+                                <img src="/assets/images/blog/blog-grid-03.jpg" alt="Card image"> </a>
                         </div>
                         <div class="rbt-card-body">
                             <h5 class="rbt-card-title"><a href="course-details.html">Understand The Background Of
@@ -944,7 +756,12 @@
                             <p class="rbt-card-text">It is a long established fact that a reader.</p>
                             <div class="rbt-card-bottom">
                                 <a class="transparent-button" href="course-details.html">Learn
-                                    More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
+                                    More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg">
+                                            <g stroke="#27374D" fill="none" fill-rule="evenodd">
+                                                <path d="M10.614 0l5.629 5.629-5.63 5.629" />
+                                                <path stroke-linecap="square" d="M.663 5.572h14.594" />
+                                            </g>
+                                        </svg></i></a>
                             </div>
                         </div>
                     </div>
@@ -972,10 +789,10 @@
                 <div class="col-lg-2 col-md-4 col-sm-6 col-6">
                     <div class="instagram-grid">
                         <a href="#">
-                            <img src="assets/images/instagram/instagram-01.jpg" alt="instagram">
+                            <img src="/assets/images/instagram/instagram-01.jpg" alt="instagram">
                             <span class="user-info">
-                        <span class="icon"><i class="icon-instagram"></i></span>
-                            <span class="user-name">@Histudy</span>
+                                <span class="icon"><i class="icon-instagram"></i></span>
+                                <span class="user-name">@Histudy</span>
                             </span>
                         </a>
                     </div>
@@ -983,10 +800,10 @@
                 <div class="col-lg-2 col-md-4 col-sm-6 col-6">
                     <div class="instagram-grid">
                         <a href="#">
-                            <img src="assets/images/instagram/instagram-02.jpg" alt="instagram">
+                            <img src="/assets/images/instagram/instagram-02.jpg" alt="instagram">
                             <span class="user-info">
-                        <span class="icon"><i class="icon-instagram"></i></span>
-                            <span class="user-name">@Histudy</span>
+                                <span class="icon"><i class="icon-instagram"></i></span>
+                                <span class="user-name">@Histudy</span>
                             </span>
                         </a>
                     </div>
@@ -994,10 +811,10 @@
                 <div class="col-lg-2 col-md-4 col-sm-6 col-6">
                     <div class="instagram-grid">
                         <a href="#">
-                            <img src="assets/images/instagram/instagram-03.jpg" alt="instagram">
+                            <img src="/assets/images/instagram/instagram-03.jpg" alt="instagram">
                             <span class="user-info">
-                        <span class="icon"><i class="icon-instagram"></i></span>
-                            <span class="user-name">@Histudy</span>
+                                <span class="icon"><i class="icon-instagram"></i></span>
+                                <span class="user-name">@Histudy</span>
                             </span>
                         </a>
                     </div>
@@ -1005,10 +822,10 @@
                 <div class="col-lg-2 col-md-4 col-sm-6 col-6">
                     <div class="instagram-grid">
                         <a href="#">
-                            <img src="assets/images/instagram/instagram-04.jpg" alt="instagram">
+                            <img src="/assets/images/instagram/instagram-04.jpg" alt="instagram">
                             <span class="user-info">
-                        <span class="icon"><i class="icon-instagram"></i></span>
-                            <span class="user-name">@Histudy</span>
+                                <span class="icon"><i class="icon-instagram"></i></span>
+                                <span class="user-name">@Histudy</span>
                             </span>
                         </a>
                     </div>
@@ -1016,10 +833,10 @@
                 <div class="col-lg-2 col-md-4 col-sm-6 col-6">
                     <div class="instagram-grid">
                         <a href="#">
-                            <img src="assets/images/instagram/instagram-05.jpg" alt="instagram">
+                            <img src="/assets/images/instagram/instagram-05.jpg" alt="instagram">
                             <span class="user-info">
-                        <span class="icon"><i class="icon-instagram"></i></span>
-                            <span class="user-name">@Histudy</span>
+                                <span class="icon"><i class="icon-instagram"></i></span>
+                                <span class="user-name">@Histudy</span>
                             </span>
                         </a>
                     </div>
@@ -1027,10 +844,10 @@
                 <div class="col-lg-2 col-md-4 col-sm-6 col-6">
                     <div class="instagram-grid">
                         <a href="#">
-                            <img src="assets/images/instagram/instagram-06.jpg" alt="instagram">
+                            <img src="/assets/images/instagram/instagram-06.jpg" alt="instagram">
                             <span class="user-info">
-                        <span class="icon"><i class="icon-instagram"></i></span>
-                            <span class="user-name">@Histudy</span>
+                                <span class="icon"><i class="icon-instagram"></i></span>
+                                <span class="user-name">@Histudy</span>
                             </span>
                         </a>
                     </div>
@@ -1038,7 +855,4 @@
             </div>
         </div>
     </div>
-
 @endsection
- 
-

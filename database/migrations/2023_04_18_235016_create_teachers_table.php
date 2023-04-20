@@ -18,8 +18,12 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('job');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->string('description');
+            $table->string('instagram')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('linkedin')->nullable();
             $table->timestamps();
         });
     }

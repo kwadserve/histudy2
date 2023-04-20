@@ -3,7 +3,7 @@
     
 @section('content')
 
-<form action="" method="POST" enctype="multipart/form-data">
+<form action="{{route('panel.category.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="row">
         <div class="col-12">
