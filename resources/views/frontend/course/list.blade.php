@@ -182,7 +182,7 @@
                     <div class="course-grid-3">
                         <div class="rbt-card variation-01 rbt-hover">
                             <div class="rbt-card-img">
-                                <a href="course-details.html">
+                                <a href="{{route('front.course.detail',$item->id)}}">
                                     <img src="{{($item->image ==  null) ? url("assets/images/course/course-online-01.jpg") : url("assets".$item->image)}}" alt="Card image">
                                     <div class="rbt-badge-3 bg-white">
                                         <span>-40%</span>
@@ -208,7 +208,7 @@
                                     </div>
                                 </div>
 
-                                <h4 class="rbt-card-title"><a href="course-details.html"> {{$item->title}} </a>
+                                <h4 class="rbt-card-title"><a href="{{route('front.course.detail',$item->id)}}"> {{$item->title}} </a>
                                 </h4>
 
                                 <ul class="rbt-meta">

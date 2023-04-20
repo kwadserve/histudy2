@@ -15,9 +15,9 @@ class CourseController extends Controller
         return view('frontend.course.list',compact('course','course_content'));
     }
 
-    public function detail(){
-        $data = Course::find(1);
-        $icerik = CourseContent::where('course_id',1)->get();
+    public function detail($id){
+        $data = Course::find($id);
+        $icerik = CourseContent::where('course_id',$id)->get();
         return view('frontend.course.detail',compact('data','icerik'));
     }
 }

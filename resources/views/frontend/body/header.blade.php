@@ -81,20 +81,8 @@
                     <div class="rbt-header-sec-col rbt-header-left">
                         <center>
                             <div class="row">
-                                <div class="col-md-1">
-                                    <a href="">
-
-                                        <i class="fa-brands fa-instagram"></i>
-                                    </a>
-
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="">
-
-                                        <p>histudy</p>
-                                    </a>
-
-                                </div>
+                                
+                                
 
                                 <div class="col-md-1"></div>
 

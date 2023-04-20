@@ -22,10 +22,10 @@ use Illuminate\Support\Facades\Route;
 
 // BACKEND (PANEL) ROUTE'LARI
 Route::prefix('panel/')->group(function(){
+
     Route::get('home',function(){
         return view('backend.home');
     });
-    
 
     // CATEGORY
     Route::prefix('category/')->group(function(){
@@ -33,7 +33,6 @@ Route::prefix('panel/')->group(function(){
         Route::post('store',[CategoryController::class,'store'])->name('panel.category.store');
         Route::get('list',[CategoryController::class,'list'])->name('panel.category.list');
     });
-
 
     // TEACHER
     Route::prefix('teacher/')->group(function(){
@@ -58,8 +57,10 @@ Route::prefix('/')->group(function(){
     Route::get('',[FrontController::class,'homepage'])->name('front.home');
     Route::get('about',[FrontController::class,'about'])->name('front.about');
     Route::get('blog',[FrontController::class,'blog_list'])->name('front.blog');
+
     Route::get('course',[FrontCourseController::class,'course_list'])->name('front.course');
-    Route::get('course/detail',[FrontCourseController::class,'detail'])->name('front.course.detail');
+    Route::get('course/detail/{id?}',[FrontCourseController::class,'detail'])->name('front.course.detail');
+
     Route::get('teacher',[FrontTeacherController::class,'teacher_list'])->name('front.teacher');
     Route::get('categories',[FrontCategoryController::class,'list'])->name('front.categories');
     Route::get('contact',[FrontController::class,'contact'])->name('front.contact');
