@@ -20,6 +20,11 @@ return new class extends Migration
             $table->integer('category_id');
             $table->float('price',8,2);
             $table->integer('teacher_id');
+            $table->timestamp('start')->nullable();
+            $table->timestamp('finish')->nullable();
+            $table->integer('min_person')->default(1);
+            $table->integer('max_person')->default(1);
+            $table->integer('count_person')->default(0);
             $table->timestamps();
         });
     }

@@ -175,7 +175,7 @@
             <div class="container">
                 <div class="rbt-course-grid-column">
 
-                    @foreach ($course as $item)
+                    @foreach ($data as $item)
                         
 
                     <!-- Start Single Card  -->

@@ -1,6 +1,8 @@
 
     <!-- JS
 ============================================ -->
+
+    @yield('script-bottom')
     <!-- Modernizer JS -->
     <script src="/assets/js/vendor/modernizr.min.js"></script>
     <!-- jQuery JS -->

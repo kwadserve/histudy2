@@ -29,6 +29,8 @@ class CourseController extends Controller
             "category" => "required",
             "short_description" => "required",
             "price" => "required",
+            "start" => "required",
+            "finish" => "required",
         ], [
             "title.required" => "Kurs ismi boş bırakılamaz.",
             "long_description.required" => "Kurs uzun açıklaması boş bırakılamaz.",
@@ -36,6 +38,8 @@ class CourseController extends Controller
             "category.required" => "Kurs kategorisi boş bırakılamaz.",
             "short_description.required" => "Kurs kısa açıklaması boş bırakılamaz.",
             "price.required" => "Kurs fiyatı boş bırakılamaz.",
+            "start.required" => "Başlangıç tarihi boş bırakılamaz.",
+            "finish.required" => "Bitiş tarihi boş bırakılamaz."
         ]);
 
         if ($valid) {
@@ -48,6 +52,12 @@ class CourseController extends Controller
                     "category_id" => $request->category,
                     "short_description" => $request->short_description,
                     "price" => $request->price,
+                    "start" => $request->start,
+                    "finish" => $request->finish,
+                    "min_person" => $request->min,
+                    "max_person" => $request->max,
+                    "toplam_gun" => $request->toplam_gun,
+                    "toplam_saat" => $request->toplam_saat,
 
                 ]);
             }
@@ -64,7 +74,13 @@ class CourseController extends Controller
                     "category_id" => $request->category,
                     "short_description" => $request->short_description,
                     "price" => $request->price,
-                    "image" => $save_url
+                    "image" => $save_url,
+                    "start" => $request->start,
+                    "finish" => $request->finish,
+                    "min_person" => $request->min,
+                    "max_person" => $request->max,
+                    "toplam_gun" => $request->toplam_gun,
+                    "toplam_saat" => $request->toplam_saat,
                 ]);
             }
 

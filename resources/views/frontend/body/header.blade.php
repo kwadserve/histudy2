@@ -32,6 +32,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+        integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 
@@ -41,37 +48,7 @@
     <!-- Start Header Area -->
     <header class="rbt-header rbt-header-9">
         <div class="rbt-sticky-placeholder"></div>
-        <div class="rbt-header-campaign rbt-header-campaign-1 rbt-header-top-news bg-image1">
-            <div class="wrapper">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="inner justify-content-center">
-                                <div class="content">
-                                    <span
-                                        class="rbt-badge variation-02 bg-color-primary color-white radius-round">Limited
-                                        Time Offer</span>
-                                    <span class="news-text color-white-off"><img
-                                            src="/assets/images/icons/hand-emojji.svg" alt="Hand Emojji Images"> Intro
-                                        price. Get Histudy for Big Sale -95% off.</span>
-                                </div>
-                                <div class="right-button">
-                                    <a class="rbt-btn-link color-white"
-                                        href="https://themeforest.net/checkout/from_item/42846507?license=regular">
-                                        <span>Purchase Now <i class="feather-arrow-right"></i></span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="icon-close position-right">
-                <button class="rbt-round-btn btn-white-off bgsection-activation">
-                    <i class="feather-x"></i>
-                </button>
-            </div>
-        </div>
+
 
         <!-- Start Header Top -->
         <div class="rbt-header-middle position-relative rbt-header-mid-1  bg-color-white rbt-border-bottom">
@@ -81,8 +58,8 @@
                     <div class="rbt-header-sec-col rbt-header-left">
                         <center>
                             <div class="row">
-                                
-                                
+
+
 
                                 <div class="col-md-1"></div>
 
@@ -113,7 +90,7 @@
                             <div class="header-info">
                                 <div class="rbt-search-field">
                                     <div class="search-field">
-                                        <input type="text" placeholder="Kurs Ara...">
+                                        <input type="text" placeholder="Seminer Ara...">
                                         <button class="rbt-round-btn serach-btn" type="submit"><i
                                                 class="feather-search"></i></button>
                                     </div>
@@ -124,17 +101,29 @@
 
                     <div class="rbt-header-sec-col rbt-header-right">
                         <div class="rbt-header-content">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <button class="btn btn-success form-control" style="width:130px;height:30px">
-                                        ÖĞRETMEN BAŞVURU
-                                    </button>
-                                </div>
-                                <div class="col-md-6">
-                                    <button class="btn btn-info form-control" style="width:160px;height:30px">KURS
-                                        ÖNERİSİNDE BULUN</button>
 
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <a href="#">
+                                        <i class="feather-instagram"></i>
+                                    </a>
                                 </div>
+                                <div class="col-md-3">
+                                    <a href="#">
+                                        <i class="feather-facebook"></i>
+                                    </a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="#">
+                                        <i class="feather-twitter"></i>
+                                    </a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="#">
+                                        <i class="feather-linkedin"></i>
+                                    </a>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -149,187 +138,119 @@
                 <div class="mainbar-row rbt-navigation-end align-items-center">
                     <div class="header-left rbt-header-content" style="height:85px;">
                         <div class="header-info" style="height:80px; width:150px">
-                            <a href="index.html">
+                            <a href="{{ route('front.home') }}">
                                 <img src="/assets/images/artelegans.png" style="width: 85%;"
                                     alt="Education Logo Images">
                             </a>
                         </div>
-
                     </div>
 
+                    <?php
+                    
+                    $cat = App\Models\Category::get();
+                    ?>
+
+
                     <div class="rbt-main-navigation d-none d-xl-block">
-
                         <nav class="mainmenu-nav">
-
                             <ul class="mainmenu">
                                 <li>
+                                    
                                     <div class="header-info">
                                         <div class="rbt-category-menu-wrapper">
                                             <div class="rbt-category-btn rbt-side-offcanvas-activation">
                                                 <div class="rbt-offcanvas-trigger md-size icon">
                                                     <span class="d-none d-xl-block">
-                                                        <i class="feather-grid"></i>
-                                                    </span>
+                                                <i class="feather-grid"></i>
+                                            </span>
                                                     <i title="Category" class="feather-grid d-block d-xl-none"></i>
                                                 </div>
-                                                <a href="{{ route('front.categories') }}">
-                                                    <span class="category-text d-none d-xl-block">KATEGORİLER</span>
-                                                </a>
+                                                <span class="category-text d-none d-xl-block">KATEGORİLER</span>
                                             </div>
 
+                                                
+            
                                             <div class="category-dropdown-menu d-none d-xl-block">
                                                 <div class="category-menu-item">
+
+
+
                                                     <div class="rbt-vertical-nav">
                                                         <ul class="rbt-vertical-nav-list-wrapper vertical-nav-menu">
-                                                            <li class="vertical-nav-item active">
-                                                                <a href="#tab1">Course School</a>
-                                                            </li>
+
+                                                        @foreach ($cat as $item)
+
                                                             <li class="vertical-nav-item">
-                                                                <a href="#tab2">Online School</a>
+                                                                <a href="#tab{{$item->id}}"> {{$item->name}} </a>
                                                             </li>
-                                                            <li class="vertical-nav-item">
-                                                                <a href="#tab3">kindergarten</a>
-                                                            </li>
-                                                            <li class="vertical-nav-item">
-                                                                <a href="#tab4">Classic LMS</a>
-                                                            </li>
+
+                                                        @endforeach
+                                                            
                                                         </ul>
                                                     </div>
+
+                                                    @foreach ($cat as $item)
+
+                                                    <?php 
+                                                     $prod = App\Models\Course::where('category_id',$item->id)->get();
+                                                    ?>
+
+
                                                     <div class="rbt-vertical-nav-content">
+
                                                         <!-- Start One Item  -->
-                                                        <div class="rbt-vertical-inner tab-content" id="tab1"
-                                                            style="display: block">
+                                                            
+                                                        <div class="rbt-vertical-inner tab-content" id="tab{{$item->id}}" style="display: block;">
                                                             <div class="rbt-vertical-single">
                                                                 <div class="row">
-                                                                    <div class="col-lg-6 col-sm-6 col-6">
+                                                                    <div class="col-lg-12 col-sm-12 col-12">
                                                                         <div class="vartical-nav-content-menu">
-                                                                            <h3 class="rbt-short-title">Course Title
-                                                                            </h3>
+                                                                            <h3 class="rbt-short-title">Seminerler</h3>
                                                                             <ul class="rbt-vertical-nav-list-wrapper">
-                                                                                <li><a href="#">Web Design</a>
-                                                                                </li>
-                                                                                <li><a href="#">Art</a></li>
-                                                                                <li><a href="#">Figma</a></li>
-                                                                                <li><a href="#">Adobe</a></li>
+                                                                                @foreach ($prod as $pro)
+
+                                                                                <li><a href="#">{{$pro->title}}</a></li>
+                                                                                
+                                                                                @endforeach
+
                                                                             </ul>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-lg-6 col-sm-6 col-6">
-                                                                        <div class="vartical-nav-content-menu">
-                                                                            <h3 class="rbt-short-title">Course Title
-                                                                            </h3>
-                                                                            <ul class="rbt-vertical-nav-list-wrapper">
-                                                                                <li><a href="#">Photo</a></li>
-                                                                                <li><a href="#">English</a></li>
-                                                                                <li><a href="#">Math</a></li>
-                                                                                <li><a href="#">Read</a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <!-- End One Item  -->
 
-                                                        <!-- Start One Item  -->
-                                                        <div class="rbt-vertical-inner tab-content" id="tab2">
-                                                            <div class="rbt-vertical-single">
-                                                                <div class="row">
-                                                                    <div class="col-lg-6">
-                                                                        <div class="vartical-nav-content-menu">
-                                                                            <h3 class="rbt-short-title">Course Title
-                                                                            </h3>
-                                                                            <ul class="rbt-vertical-nav-list-wrapper">
-                                                                                <li><a href="#">Photo</a></li>
-                                                                                <li><a href="#">English</a></li>
-                                                                                <li><a href="#">Math</a></li>
-                                                                                <li><a href="#">Read</a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-6">
-                                                                        <div class="vartical-nav-content-menu">
-                                                                            <h3 class="rbt-short-title">Course Title
-                                                                            </h3>
-                                                                            <ul class="rbt-vertical-nav-list-wrapper">
-                                                                                <li><a href="#">Web Design</a>
-                                                                                </li>
-                                                                                <li><a href="#">Art</a></li>
-                                                                                <li><a href="#">Figma</a></li>
-                                                                                <li><a href="#">Adobe</a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End One Item  -->
 
-                                                        <!-- Start One Item  -->
-                                                        <div class="rbt-vertical-inner tab-content" id="tab3">
-                                                            <div class="rbt-vertical-single">
-                                                                <div class="row">
-                                                                    <div class="col-lg-12">
-                                                                        <div class="vartical-nav-content-menu">
-                                                                            <h3 class="rbt-short-title">Course Title
-                                                                            </h3>
-                                                                            <ul class="rbt-vertical-nav-list-wrapper">
-                                                                                <li><a href="#">Photo</a></li>
-                                                                                <li><a href="#">English</a></li>
-                                                                                <li><a href="#">Math</a></li>
-                                                                            </ul>
-                                                                            <div class="read-more-btn">
-                                                                                <a class="rbt-btn-link"
-                                                                                    href="#">Learn
-                                                                                    More<i
-                                                                                        class="feather-arrow-right"></i></a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End One Item  -->
-
-                                                        <!-- Start One Item  -->
-                                                        <div class="rbt-vertical-inner tab-content" id="tab4">
-                                                            <div class="rbt-vertical-single">
-                                                                <div class="row">
-                                                                    <div class="col-lg-12">
-                                                                        <div class="vartical-nav-content-menu">
-                                                                            <h3 class="rbt-short-title">Course Title
-                                                                            </h3>
-                                                                            <ul class="rbt-vertical-nav-list-wrapper">
-                                                                                <li><a href="#">Photo</a></li>
-                                                                                <li><a href="#">English</a></li>
-                                                                                <li><a href="#">Math</a></li>
-                                                                                <li><a href="#">Read</a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- End One Item  -->
-
+            
+            
                                                     </div>
+                                                    @endforeach
+
                                                 </div>
                                             </div>
+
+
                                         </div>
                                     </div>
+
+
                                 </li>
 
-                                <li class="has-dropdown has-menu-child-item">
+                                <li
+                                    class="has-dropdown has-menu-child-item {{ Route::is('front.course') ? 'active' : '' }}">
                                     <a href="{{ route('front.course') }}">
-                                        <p style="color:{{ Route::is('front.course') ? 'purple' : '' }}"> KURSLAR </p>
+                                        <p> SEMİNERLER </p>
 
                                     </a>
 
                                 </li>
 
-                                <li class="with-megamenu has-menu-child-item position-static">
+                                <li
+                                    class="with-megamenu has-menu-child-item position-static {{ Route::is('front.teacher') ? 'active' : '' }}">
                                     <a href="{{ route('front.teacher') }}">
-                                        <p style="color:{{ Route::is('front.teacher') ? 'purple' : '' }}"> ÖĞRETMENLER
+                                        <p> ÖĞRETMENLER
                                         </p>
                                     </a>
                                     <!-- Start Mega Menu  -->
@@ -338,9 +259,10 @@
 
 
 
-                                <li class="with-megamenu has-menu-child-item position-static">
+                                <li
+                                    class="with-megamenu has-menu-child-item position-static {{ Route::is('front.contact') ? 'active' : '' }}">
                                     <a href="{{ route('front.contact') }}">
-                                        <p style="color:{{ Route::is('front.contact') ? 'purple' : '' }}"> İLETİŞİM
+                                        <p> İLETİŞİM
                                         </p>
                                     </a>
 
@@ -350,21 +272,43 @@
                             </ul>
                         </nav>
                     </div>
-                    <div class="header-right">
-                        <div class="rbt-btn-wrapper d-none d-xl-block">
-                            <a class="rbt-btn rbt-switch-btn btn-gradient btn-sm hover-transform-none" href="#">
-                                <span data-text="Join Now">ŞİMDİ KATIL</span>
-                            </a>
-                        </div>
-                        <!-- Start Mobile-Menu-Bar -->
-                        <div class="mobile-menu-bar d-block d-xl-none">
-                            <div class="hamberger">
-                                <button class="hamberger-button rbt-round-btn">
-                                    <i class="feather-menu"></i>
-                                </button>
+                    <div>
+                        <div class="header-right">
+                            <div class="rbt-btn-wrapper d-none d-xl-block">
+                                <a class="rbt-btn rbt-switch-btn btn-gradient btn-sm hover-transform-none"
+                                    href="{{ route('front.teacher.basvuru') }}">
+                                    <span>ÖĞRETMEN BAŞVURU</span>
+                                </a>
                             </div>
+                            <!-- Start Mobile-Menu-Bar -->
+                            <div class="mobile-menu-bar d-block d-xl-none">
+                                <div class="hamberger">
+                                    <button class="hamberger-button rbt-round-btn">
+                                        <i class="feather-menu"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Start Mobile-Menu-Bar -->
                         </div>
-                        <!-- Start Mobile-Menu-Bar -->
+                    </div>
+                    <div style="margin-left: 2%">
+                        <div class="header-right">
+                            <div class="rbt-btn-wrapper d-none d-xl-block">
+                                <a class="rbt-btn rbt-switch-btn btn-gradient btn-sm hover-transform-none"
+                                    href="{{ route('front.oner') }}">
+                                    <span>SEMİNER ÖNERİ</span>
+                                </a>
+                            </div>
+                            <!-- Start Mobile-Menu-Bar -->
+                            <div class="mobile-menu-bar d-block d-xl-none">
+                                <div class="hamberger">
+                                    <button class="hamberger-button rbt-round-btn">
+                                        <i class="feather-menu"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Start Mobile-Menu-Bar -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -481,8 +425,8 @@
             <div class="inner-top">
                 <div class="content">
                     <div class="logo">
-                        <a href="index.html">
-                            <img src="/assets/images/artelegans.png" style="width: 100%" alt="Education Logo Images">
+                        <a href="{{ route('front.home') }}">
+                            <img src="/assets/images/artelegans.png" style="width: 100%" alt="ArtElegans Academy">
                         </a>
                     </div>
                     <div class="rbt-btn-close">
@@ -504,7 +448,7 @@
                 <ul class="mainmenu">
 
                     <li class="">
-                        <a href="{{ route('front.course') }}">KURSLAR
+                        <a href="{{ route('front.course') }}">SEMİNERLER
 
                         </a>
 

@@ -714,6 +714,7 @@
                                 <!-- End Single Card  -->
                             </div>
                         </div>
+                        
                     </div>
     
                     <div class="col-lg-4" style="margin-top:10%">
@@ -736,53 +737,42 @@
     
                                     <div class="add-to-card-button mt--15">
                                         <a class="rbt-btn btn-gradient icon-hover w-100 d-block text-center" href="#">
-                                            <span class="btn-text">Sepete Ekle</span>
-                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                        </a>
-                                    </div>
-    
-                                    <div class="buy-now-btn mt--15">
-                                        <a class="rbt-btn btn-border icon-hover w-100 d-block text-center" href="#">
                                             <span class="btn-text">Şimdi Katıl</span>
                                             <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                                         </a>
                                     </div>
     
-                                    <span class="subtitle"><i class="feather-rotate-ccw"></i> 30-Day Money-Back
-                                        Guarantee</span>
+                                    
+                                    <span class="subtitle"><i class="feather-rotate-ccw"></i>Seminer tarih ve kontenjanlar aşağıdadır.</span>
     
     
                                     <div class="rbt-widget-details has-show-more">
                                         <ul class="has-show-more-inner-content rbt-course-details-list-wrapper">
-                                            <li><span>Start Date</span><span class="rbt-feature-value rbt-badge-5">5 Hrs 20 Min</span>
+                                            <li><span>Başlangıç Tarihi</span><span class="rbt-feature-value rbt-badge-5">{{$data->start}}</span>
                                             </li>
-                                            <li><span>Enrolled</span><span class="rbt-feature-value rbt-badge-5">100</span></li>
-                                            <li><span>Lectures</span><span class="rbt-feature-value rbt-badge-5">50</span></li>
-                                            <li><span>Skill Level</span><span class="rbt-feature-value rbt-badge-5">Basic</span></li>
-                                            <li><span>Language</span><span class="rbt-feature-value rbt-badge-5">English</span></li>
-                                            <li><span>Quizzes</span><span class="rbt-feature-value rbt-badge-5">10</span></li>
-                                            <li><span>Certificate</span><span class="rbt-feature-value rbt-badge-5">Yes</span></li>
-                                            <li><span>Pass Percentage</span><span class="rbt-feature-value rbt-badge-5">95%</span></li>
+                                            <li><span>Bitiş Tarihi</span><span class="rbt-feature-value rbt-badge-5">{{$data->finish}}</span></li>
+                                            <li><span>Minimum Katılımcı</span><span class="rbt-feature-value rbt-badge-5">{{$data->min_person}} KİŞİ</span></li>
+                                            <li><span>Maksimum Katılımcı</span><span class="rbt-feature-value rbt-badge-5">{{$data->max_person}} KİŞİ</span></li>
+                                            
                                         </ul>
-                                        <div class="rbt-show-more-btn">Show More</div>
                                     </div>
     
                                     <div class="social-share-wrapper mt--30 text-center">
                                         <div class="rbt-post-share d-flex align-items-center justify-content-center">
                                             <ul class="social-icon social-default transparent-with-border justify-content-center">
-                                                <li><a href="https://www.facebook.com/">
+                                                <li><a href="https://www.facebook.com/{{$data->ogretmen->facebook}}">
                                                         <i class="feather-facebook"></i>
                                                     </a>
                                                 </li>
-                                                <li><a href="https://www.twitter.com">
+                                                <li><a href="https://www.twitter.com/{{$data->ogretmen->twitter}}">
                                                         <i class="feather-twitter"></i>
                                                     </a>
                                                 </li>
-                                                <li><a href="https://www.instagram.com/">
+                                                <li><a href="https://www.instagram.com/{{$data->ogretmen->instagram}}">
                                                         <i class="feather-instagram"></i>
                                                     </a>
                                                 </li>
-                                                <li><a href="https://www.linkdin.com/">
+                                                <li><a href="https://www.linkdin.com/{{$data->ogretmen->linkedin}}">
                                                         <i class="feather-linkedin"></i>
                                                     </a>
                                                 </li>
@@ -790,13 +780,97 @@
                                         </div>
                                         <hr class="mt--20">
                                         <div class="contact-with-us text-center">
-                                            <p>For details about the course</p>
-                                            <p class="rbt-badge-2 mt--10 justify-content-center w-100"><i class="feather-phone mr--5"></i> Call Us: <a href="#"><strong>+444 555 666 777</strong></a></p>
+                                            <p>Seminer hakkında detaylı bilgi için</p>
+                                            <p class="rbt-badge-2 mt--10 justify-content-center w-100"><i class="feather-mail mr--5"></i> Email: <a href="mailto:info@artelegans.com "><strong>info@artelegans.com</strong></a></p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="rbt-course-area bg-color-white rbt-section-gap">
+                    <div class="container">
+                        <div class="row mb--55 g-5 align-items-end">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="section-title text-start">
+                                    <span class="subtitle bg-pink-opacity">POPÜLER</span>
+                                    <h2 class="title">Son Eklenen Kurslar </h2>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="load-more-btn text-start text-md-end">
+                                    <a class="rbt-btn rbt-switch-btn bg-primary-opacity" href="course.html">
+                                        <span data-text=" &nbsp;&nbsp; KURSLAR">Hepsini Gör</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Start Card Area -->
+                        <div class="row g-5">
+            
+                                                <!-- Start Single Course  -->
+                                <div class="col-lg-4 col-md-6 col-sm-12 col-12 sal-animate" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+                                    <div class="rbt-card variation-01 rbt-hover">
+                                        <div class="rbt-card-img">
+                                            <a href="course-details.html">
+                                                <img src="http://localhost:8000/assets/images/uploads/course_images/1763829152126563.jpg" alt="Card image">
+                                                <div class="rbt-badge-3 bg-white">
+                                                    <span>40%</span>
+                                                    <span>İndirim</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="rbt-card-body">
+                                            <div class="rbt-card-top">
+                                                <div class="rbt-review">
+                                                    <div class="rating">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                    <span class="rating-count"> (15 Yorum)</span>
+                                                </div>
+                                                <div class="rbt-bookmark-btn">
+                                                    <a class="rbt-round-btn" title="Bookmark" href="#"><i class="feather-bookmark"></i></a>
+                                                </div>
+                                            </div>
+            
+                                            <h4 class="rbt-card-title"><a href="course-details.html"> Sıfırdan İleri Seviye PHP Kursları </a></h4>
+            
+                                            <ul class="rbt-meta">
+                                                <li><i class="feather-book"></i> YAZILIM </li>
+                                                <li><i class="feather-users"></i>50 Students</li>
+                                            </ul>
+            
+                                            <p class="rbt-card-text"> Sıfırdan ileri seviye kurslarımız ile PHP dilini daha çok iyi tanıyacaksınız. </p>
+                                            <div class="rbt-author-meta mb--10">
+                                                <div class="rbt-avater">
+                                                    <a href="#">
+                                                        <img src="/assets/images/client/avatar-02.png" alt="Sophia Jaymes">
+                                                    </a>
+                                                </div>
+                                                <div class="rbt-author-info">
+                                                    <a href="http://localhost:8000/teacher/detail/1">
+                                                        yusuf ishak Damar </a>
+                                                </div>
+                                            </div>
+                                            <div class="rbt-card-bottom">
+                                                <div class="rbt-price">
+                                                    <span class="current-price"> 2000 </span>
+                                                    <span class="off-price">$120</span>
+                                                </div>
+                                                <a class="rbt-btn-link" href="http://localhost:8000/course/detail/1"> Detay <i class="feather-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Single Course  -->
+                            
+                        </div>
+                        <!-- End Card Area -->
                     </div>
                 </div>
             </div>

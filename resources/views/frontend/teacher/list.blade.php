@@ -34,12 +34,12 @@
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="rbt-team team-style-default style-three small-layout rbt-hover">
                         <div class="inner">
-                            <div class="thumbnail"><img src="{{$item->photo == null ? url('assets/images/team/team-01.jpg') : url('assets'.$item->photo)}}" alt="Corporate Template"></div>
+                            <div class="thumbnail"> <a href="{{route('front.teacher.detail',$item->id)}}"> <img src="{{$item->photo == null ? url('assets/images/team/team-01.jpg') : url('assets'.$item->photo)}}" alt="Corporate Template"></a></div>
                             <div class="content">
-                                <h4 class="title"> {{$item->name}} {{$item->surname}} </h4>
+                                <a href="{{route('front.teacher.detail',$item->id)}}">  <h4 class="title"> {{$item->name}} {{$item->surname}} </h4> </a>
                                 <h6 class="subtitle theme-gradient"> {{$item->job}} </h6>
                                 <span class="team-form">
-                                    <span class="location">{{$item->email}}</span>
+                                    <a href="mailto:{{$item->email}}">  <span class="location">{{$item->email}}</span> </a>
                                 </span>
                             </div>
                         </div>

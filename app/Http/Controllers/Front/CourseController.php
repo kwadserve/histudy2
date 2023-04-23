@@ -20,4 +20,8 @@ class CourseController extends Controller
         $icerik = CourseContent::where('course_id',$id)->get();
         return view('frontend.course.detail',compact('data','icerik'));
     }
+
+    public function oner(){
+        return view('frontend.course.oneri');
+    }
 }

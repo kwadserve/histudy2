@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'Kurslar')
+@section('title', 'Öneriler')
 
 @section('content')
 
@@ -8,7 +8,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Kurslar</h4>
+                    <h4 class="card-title">Öneriler</h4>
                 </div>
                 <div class="card-body">
 
@@ -21,11 +21,11 @@
                                     role="grid" aria-describedby="datatable_info" style="width: 1567px;">
                                     <thead>
                                         <tr role="row">
-                                            <th>Görsel</th>
-                                            <th>Başlık</th>
-                                            <th>Kategori</th>
-                                            <th>Öğretmen</th>
-                                            <th>Fiyat</th>
+                                            <th>Ad Soyad</th>
+                                            <th>Telefon</th>
+                                            <th>Email</th>
+                                            <th>Doğum Tarihi</th>
+                                            <th>Öneri</th>
                                             <th>İşlem</th>
                                         </tr>
                                     </thead>
@@ -33,13 +33,12 @@
 
                                         @foreach ($data as $item)
                                             <tr class="odd">
-                                                <td> <img style="width:100px" src="{{"/assets".$item->image}}"> </td>
-                                                <td> {{ $item->title }}  </td>
-                                                <td> {{ $item->kategori->name }} </td>
-                                                <td> {{ $item->ogretmen->name }} {{ $item->ogretmen->surname }}</td>
-                                                <td> {{ $item->price }} </td>
+                                                <td> {{ $item->kisi->name }} {{ $item->kisi->surname }} </td>
+                                                <td> {{ $item->kisi->phone }} </td>
+                                                <td> {{ $item->kisi->email }} </td>
+                                                <td> {{ $item->kisi->burn }} </td>
+                                                <td> {{ $item->title }} </td>
                                                 <td>
-                                                    <a href=""><button class="btn btn-info">Düzenle</button></a>
                                                     <a href=""><button class="btn btn-danger">Sil</button></a>
                                                 </td>
                                             </tr>

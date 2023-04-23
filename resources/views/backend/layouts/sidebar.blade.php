@@ -58,35 +58,20 @@
                 
 
                 <li>
-                    <a href="apps-calendar">
+                    <a href="{{route('panel.oneriler')}}">
                         <i data-feather="calendar"></i>
-                        <span data-key="t-calendar">@lang('translation.Calendars')</span>
+                        <span data-key="t-calendar">ÖNERİLER</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="javascript: void(0);" class="has-arrow">
+                    <a href="javascript: void(0);" >
                         <i data-feather="users"></i>
-                        <span data-key="t-contacts">@lang('translation.Contacts')</span>
+                        <span data-key="t-contacts">BAŞVURULAR</span>
                     </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="apps-contacts-grid" data-key="t-user-grid">@lang('translation.User_Grid')</a></li>
-                        <li><a href="apps-contacts-list" data-key="t-user-list">@lang('translation.User_List')</a></li>
-                        <li><a href="apps-contacts-profile" data-key="t-profile">@lang('translation.Profile')</a></li>
-                    </ul>
                 </li>
 
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow">
-                        <i data-feather="trello"></i>
-                        <span data-key="t-tasks">@lang('translation.Tasks')</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="tasks-list" key="t-task-list">@lang('translation.Task_List')</a></li>
-                        <li><a href="tasks-kanban" key="t-kanban-board">@lang('translation.Kanban_Board')</a></li>
-                        <li><a href="tasks-create" key="t-create-task">@lang('translation.Create_Task')</a></li>
-                    </ul>
-                </li>
+            <!--
 
                 <li class="menu-title" data-key="t-pages">@lang('translation.Pages')</li>
 
@@ -260,18 +245,11 @@
                     </ul>
                 </li>
 
+            -->
+
             </ul>
 
-            <div class="card sidebar-alert shadow-none text-center mx-4 mb-0 mt-5">
-                <div class="card-body">
-                    <img src="assets/images/giftbox.png" alt="">
-                    <div class="mt-4">
-                        <h5 class="alertcard-title font-size-16">Unlimited Access</h5>
-                        <p class="font-size-13">Upgrade your plan from a Free trial, to select ‘Business Plan’.</p>
-                        <a href="#!" class="btn btn-primary mt-2">Upgrade Now</a>
-                    </div>
-                </div>
-            </div>
+            
         </div>
         <!-- Sidebar -->
     </div>
