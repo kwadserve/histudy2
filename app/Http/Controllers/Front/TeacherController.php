@@ -11,6 +11,7 @@ class TeacherController extends Controller
 {
     public function teacher_list(){
         $data = Teacher::get();
+        
         return view('frontend.teacher.list',compact('data'));
     }
 

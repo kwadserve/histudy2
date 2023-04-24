@@ -9,4 +9,15 @@ class Category extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+
+    public function course_count(){
+        $data = Course::where('category_id',$this->id)->count();
+        return $data;
+    }
+
+    public function Course(){
+        $data = Course::where('category_id',$this->id)->get();
+        return $data;
+    }
 }

@@ -24,7 +24,13 @@ class FrontController extends Controller
         return view('frontend.teacher.basvuru');
     }
 
-    
+    public function login(){
+        return view('frontend.login');
+    }
+
+    public function register(){
+        return view('frontend.register');
+    }
 
     public function blog_list(){
         return view('frontend.blog.list');

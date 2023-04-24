@@ -38,9 +38,9 @@
                         </div>
                         <div class="rbt-tutor-information-right">
                             <div class="tutor-btn">
-                                <a class="rbt-btn btn-md hover-icon-reverse" href="#">
+                                <a class="rbt-btn btn-md hover-icon-reverse" href="{{route('front.teacher.course',$data->id)}}">
                                     <span class="icon-reverse-wrapper">
-                    <span class="btn-text">Kursları Gör</span>
+                                    <span class="btn-text">Seminerleri Gör</span>
                                     <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                                     <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                                     </span>
@@ -81,48 +81,15 @@
                         <div class="rbt-dashboard-content bg-color-white rbt-shadow-box">
                             <div class="content">
                                 <div class="section-title">
-                                    <h4 class="rbt-title-style-3">My Profile</h4>
+                                    <h4 class="rbt-title-style-3">Profil</h4>
                                 </div>
                                 <!-- Start Profile Row  -->
                                 <div class="rbt-profile-row row row--15">
                                     <div class="col-lg-4 col-md-4">
-                                        <div class="rbt-profile-content b2">Registration Date</div>
+                                        <div class="rbt-profile-content b2">Ad Soyad</div>
                                     </div>
                                     <div class="col-lg-8 col-md-8">
-                                        <div class="rbt-profile-content b2">February 25, 2025 6:01 am</div>
-                                    </div>
-                                </div>
-                                <!-- End Profile Row  -->
-                    
-                                <!-- Start Profile Row  -->
-                                <div class="rbt-profile-row row row--15 mt--15">
-                                    <div class="col-lg-4 col-md-4">
-                                        <div class="rbt-profile-content b2">First Name</div>
-                                    </div>
-                                    <div class="col-lg-8 col-md-8">
-                                        <div class="rbt-profile-content b2">John</div>
-                                    </div>
-                                </div>
-                                <!-- End Profile Row  -->
-                    
-                                <!-- Start Profile Row  -->
-                                <div class="rbt-profile-row row row--15 mt--15">
-                                    <div class="col-lg-4 col-md-4">
-                                        <div class="rbt-profile-content b2">Last Name</div>
-                                    </div>
-                                    <div class="col-lg-8 col-md-8">
-                                        <div class="rbt-profile-content b2">Doe</div>
-                                    </div>
-                                </div>
-                                <!-- End Profile Row  -->
-                    
-                                <!-- Start Profile Row  -->
-                                <div class="rbt-profile-row row row--15 mt--15">
-                                    <div class="col-lg-4 col-md-4">
-                                        <div class="rbt-profile-content b2">Username</div>
-                                    </div>
-                                    <div class="col-lg-8 col-md-8">
-                                        <div class="rbt-profile-content b2">instructor</div>
+                                        <div class="rbt-profile-content b2">{{$data->name}} {{$data->surname}}</div>
                                     </div>
                                 </div>
                                 <!-- End Profile Row  -->
@@ -133,7 +100,7 @@
                                         <div class="rbt-profile-content b2">Email</div>
                                     </div>
                                     <div class="col-lg-8 col-md-8">
-                                        <div class="rbt-profile-content b2">example@gmail.com</div>
+                                        <div class="rbt-profile-content b2">{{$data->email}}</div>
                                     </div>
                                 </div>
                                 <!-- End Profile Row  -->
@@ -141,10 +108,10 @@
                                 <!-- Start Profile Row  -->
                                 <div class="rbt-profile-row row row--15 mt--15">
                                     <div class="col-lg-4 col-md-4">
-                                        <div class="rbt-profile-content b2">Phone Number</div>
+                                        <div class="rbt-profile-content b2">Telefon</div>
                                     </div>
                                     <div class="col-lg-8 col-md-8">
-                                        <div class="rbt-profile-content b2">+1-202-555-0174</div>
+                                        <div class="rbt-profile-content b2">{{$data->phone}}</div>
                                     </div>
                                 </div>
                                 <!-- End Profile Row  -->
@@ -152,10 +119,10 @@
                                 <!-- Start Profile Row  -->
                                 <div class="rbt-profile-row row row--15 mt--15">
                                     <div class="col-lg-4 col-md-4">
-                                        <div class="rbt-profile-content b2">Skill/Occupation</div>
+                                        <div class="rbt-profile-content b2">Meslek</div>
                                     </div>
                                     <div class="col-lg-8 col-md-8">
-                                        <div class="rbt-profile-content b2">Application Developer</div>
+                                        <div class="rbt-profile-content b2">{{$data->job}}</div>
                                     </div>
                                 </div>
                                 <!-- End Profile Row  -->
@@ -163,13 +130,14 @@
                                 <!-- Start Profile Row  -->
                                 <div class="rbt-profile-row row row--15 mt--15">
                                     <div class="col-lg-4 col-md-4">
-                                        <div class="rbt-profile-content b2">Biography</div>
+                                        <div class="rbt-profile-content b2">Kısa Açıklama</div>
                                     </div>
                                     <div class="col-lg-8 col-md-8">
-                                        <div class="rbt-profile-content b2">I'm the Front-End Developer for #Rainbow IT in Bangladesh, OR. I have serious passion for UI effects, animations and creating intuitive, dynamic user experiences.</div>
+                                        <div class="rbt-profile-content b2">{{$data->description}}</div>
                                     </div>
                                 </div>
                                 <!-- End Profile Row  -->
+                    
                             </div>
                         </div>
                         <!-- End Instructor Profile  -->

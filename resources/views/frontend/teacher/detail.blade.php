@@ -20,7 +20,7 @@
                         <div class="rbt-tutor-information">
                             <div class="rbt-tutor-information-left">
                                 <div class="thumbnail rbt-avatars size-lg">
-                                    <img src="/assets/images/team/avatar.jpg" alt="Instructor">
+                                    <img src=" {{$data->photo == null ? url("/assets/images/team/avatar.jpg") : url("/assets".$data->photo)}} " alt="Instructor">
                                 </div>
                                 <div class="tutor-content">
                                     <h5 class="title"> {{$data->name}} {{$data->surname}} </h5>
@@ -32,21 +32,10 @@
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                         </div>
-                                        <span class="rating-count"> (15 Reviews)</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="rbt-tutor-information-right">
-                                <div class="tutor-btn">
-                                    <a class="rbt-btn btn-md hover-icon-reverse" href="#">
-                                        <span class="icon-reverse-wrapper">
-                                            <span class="btn-text">Create a New Course</span>
-                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
+                            
                         </div>
                         <!-- End Tutor Information  -->
                     </div>
@@ -62,7 +51,7 @@
                                         <div class="rbt-default-sidebar-wrapper">
                                             <nav class="mainmenu-nav">
                                                 <ul class="dashboard-mainmenu rbt-default-sidebar-list">
-                                                    <li><a href="{{ route('front.teacher.profile', $data->id) }}"><i
+                                                    <li ><a href="{{ route('front.teacher.profile', $data->id) }}"><i
                                                                 class="feather-user"></i><span>Profil</span></a></li>
                                                     <li><a href="instructor-profile.html"><i
                                                                 class="feather-message-square"></i><span>Yorumlar</span></a>

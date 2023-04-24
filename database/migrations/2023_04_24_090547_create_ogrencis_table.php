@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('ogrencis', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->string('image')->nullable();
-            $table->string('description')->nullable();
+            $table->string('surname')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('email')->nullable();
+            $table->string('password')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('ogrencis');
     }
 };

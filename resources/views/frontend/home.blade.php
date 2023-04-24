@@ -116,6 +116,8 @@
             <div class="row g-5">
 
                 @foreach ($categories as $item)
+
+                
                     <!-- Start Category Box Layout  -->
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                         <a class="rbt-cat-box rbt-cat-box-1 list-style" href="{{route('front.category.detail',$item->id)}}">
@@ -127,7 +129,7 @@
                                 <div class="content">
                                     <h5 class="title"> {{$item->name}} </h5>
                                     <div class="read-more-btn">
-                                        <span class="rbt-btn-link">3 Seminer<i class="feather-arrow-right"></i></span>
+                                        <span class="rbt-btn-link">{{$item->course_count()}}  Seminer<i class="feather-arrow-right"></i></span>
                                     </div>
                                 </div>
                             </div>
@@ -216,7 +218,6 @@
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                         </div>
-                                        <span class="rating-count"> (15 Yorum)</span>
                                     </div>
                                     <div class="rbt-bookmark-btn">
                                         <a class="rbt-round-btn" title="Bookmark" href="{{route('front.course.detail',$item->id)}}"><i
@@ -228,7 +229,6 @@
 
                                 <ul class="rbt-meta">
                                     <li><i class="feather-book"></i> {{ $item->kategori->name }} </li>
-                                    <li><i class="feather-users"></i>50 Students</li>
                                 </ul>
 
                                 <p class="rbt-card-text"> {{ $item->short_description }} </p>

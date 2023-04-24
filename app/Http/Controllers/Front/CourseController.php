@@ -16,9 +16,10 @@ class CourseController extends Controller
     }
 
     public function detail($id){
+        $son_kurslar = Course::latest()->take(3)->get();
         $data = Course::find($id);
         $icerik = CourseContent::where('course_id',$id)->get();
-        return view('frontend.course.detail',compact('data','icerik'));
+        return view('frontend.course.detail',compact('data','icerik','son_kurslar'));
     }
 
     public function oner(){

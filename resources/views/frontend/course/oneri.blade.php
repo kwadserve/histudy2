@@ -6,7 +6,20 @@
         <div class="container">
 
             <div class="row pt--60 g-5">
-                
+
+                @if ($errors->any())
+                    @foreach ($errors->all() as $e)
+                        <script>
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong!',
+                                footer: '<a href="">Why do I have this issue?</a>'
+                            });
+                        </script>
+                    @endforeach
+                @endif
+
 
                 <div class="col-lg-8">
                     <div class="rbt-contact-form contact-form-style-1 max-width-auto">
@@ -15,7 +28,7 @@
                         </div>
                         <h3 class="title">Seminer Öneri Formu</h3>
 
-                        <form action="{{route('front.oneri.add')}}" method="POST" class="row row--15">
+                        <form action="{{ route('front.oneri.add') }}" method="POST" class="row row--15">
                             @csrf
                             <div class="col-lg-4">
                                 <div class="form-group">
@@ -48,11 +61,11 @@
                                     <span class="focus-border"></span>
                                 </div>
                             </div>
-                          
+
 
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input name="dogum"  type="date">
+                                    <input name="dogum" type="date">
                                     <label>Doğum Tarihi</label>
                                     <span class="focus-border"></span>
                                 </div>
@@ -69,7 +82,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-2">
-                                    <button class="btn btn-success add_item_buton" id="add_item_buton" style="width:100px" type="button">
+                                    <button class="btn btn-success add_item_buton" id="add_item_buton" style="width:100px"
+                                        type="button">
                                         <p style="width: 100%">+1 EKLE</p>
                                     </button>
                                 </div>
@@ -104,25 +118,26 @@
 @endsection
 
 @section('script-bottom')
-@include('sweetalert::alert')
+    @include('sweetalert::alert')
+    <script src="sweetalert2.min.js"></script>
 
     <script>
         $(document).ready(function() {
             $(".add_item_buton").click(function(e) {
                 e.preventDefault();
                 $("#show_item").prepend('<div id="show_item" class="row">\
-                                <div class="col-md-10">\
-                                        <div class="form-group">\
-                                            <input name="seminer[]" type="text">\
-                                            <label>Verilecek Seminer</label>\
-                                            <span class="focus-border"></span>\
+                                    <div class="col-md-10">\
+                                            <div class="form-group">\
+                                                <input name="seminer[]" type="text">\
+                                                <label>Verilecek Seminer</label>\
+                                                <span class="focus-border"></span>\
+                                            </div>\
+                                        </div>\
+                                        <div class="col-md-2">\
+                                            <button class="btn btn-danger delete_item_buton" style="width:100px"  type="button"><p style="width: 100%"> -1 SİL </p></button>\
                                         </div>\
                                     </div>\
-                                    <div class="col-md-2">\
-                                        <button class="btn btn-danger delete_item_buton" style="width:100px"  type="button"><p style="width: 100%"> -1 SİL </p></button>\
-                                    </div>\
-                                </div>\
-                                    <br>');
+                                        <br>');
             });
 
             $(document).on('click', '.delete_item_buton', function(e) {
@@ -135,5 +150,3 @@
     </script>
 
 @endsection
-
-

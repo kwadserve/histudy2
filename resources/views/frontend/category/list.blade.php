@@ -32,11 +32,11 @@
                         <div class="rbt-cat-box rbt-cat-box-1 variation-3 text-center">
                             <div class="inner">
                                 <div class="thumbnail">
-                                    <a href="course-filter-one-toggle.html">
+                                    <a href="{{route('front.category.detail',$item->id)}}">
                                         <img src="{{ $item->image == null ? url('assets/images/category/image/web-design.jpg') : url('assets' . $item->image) }} "
                                             alt="Category Images">
                                         <div class="read-more-btn">
-                                            <span class="rbt-btn btn-sm btn-white radius-round">20 Courses</span>
+                                            <span class="rbt-btn btn-sm btn-white radius-round">{{$item->course_count()}} Seminer</span>
                                         </div>
                                     </a>
                                 </div>

@@ -183,7 +183,7 @@
                         <div class="rbt-card variation-01 rbt-hover">
                             <div class="rbt-card-img">
                                 <a href="{{route('front.course.detail',$item->id)}}">
-                                    <img src="{{($item->image ==  null) ? url("assets/images/course/course-online-01.jpg") : url("assets".$item->image)}}" alt="Card image">
+                                    <img src="{{($item->image ==  null) ? url("/assets/images/course/course-online-01.jpg") : url("/assets".$item->image)}}" alt="Card image">
                                     <div class="rbt-badge-3 bg-white">
                                         <span>-40%</span>
                                         <span>İndirim</span>
@@ -200,12 +200,8 @@
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                         </div>
-                                        <span class="rating-count"> (15 Yorum)</span>
                                     </div>
-                                    <div class="rbt-bookmark-btn">
-                                        <a class="rbt-round-btn" title="Bookmark" href="#"><i
-                                                class="feather-bookmark"></i></a>
-                                    </div>
+                                    
                                 </div>
 
                                 <h4 class="rbt-card-title"><a href="{{route('front.course.detail',$item->id)}}"> {{$item->title}} </a>
@@ -240,8 +236,6 @@
                     <!-- End Single Card  -->
 
                     @endforeach
-                  
-
                
                 </div>
                 <div class="row">

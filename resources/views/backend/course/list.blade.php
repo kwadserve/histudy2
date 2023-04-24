@@ -33,8 +33,13 @@
 
                                         @foreach ($data as $item)
                                             <tr class="odd">
-                                                <td> <img style="width:100px" src="{{"/assets".$item->image}}"> </td>
-                                                <td> {{ $item->title }}  </td>
+
+                                                <td>
+                                                    <img style="width:100px" src="{{ $item->image == null ? url('/assets/images/course/course-online-01.jpg') : url('/assets' . $item->image) }}"
+                                                        alt="Card image">
+
+                                                </td>
+                                                <td> {{ $item->title }} </td>
                                                 <td> {{ $item->kategori->name }} </td>
                                                 <td> {{ $item->ogretmen->name }} {{ $item->ogretmen->surname }}</td>
                                                 <td> {{ $item->price }} </td>

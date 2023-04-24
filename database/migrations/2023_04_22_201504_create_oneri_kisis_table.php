@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('oneri_kisis', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('surname');
+            $table->string('name')->nullable();
+            $table->string('surname')->nullable();
             $table->string('email');
             $table->string('phone');
-            $table->date('burn');
+            $table->date('burn')->nullable();
             $table->timestamps();
         });
     }

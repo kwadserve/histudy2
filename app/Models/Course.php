@@ -18,4 +18,9 @@ class Course extends Model
         return $this->hasOne(Teacher::class,'id','teacher_id');
     }
 
+    public function OgretmeninKurslari(){
+        $data = Course::where('teacher_id',$this->id)->latest()->take(2)->get();
+        return $data;
+    }
+    
 }

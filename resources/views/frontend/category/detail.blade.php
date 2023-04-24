@@ -27,7 +27,7 @@
 
                             <div class=" title-wrapper">
                                 <h1 class="title mb--0">Tüm Seminerler</h1>
-                                <a href="#" class="rbt-badge-2">
+                                <a href="{{route('front.course')}}" class="rbt-badge-2">
                                     <div class="image">🎉</div> 12 Seminer
                                 </a>
                             </div>
@@ -183,9 +183,9 @@
                         <div class="rbt-card variation-01 rbt-hover">
                             <div class="rbt-card-img">
                                 <a href="{{route('front.course.detail',$item->id)}}">
-                                    <img src="{{($item->image ==  null) ? url("assets/images/course/course-online-01.jpg") : url("assets".$item->image)}}" alt="Card image">
+                                    <img src="{{($item->image ==  null) ? url("assets/images/course/course-online-01.jpg") : url("assets".$item->image)}}" alt="{{$item->name}}">
                                     <div class="rbt-badge-3 bg-white">
-                                        <span>-40%</span>
+                                        <span>40%</span>
                                         <span>İndirim</span>
                                     </div>
                                 </a>
@@ -200,12 +200,8 @@
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                         </div>
-                                        <span class="rating-count"> (15 Yorum)</span>
                                     </div>
-                                    <div class="rbt-bookmark-btn">
-                                        <a class="rbt-round-btn" title="Bookmark" href="#"><i
-                                                class="feather-bookmark"></i></a>
-                                    </div>
+                                    
                                 </div>
 
                                 <h4 class="rbt-card-title"><a href="{{route('front.course.detail',$item->id)}}"> {{$item->title}} </a>
@@ -213,7 +209,6 @@
 
                                 <ul class="rbt-meta">
                                     <li><i class="feather-book"></i> {{$item->kategori->name}} </li>
-                                    <li><i class="feather-users"></i>50 Students</li>
                                 </ul>
 
                                 <p class="rbt-card-text"> {{$item->short_description}} </p>
@@ -224,7 +219,7 @@
                                         </a>
                                     </div>
                                     <div class="rbt-author-info">
-                                        <a href="profile.html"> {{$item->ogretmen->name}} {{$item->ogretmen->surname}} </a>
+                                        <a href="{{route("front.teacher.profile",$item->ogretmen->id)}}"> {{$item->ogretmen->name}} {{$item->ogretmen->surname}} </a>
                                     </div>
                                 </div>
                                 <div class="rbt-card-bottom">
@@ -244,19 +239,7 @@
 
                
                 </div>
-                <div class="row">
-                    <div class="col-lg-12 mt--60">
-                        <nav>
-                            <ul class="rbt-pagination">
-                                <li><a href="#" aria-label="Previous"><i class="feather-chevron-left"></i></a></li>
-                                <li><a href="#">1</a></li>
-                                <li class="active"><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#" aria-label="Next"><i class="feather-chevron-right"></i></a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>

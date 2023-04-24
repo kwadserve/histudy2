@@ -8,6 +8,7 @@
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="sweetalert2.min.css">
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="/assets/images/artelegans.png">
@@ -29,6 +30,7 @@
     <link rel="stylesheet" href="/assets/css/plugins/jquery-ui.css">
     <link rel="stylesheet" href="/assets/css/plugins/magnigy-popup.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -133,7 +135,7 @@
         </div>
         <!-- End Header Top -->
 
-        <div class="rbt-header-wrapper  header-not-transparent header-sticky">
+        <div class=" {{!Route::is('front.course.detail') ? 'rbt-header-wrapper' : ''}}  header-not-transparent header-sticky">
             <div class="container">
                 <div class="mainbar-row rbt-navigation-end align-items-center">
                     <div class="header-left rbt-header-content" style="height:85px;">
@@ -172,62 +174,52 @@
             
                                             <div class="category-dropdown-menu d-none d-xl-block">
                                                 <div class="category-menu-item">
-
-
-
                                                     <div class="rbt-vertical-nav">
                                                         <ul class="rbt-vertical-nav-list-wrapper vertical-nav-menu">
 
-                                                        @foreach ($cat as $item)
-
+                                                            @foreach ($cat as $item)
+                                                                
                                                             <li class="vertical-nav-item">
-                                                                <a href="#tab{{$item->id}}"> {{$item->name}} </a>
+                                                                <a href="#tab{{$item->id}}">{{$item->name}}</a>
                                                             </li>
 
-                                                        @endforeach
+                                                            @endforeach
+
                                                             
                                                         </ul>
                                                     </div>
-
-                                                    @foreach ($cat as $item)
-
-                                                    <?php 
-                                                     $prod = App\Models\Course::where('category_id',$item->id)->get();
-                                                    ?>
-
-
                                                     <div class="rbt-vertical-nav-content">
+                                                       
+            
+                                                        @foreach ($cat as $item)
+                                                        
 
                                                         <!-- Start One Item  -->
-                                                            
-                                                        <div class="rbt-vertical-inner tab-content" id="tab{{$item->id}}" style="display: block;">
+                                                        <div class="rbt-vertical-inner tab-content" id="tab{{$item->id}}" style="display: none;">
                                                             <div class="rbt-vertical-single">
                                                                 <div class="row">
-                                                                    <div class="col-lg-12 col-sm-12 col-12">
+                                                                    <div class="col-lg-12">
                                                                         <div class="vartical-nav-content-menu">
-                                                                            <h3 class="rbt-short-title">Seminerler</h3>
+                                                                            <h3 class="rbt-short-title">Kurslar</h3>
                                                                             <ul class="rbt-vertical-nav-list-wrapper">
-                                                                                @foreach ($prod as $pro)
 
-                                                                                <li><a href="#">{{$pro->title}}</a></li>
+                                                                                @foreach ($item->Course() as $kur)
+
+                                                                                <li><a href="{{route('front.course.detail',$kur->id)}}"> {{$kur->title}} </a></li>
                                                                                 
                                                                                 @endforeach
 
                                                                             </ul>
                                                                         </div>
                                                                     </div>
-                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <!-- End One Item  -->
 
-
-            
+                                                        @endforeach
             
                                                     </div>
-                                                    @endforeach
-
                                                 </div>
                                             </div>
 

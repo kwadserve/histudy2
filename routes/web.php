@@ -4,6 +4,7 @@ use App\Http\Controllers\Front\CategoryController as FrontCategoryController;
 use App\Http\Controllers\Front\CourseController as FrontCourseController;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Front\OneriController;
+use App\Http\Controllers\Front\StudentController;
 use App\Http\Controllers\Front\TeacherBasvuru;
 use App\Http\Controllers\Front\TeacherController as FrontTeacherController;
 use App\Http\Controllers\Panel\CategoryController;
@@ -81,4 +82,9 @@ Route::prefix('/')->group(function(){
     Route::post('oneri/ekle',[OneriController::class,'add'])->name('front.oneri.add');
 
     Route::post('ogretmen/basvuru',[TeacherBasvuru::class,'add'])->name('front.teacher.add');
+
+    Route::get('login',[FrontController::class,'login'])->name("front.login");
+    Route::get('register',[FrontController::class,'register'])->name("front.register");
+
+    Route::post('kayit-ol',[StudentController::class,'store'])->name('front.register.store');
 });

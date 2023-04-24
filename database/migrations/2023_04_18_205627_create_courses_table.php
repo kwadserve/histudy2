@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('short_description');
-            $table->longText('long_description');
+            $table->string('title')->nullable();
+            $table->string('short_description')->nullable();
+            $table->longText('long_description')->nullable();
             $table->string('image')->nullable();
-            $table->integer('category_id');
-            $table->float('price',8,2);
+            $table->integer('category_id')->nullable();
+            $table->float('price',8,2)->nullable();
             $table->integer('teacher_id');
-            $table->timestamp('start')->nullable();
-            $table->timestamp('finish')->nullable();
+            $table->timestamp('start')->nullable()->nullable();
+            $table->timestamp('finish')->nullable()->nullable();
             $table->integer('min_person')->default(1);
             $table->integer('max_person')->default(1);
             $table->integer('count_person')->default(0);
