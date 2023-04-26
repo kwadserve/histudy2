@@ -38,7 +38,6 @@
                             <div class="content">
                                 <a href="{{route('front.teacher.detail',$item->id)}}">  <h4 class="title"> {{$item->name}} {{$item->surname}} </h4> </a>
 
-                                    
                                 @foreach($item->Kategoriler() as $key => $cat)
                                     <p class="subtitle theme-gradient"> {{ $cat->name }} {{ $key != count($item->Kategoriler()) - 1 ? ',' : ''}}</p>
                                 @endforeach

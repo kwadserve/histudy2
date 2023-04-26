@@ -19,5 +19,8 @@ class Category extends Model
     public function Course(){
         $data = Course::where('category_id',$this->id)->get();
         return $data;
+
     }
+
+
 }

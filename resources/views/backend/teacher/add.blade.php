@@ -2,6 +2,14 @@
 @section('title', 'Öğretmen Ekle')
 @section('content')
 
+
+    @if($errors->any())
+        @foreach ($errors->all() as $e)
+        <p style="color:red"> {{$e}}</p>    
+        
+        @endforeach
+    @endif
+
     <form action="{{route('panel.teacher.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
@@ -13,47 +21,39 @@
                     <div class="card-body p-4">
 
                         <div class="row">
-                            <div class="col-md-3">
-                                <label for="">İSİM</label>
+                            <div class="col-md-2">
+                                <label for="">İSİM <span title="ZORUNLU" style="color:red"> *</span></label>
                                 <input type="text" placeholder="Başlık..." name="name" class="form-control"
                                     id="">
                             </div>
-                            <div class="col-md-3">
-                                <label for="">SOY İSİM</label>
+                            <div class="col-md-2">
+                                <label for="">SOY İSİM<span title="ZORUNLU" style="color:red"> *</span></label>
                                 <input type="text" placeholder="Başlık..." name="surname" class="form-control"
                                     id="">
                             </div>
-                            <div class="col-md-3">
-                                <label for="">EMAİL</label>
+                            <div class="col-md-2">
+                                <label for="">EMAİL<span title="ZORUNLU" style="color:red"> *</span></label>
                                 <input type="text" placeholder="Başlık..." name="email" class="form-control"
                                     id="">
                             </div>
-                            <div class="col-md-3">
-                                <label for="">TELEFON</label>
+                            <div class="col-md-2">
+                                <label for="">TELEFON<span title="ZORUNLU" style="color:red"> *</span></label>
                                 <input type="text" placeholder="Başlık..." name="phone" class="form-control"
                                     id="">
                             </div>
-                        </div>
-                        <br><br>
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                <label for="">MESLEK</label>
+                            <div class="col-md-2">
+                                <label for="">MESLEK<span title="ZORUNLU" style="color:red"> *</span></label>
                                 <input type="text" placeholder="Başlık..." name="job" class="form-control"
                                     id="">
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <label for="">FOTOĞRAF</label>
                                 <input type="file" class="form-control" name="image" id="">
                             </div>
-
-                            <div class="col-md-6">
-                                <label for="">AÇIKLAMA</label>
-                                <textarea name="description" id="" placeholder="Açıklama..." class="form-control" cols="30"
-                                    rows="1"></textarea>
-                            </div>
                         </div>
                         <br><br>
+
+                        
                         <div class="row">
                             <div class="col-md-3">
                                 <label for="">İnstagram</label>
@@ -77,6 +77,18 @@
                                     id="">
                             </div>
                         </div>
+                        <br><br>
+
+                        <div class="row">
+                            
+
+                            <div class="col-md-12">
+                                <label for="">BİYOGRAFİ<span title="ZORUNLU" style="color:red"> *</span></label>
+                                <textarea name="description" id="description" placeholder="Açıklama..." class="ckeditor form-control" cols="30"
+                                    rows="1"></textarea>
+                            </div>
+                        </div>
+                        <br><br>
                     </div>
                 </div>
             </div> <!-- end col -->
@@ -86,4 +98,7 @@
         </div>
     </form>
 
+@endsection
+@section('script-bottom')
+    <script src="/ckeditor/ckeditor.js"></script>
 @endsection

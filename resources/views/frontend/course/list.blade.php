@@ -27,9 +27,6 @@
 
                             <div class=" title-wrapper">
                                 <h1 class="title mb--0">Tüm Seminerler</h1>
-                                <a href="#" class="rbt-badge-2">
-                                    <div class="image">🎉</div> 12 Seminer
-                                </a>
                             </div>
 
                             <p class="description">Kendinizi geliştirmek için doğru adrestesiniz. </p>
@@ -61,8 +58,8 @@
                             <div
                                 class="rbt-sorting-list d-flex flex-wrap align-items-center justify-content-start justify-content-lg-end">
                                 <div class="rbt-short-item">
-                                    <form action="#" class="rbt-search-style me-0">
-                                        <input type="text" placeholder="Seminer ara..">
+                                    <form action="{{route('front.search')}}" method="get" class="rbt-search-style me-0">
+                                        <input type="text" name="search" placeholder="Seminer ara..">
                                         <button type="submit" class="rbt-search-btn rbt-round-btn">
                                             <i class="feather-search"></i>
                                         </button>
@@ -209,18 +206,17 @@
 
                                 <ul class="rbt-meta">
                                     <li><i class="feather-book"></i> {{$item->kategori->name}} </li>
-                                    <li><i class="feather-users"></i>50 Students</li>
                                 </ul>
 
                                 <p class="rbt-card-text"> {{$item->short_description}} </p>
                                 <div class="rbt-author-meta mb--10">
                                     <div class="rbt-avater">
-                                        <a href="#">
+                                        <a href="{{route('front.teacher.detail',$item->ogretmen->id)}}">
                                             <img src="{{"/assets".$item->ogretmen->photo}}" alt="Sophia Jaymes">
                                         </a>
                                     </div>
                                     <div class="rbt-author-info">
-                                        <a href="profile.html"> {{$item->ogretmen->name}} {{$item->ogretmen->surname}} </a>
+                                        <a href="{{route('front.teacher.detail',$item->ogretmen->id)}}"> {{$item->ogretmen->name}} {{$item->ogretmen->surname}} </a>
                                     </div>
                                 </div>
                                 <div class="rbt-card-bottom">
@@ -238,19 +234,7 @@
                     @endforeach
                
                 </div>
-                <div class="row">
-                    <div class="col-lg-12 mt--60">
-                        <nav>
-                            <ul class="rbt-pagination">
-                                <li><a href="#" aria-label="Previous"><i class="feather-chevron-left"></i></a></li>
-                                <li><a href="#">1</a></li>
-                                <li class="active"><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#" aria-label="Next"><i class="feather-chevron-right"></i></a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>

@@ -1,5 +1,8 @@
 @extends('frontend.body.master')
-
+@section('css')
+    
+@include('sweetalert::alert')    
+@endsection
 @section('content')
     <a class="close_side_menu" href="javascript:void(0);"></a>
 
@@ -44,15 +47,14 @@
                                                     <img src="{{ $item->image == null ? url('assets/images/course/course-online-01.jpg') : url('assets' . $item->image) }}"
                                                         alt="Card image">
                                                     <div class="rbt-badge-3 bg-white">
-                                                        <span>-40%</span>
+                                                        <span>40%</span>
                                                         <span>İndirim</span>
                                                     </div>
                                                 </a>
                                             </div>
                                             <div class="rbt-card-body">
                                                 <ul class="rbt-meta">
-                                                    <li><i class="feather-book"></i>12 Lessons</li>
-                                                    <li><i class="feather-users"></i>50 Students</li>
+                                                    <li><i class="feather-book"></i>{{$item->kategori->name}}</li>
                                                 </ul>
                                                 <h4 class="rbt-card-title"><a href="{{route('front.course.detail',$item->id)}}">
                                                         {{ $item->title }} </a>
@@ -66,12 +68,11 @@
                                                         <i class="fas fa-star"></i>
                                                         <i class="fas fa-star"></i>
                                                     </div>
-                                                    <span class="rating-count"> (15 Reviews)</span>
                                                 </div>
                                                 <div class="rbt-card-bottom">
                                                     <div class="rbt-price">
                                                         <span class="current-price">{{$item->price}} TL</span>
-                                                        <span class="off-price">$120</span>
+                                                        <span class="off-price">8000 TL</span>
                                                     </div>
                                                     <a class="rbt-btn-link"
                                                         href="{{ route('front.course.detail', $item->id) }}"> Detay Gör <i
@@ -220,10 +221,9 @@
                                         </div>
                                     </div>
                                     <div class="rbt-bookmark-btn">
-                                        <a class="rbt-round-btn" title="Bookmark" href="{{route('front.course.detail',$item->id)}}"><i
-                                                class="feather-bookmark"></i></a>
                                     </div>
                                 </div>
+                                <br>
 
                                 <h4 class="rbt-card-title"><a href="{{route('front.course.detail',$item->id)}}"> {{ $item->title }} </a></h4>
 
@@ -308,32 +308,48 @@
                                         <h4 class="title">{{$son->name}} {{$son->surname}}</h4>
                                         <span class="designation theme-gradient"> {{$son->job}} </span>
                                         <span class="team-form">
-                                            <i class="feather-map-pin"></i>
-                                            <span class="location">CO Miego, AD,USA</span>
+                                            <span class="location"> {{$son->description}} </span>
                                         </span>
                                     </div>
                                     <p> {{$son->short_description}} </p>
                                     <ul class="social-icon social-default mt--20 justify-content-start">
-                                        <li><a href="https://www.facebook.com/">
+
+                                        @if($son->facebook != null)
+                                        <li><a href="https://www.facebook.com/{{$son->facebook}}">
                                                 <i class="feather-facebook"></i>
                                             </a>
                                         </li>
-                                        <li><a href="https://www.twitter.com">
+                                        @endif
+
+                                        @if($son->twitter != null)
+                                        <li><a href="https://www.twitter.com/{{$son->twitter}}">
                                                 <i class="feather-twitter"></i>
                                             </a>
                                         </li>
-                                        <li><a href="https://www.instagram.com/">
+                                        @endif
+
+                                        @if($son->instagram != null)
+                                        <li><a href="https://www.instagram.com/{{$son->instagram}}">
                                                 <i class="feather-instagram"></i>
                                             </a>
                                         </li>
+                                        @endif
+
+                                        @if($son->linkedin != null)
+                                        <li><a href="https://www.linkedin.com/{{$son->linkedin}}">
+                                                <i class="feather-linkedin"></i>
+                                            </a>
+                                        </li>
+                                        @endif
+
                                     </ul>
                                     <ul class="rbt-information-list mt--25">
                                         <li>
-                                            <a href="#"><i class="feather-phone"></i>+1-202-555-0174</a>
+                                            <a href="tel:+90{{$son->phone}}"><i class="feather-phone"></i> {{$son->phone}} </a>
                                         </li>
                                         <li>
-                                            <a href="mailto:hello@example.com"><i
-                                                    class="feather-mail"></i>example@gmail.com</a>
+                                            <a href="mailto:{{$son->email}}"><i
+                                                    class="feather-mail"></i>{{$son->email}}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -356,32 +372,48 @@
                                         <h4 class="title">{{$item->name}} {{$item->surname}}</h4>
                                         <span class="designation theme-gradient"> {{$item->job}} </span>
                                         <span class="team-form">
-                                            <i class="feather-map-pin"></i>
-                                            <span class="location">CO Miego, AD,USA</span>
+                                            <span class="location"> {{$item->description}} </span>
                                         </span>
                                     </div>
                                     <p> {{$item->short_description}} </p>
                                     <ul class="social-icon social-default mt--20 justify-content-start">
-                                        <li><a href="https://www.facebook.com/">
+
+                                        @if($item->facebook != null)
+                                        <li><a href="https://www.facebook.com/{{$item->facebook}}">
                                                 <i class="feather-facebook"></i>
                                             </a>
                                         </li>
-                                        <li><a href="https://www.twitter.com">
+                                        @endif
+
+                                        @if($item->twitter != null)
+                                        <li><a href="https://www.twitter.com/{{$item->twitter}}">
                                                 <i class="feather-twitter"></i>
                                             </a>
                                         </li>
-                                        <li><a href="https://www.instagram.com/">
+                                        @endif
+
+                                        @if($item->instagram != null)
+                                        <li><a href="https://www.instagram.com/{{$item->instagram}}">
                                                 <i class="feather-instagram"></i>
                                             </a>
                                         </li>
+                                        @endif
+
+                                        @if($item->linkedin != null)
+                                        <li><a href="https://www.linkedin.com/{{$item->linkedin}}">
+                                                <i class="feather-linkedin"></i>
+                                            </a>
+                                        </li>
+                                        @endif
+
                                     </ul>
                                     <ul class="rbt-information-list mt--25">
                                         <li>
-                                            <a href="#"><i class="feather-phone"></i>+1-202-555-0174</a>
+                                            <a href="tel:{{$item->phone}}"><i class="feather-phone"></i> {{$item->phone}} </a>
                                         </li>
                                         <li>
-                                            <a href="mailto:hello@example.com"><i
-                                                    class="feather-mail"></i>example@gmail.com</a>
+                                            <a href="mailto:{{$item->email}}"><i
+                                                    class="feather-mail"></i>{{$item->email}}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -628,3 +660,4 @@
     <!-- End Blog Style -->
     <br><br>
 @endsection
+

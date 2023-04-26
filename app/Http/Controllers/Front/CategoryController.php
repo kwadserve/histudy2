@@ -15,7 +15,8 @@ class CategoryController extends Controller
     }
 
     public function detail($id){
+        $cat = Category::find($id);
         $data = Course::where('category_id',$id)->get();
-        return view('frontend.category.detail',compact('data'));
+        return view('frontend.category.detail',compact('data','cat'));
     }
 }

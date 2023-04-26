@@ -12,11 +12,11 @@
                 <div class="col-lg-8">
                     <div class="content text-start">
                         <ul class="page-list">
-                            <li class="rbt-breadcrumb-item"><a href="{{route('front.home')}}">Anasayfa</a></li>
+                            <li class="rbt-breadcrumb-item"><a href="{{ route('front.home') }}">Anasayfa</a></li>
                             <li>
                                 <div class="icon-right"><i class="feather-chevron-right"></i></div>
                             </li>
-                            <li class="rbt-breadcrumb-item active">{{$data->kategori->name}}</li>
+                            <li class="rbt-breadcrumb-item active">{{ $data->kategori->name }}</li>
                         </ul>
                         <h2 class="title"> {{ $data->title }} </h2>
                         <p class="description"> {{ $data->short_description }} </p>
@@ -32,7 +32,7 @@
                             <div class="rbt-author-info">
                                 <a href="profile.html"> {{ $data->ogretmen->name }} {{ $data->ogretmen->surname }} </a>
                             </div>
-                            
+
                         </div>
 
                         <ul class="rbt-meta">
@@ -108,7 +108,8 @@
 
                                         @foreach ($icerik as $item)
                                             <div class="accordion-item card">
-                                                <h2 class="accordion-header card-header" id="headingTwo{{ $item->id }}">
+                                                <h2 class="accordion-header card-header"
+                                                    id="headingTwo{{ $item->id }}">
                                                     <button class="accordion-button" type="button"
                                                         data-bs-toggle="collapse"
                                                         data-bs-target="#collapseTwo{{ $item->id }}"
@@ -174,24 +175,24 @@
                                             <p class="description"> {{ $data->ogretmen->description }} </p>
 
                                             <ul
-                                            class="social-icon social-default transparent-with-border justify-content-center">
-                                            <li><a href="https://www.facebook.com/{{ $data->ogretmen->facebook }}">
-                                                    <i class="feather-facebook"></i>
-                                                </a>
-                                            </li>
-                                            <li><a href="https://www.twitter.com/{{ $data->ogretmen->twitter }}">
-                                                    <i class="feather-twitter"></i>
-                                                </a>
-                                            </li>
-                                            <li><a href="https://www.instagram.com/{{ $data->ogretmen->instagram }}">
-                                                    <i class="feather-instagram"></i>
-                                                </a>
-                                            </li>
-                                            <li><a href="https://www.linkdin.com/{{ $data->ogretmen->linkedin }}">
-                                                    <i class="feather-linkedin"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
+                                                class="social-icon social-default transparent-with-border justify-content-center">
+                                                <li><a href="https://www.facebook.com/{{ $data->ogretmen->facebook }}">
+                                                        <i class="feather-facebook"></i>
+                                                    </a>
+                                                </li>
+                                                <li><a href="https://www.twitter.com/{{ $data->ogretmen->twitter }}">
+                                                        <i class="feather-twitter"></i>
+                                                    </a>
+                                                </li>
+                                                <li><a href="https://www.instagram.com/{{ $data->ogretmen->instagram }}">
+                                                        <i class="feather-instagram"></i>
+                                                    </a>
+                                                </li>
+                                                <li><a href="https://www.linkdin.com/{{ $data->ogretmen->linkedin }}">
+                                                        <i class="feather-linkedin"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
 
                                         </div>
 
@@ -474,21 +475,25 @@
                                             <div class="rbt-author-meta mb--10">
                                                 <div class="rbt-avater">
                                                     <a href="#">
-                                                        <img src="{{ $kurs->ogretmen->photo != null ? url("/assets/images/client/avatar-02.png") : url("/assets".$item->ogretmen->photo)}}" alt="{{$kurs->ogretmen->name}}">
+                                                        <img src="{{ $kurs->ogretmen->photo != null ? url('/assets/images/client/avatar-02.png') : url('/assets' . $item->ogretmen->photo) }}"
+                                                            alt="{{ $kurs->ogretmen->name }}">
 
                                                     </a>
                                                 </div>
                                                 <div class="rbt-author-info">
-                                                    <a href="profile.html"> {{$kurs->ogretmen->name}} {{$kurs->ogretmen->surname}} </a>
+                                                    <a href="profile.html"> {{ $kurs->ogretmen->name }}
+                                                        {{ $kurs->ogretmen->surname }} </a>
 
                                                 </div>
                                             </div>
                                             <div class="rbt-card-bottom">
                                                 <div class="rbt-price">
-                                                    <span class="current-price"> {{$kurs->price}} </span>
+                                                    <span class="current-price"> {{ $kurs->price }} </span>
                                                     <span class="off-price"> 3000 </span>
                                                 </div>
-                                                <a class="rbt-btn-link" href="{{route('front.course.detail',$kurs->id)}}">Detay<i class="feather-arrow-right"></i></a>
+                                                <a class="rbt-btn-link"
+                                                    href="{{ route('front.course.detail', $kurs->id) }}">Detay<i
+                                                        class="feather-arrow-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -521,13 +526,16 @@
                                     </div>
                                 </div>
 
-                                <div class="add-to-card-button mt--15">
-                                    <a class="rbt-btn btn-gradient icon-hover w-100 d-block text-center" href="#">
-                                        <span class="btn-text">Şimdi Katıl</span>
-                                        <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                    </a>
-                                </div>
+                                    <div class="add-to-card-button mt--15">
+                                        <a class="rbt-btn btn-gradient icon-hover w-100 d-block text-center"
+                                            href="{{ route('ogrenci.kurs', $data->id) }}">
+                                            <span class="btn-text">Şimdi Katıl</span>
+                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                        </a>
+                                    </div>
 
+
+                                
 
                                 <span class="subtitle"><i class="feather-rotate-ccw"></i>Seminer tarih ve kontenjanlar
                                     aşağıdadır.</span>
@@ -543,7 +551,8 @@
                                         <li><span>MİN :</span><span
                                                 class="rbt-feature-value rbt-badge-5">{{ $data->min_person }} KİŞİ</span>
                                             <span>MAKS :</span><span
-                                                class="rbt-feature-value rbt-badge-5">{{ $data->max_person }} KİŞİ</li>
+                                                class="rbt-feature-value rbt-badge-5">{{ $data->max_person }} KİŞİ
+                                        </li>
                                         <li><span>Toplam Gün</span><span
                                                 class="rbt-feature-value rbt-badge-5">{{ $data->toplam_gun }} GÜN</span>
                                         </li>
@@ -579,7 +588,7 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="load-more-btn text-start text-md-end">
-                                <a class="rbt-btn rbt-switch-btn bg-primary-opacity" href="{{route('front.course')}}">
+                                <a class="rbt-btn rbt-switch-btn bg-primary-opacity" href="{{ route('front.course') }}">
                                     <span data-text=" &nbsp;&nbsp; KURSLAR">Hepsini Gör</span>
                                 </a>
                             </div>
@@ -589,68 +598,72 @@
                     <div class="row g-5">
 
                         @foreach ($son_kurslar as $item)
-                            
-                        <!-- Start Single Course  -->
-                        <div class="col-lg-4 col-md-6 col-sm-12 col-12 sal-animate" data-sal-delay="150"
-                            data-sal="slide-up" data-sal-duration="800">
-                            <div class="rbt-card variation-01 rbt-hover">
-                                <div class="rbt-card-img">
-                                    <a href="{{route('front.course.detail',$item->id)}}">
+                            <!-- Start Single Course  -->
+                            <div class="col-lg-4 col-md-6 col-sm-12 col-12 sal-animate" data-sal-delay="150"
+                                data-sal="slide-up" data-sal-duration="800">
+                                <div class="rbt-card variation-01 rbt-hover">
+                                    <div class="rbt-card-img">
+                                        <a href="{{ route('front.course.detail', $item->id) }}">
 
-                                        <img src="{{($item->image ==  null) ? url("/assets/images/course/course-online-01.jpg") : url("/assets".$item->image)}}" alt="Card image">
+                                            <img src="{{ $item->image == null ? url('/assets/images/course/course-online-01.jpg') : url('/assets' . $item->image) }}"
+                                                alt="Card image">
 
-                                        <div class="rbt-badge-3 bg-white">
-                                            <span>40%</span>
-                                            <span>İndirim</span>
+                                            <div class="rbt-badge-3 bg-white">
+                                                <span>40%</span>
+                                                <span>İndirim</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="rbt-card-body">
+                                        <div class="rbt-card-top">
+                                            <div class="rbt-review">
+                                                <div class="rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                            </div>
+
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="rbt-card-body">
-                                    <div class="rbt-card-top">
-                                        <div class="rbt-review">
-                                            <div class="rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
+
+                                        <h4 class="rbt-card-title"><a
+                                                href="{{ route('front.course.detail', $item->id) }}"> {{ $item->title }}
+                                            </a>
+                                        </h4>
+
+                                        <ul class="rbt-meta">
+                                            <li><i class="feather-book"></i> {{ $item->kategori->name }} </li>
+                                        </ul>
+
+                                        <p class="rbt-card-text"> {{ $item->short_description }} </p>
+
+                                        <div class="rbt-author-meta mb--10">
+                                            <div class="rbt-avater">
+                                                <a href="#">
+                                                    <img src="{{ '/assets' . $item->ogretmen->photo }}"
+                                                        alt="Sophia Jaymes">
+                                                </a>
+                                            </div>
+                                            <div class="rbt-author-info">
+                                                <a href="{{ route('front.teacher.detail', $item->id) }}">
+                                                    {{ $item->ogretmen->name }} {{ $item->ogretmen->surname }} </a>
                                             </div>
                                         </div>
-                                        
-                                    </div>
-
-                                    <h4 class="rbt-card-title"><a href="{{route('front.course.detail',$item->id)}}"> {{$item->title}} </a>
-                                    </h4>
-
-                                    <ul class="rbt-meta">
-                                        <li><i class="feather-book"></i> {{$item->kategori->name}} </li>
-                                        <li><i class="feather-users"></i>50 Students</li>
-                                    </ul>
-
-                                    <p class="rbt-card-text"> {{$item->short_description}} </p>
-
-                                    <div class="rbt-author-meta mb--10">
-                                        <div class="rbt-avater">
-                                            <a href="#">
-                                                <img src="{{"/assets".$item->ogretmen->photo}}" alt="Sophia Jaymes">
-                                            </a>
+                                        <div class="rbt-card-bottom">
+                                            <div class="rbt-price">
+                                                <span class="current-price"> {{ $item->price }} </span>
+                                                <span class="off-price"> 3000 </span>
+                                            </div>
+                                            <a class="rbt-btn-link"
+                                                href="{{ route('front.course.detail', $item->id) }}">Detay<i
+                                                    class="feather-arrow-right"></i></a>
                                         </div>
-                                        <div class="rbt-author-info">
-                                            <a href="profile.html"> {{$item->ogretmen->name}} {{$item->ogretmen->surname}} </a>
-                                        </div>
-                                    </div>
-                                    <div class="rbt-card-bottom">
-                                        <div class="rbt-price">
-                                            <span class="current-price"> {{$item->price}} </span>
-                                            <span class="off-price"> 3000 </span>
-                                        </div>
-                                        <a class="rbt-btn-link" href="{{route('front.course.detail',$item->id)}}">Detay<i class="feather-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- End Single Course  -->
-
+                            <!-- End Single Course  -->
                         @endforeach
 
 
@@ -667,5 +680,10 @@
         </div>
     </div>
 
+
+@endsection
+@section('script-bottom')
+
+    @include('sweetalert::alert')
 
 @endsection

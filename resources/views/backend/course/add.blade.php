@@ -98,20 +98,24 @@
                                 <input type="number" class="form-control" name="toplam_gun" id="">
                             </div>
 
-                            <div class="col-md-2">
+                            <div class="col-md-6">
                                 <label for="">KISA AÇIKLAMA</label>
-                                <textarea placeholder="Açıklama..." name="short_description" id="" class="form-control" cols="30" rows="4"></textarea>
+                                <textarea placeholder="Açıklama..." name="short_description" id="" class="form-control" cols="30" rows="2"></textarea>
                                 
                             </div>
-
-                            <div class="col-md-4">
-                                <label for="">UZUN AÇIKLAMA</label>
-                                <textarea name="long_description" id="" placeholder="Açıklama..." class="form-control" cols="30"
-                                    rows="4"></textarea>
-                            </div>
-                            
-                            
                         </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="">UZUN AÇIKLAMA</label>
+                                <textarea name="long_description" placeholder="Açıklama..." id="long_description" class="ckeditor form-control" cols="30"
+                                    rows="2"></textarea>
+                            </div>
+                        </div>
+
+                                
+                            
+                            
                         <br><br>
 
                         <hr>
@@ -154,6 +158,7 @@
 @endsection
 
 @section('script-bottom')
+<script src="/ckeditor/ckeditor.js"></script>
     <script>
         $(document).ready(function() {
             $(".add_item_buton").click(function(e) {

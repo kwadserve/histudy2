@@ -1,19 +1,12 @@
 @extends('frontend.body.master')
 
+@section('css')
+    @include('sweetalert::alert')
+@endsection
 @section('content')
 
 
-    @if ($errors->any())
-        @foreach ($errors->all() as $e)
-            <script>
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: '{{ $e }}',
-                });
-            </script>
-        @endforeach
-    @endif
+
 
     <div class="rbt-elements-area bg-color-white rbt-section-gap">
         <div class="container">
@@ -25,6 +18,14 @@
                         <div class="col-md-6">
                             <div class="rbt-contact-form contact-form-style-1 max-width-auto">
                                 <h3 class="title">Kayıt ol!</h3>
+
+                                @if ($errors->any())
+                                    @foreach ($errors->all() as $e)
+                                        <div class="alert">
+                                            <p style="color:red">{{ $e }}</p>
+                                        </div>
+                                    @endforeach
+                                @endif
 
                                 <form action="{{ route('front.register.store') }}" method="POST" class="max-width-auto">
                                     @csrf
@@ -116,8 +117,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('script-bottom')
-@include('sweetalert::alert')
 @endsection

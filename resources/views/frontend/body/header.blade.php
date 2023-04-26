@@ -30,17 +30,17 @@
     <link rel="stylesheet" href="/assets/css/plugins/jquery-ui.css">
     <link rel="stylesheet" href="/assets/css/plugins/magnigy-popup.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
-        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
         integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    @yield('css')
 </head>
 
 
@@ -72,14 +72,13 @@
                                     </a>
 
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-6">
                                     <a href="tel:+905353458081">
 
                                         <p>0535 345 80 81</p>
                                     </a>
 
                                 </div>
-                                <div class="col-md-1"></div>
 
 
 
@@ -92,50 +91,59 @@
                             <div class="header-info">
                                 <div class="rbt-search-field">
                                     <div class="search-field">
-                                        <input type="text" placeholder="Seminer Ara...">
+                                        <form action="{{route('front.search')}}" method="get">
+                                        <input type="text" name="search" placeholder="Seminer Ara...">
                                         <button class="rbt-round-btn serach-btn" type="submit"><i
                                                 class="feather-search"></i></button>
+                                            </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="rbt-header-sec-col rbt-header-right">
-                        <div class="rbt-header-content">
-
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <a href="#">
-                                        <i class="feather-instagram"></i>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="#">
-                                        <i class="feather-facebook"></i>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="#">
-                                        <i class="feather-twitter"></i>
-                                    </a>
-                                </div>
-                                <div class="col-md-3">
-                                    <a href="#">
-                                        <i class="feather-linkedin"></i>
-                                    </a>
-                                </div>
-
-                            </div>
+                    <div class="col-md-1"></div>
+                    @if (!Auth::guard('ogrenci')->check())
+                        <div>
+                            <a href="{{ route('front.register') }}">
+                                <p>Kayıt Ol</p>
+                            </a>
                         </div>
-                    </div>
+                        <div class="col-md-1">
+
+                        </div>
+                        <div>
+                            <a href="{{ route('front.login') }}">
+                                <p>Giriş Yap</p>
+                            </a>
+                        </div>
+                    @endif
+
+                    @if (Auth::guard('ogrenci')->check())
+                        <div class="row">
+                            <div class="col-md-11">
+                                {{ Auth::guard('ogrenci')->user()->name }} {{ Auth::guard('ogrenci')->user()->surname }}
+                            </div>
+                            <div class="col-md-1">
+                                <a href="{{ route('front.logout') }}">
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                </a>
+                            </div>
+
+
+
+                        </div>
+                    @endif
+
+
 
                 </div>
             </div>
         </div>
         <!-- End Header Top -->
 
-        <div class=" {{!Route::is('front.course.detail') ? 'rbt-header-wrapper' : ''}}  header-not-transparent header-sticky">
+        <div
+            class=" {{ !Route::is('front.course.detail') ? 'rbt-header-wrapper' : '' }}  header-not-transparent header-sticky">
             <div class="container">
                 <div class="mainbar-row rbt-navigation-end align-items-center">
                     <div class="header-left rbt-header-content" style="height:85px;">
@@ -157,68 +165,71 @@
                         <nav class="mainmenu-nav">
                             <ul class="mainmenu">
                                 <li>
-                                    
+
                                     <div class="header-info">
                                         <div class="rbt-category-menu-wrapper">
                                             <div class="rbt-category-btn rbt-side-offcanvas-activation">
                                                 <div class="rbt-offcanvas-trigger md-size icon">
                                                     <span class="d-none d-xl-block">
-                                                <i class="feather-grid"></i>
-                                            </span>
+                                                        <i class="feather-grid"></i>
+                                                    </span>
                                                     <i title="Category" class="feather-grid d-block d-xl-none"></i>
                                                 </div>
-                                                <span class="category-text d-none d-xl-block">KATEGORİLER</span>
+                                                <a href="{{ route('front.categories') }}">
+                                                    <span class="category-text d-none d-xl-block">KATEGORİLER</span>
+                                                </a>
                                             </div>
 
-                                                
-            
+
+
                                             <div class="category-dropdown-menu d-none d-xl-block">
                                                 <div class="category-menu-item">
                                                     <div class="rbt-vertical-nav">
                                                         <ul class="rbt-vertical-nav-list-wrapper vertical-nav-menu">
 
                                                             @foreach ($cat as $item)
-                                                                
-                                                            <li class="vertical-nav-item">
-                                                                <a href="#tab{{$item->id}}">{{$item->name}}</a>
-                                                            </li>
-
+                                                                <li class="vertical-nav-item">
+                                                                    <a
+                                                                        href="#tab{{ $item->id }}">{{ $item->name }}</a>
+                                                                </li>
                                                             @endforeach
 
-                                                            
+
                                                         </ul>
                                                     </div>
                                                     <div class="rbt-vertical-nav-content">
-                                                       
-            
+
+
                                                         @foreach ($cat as $item)
-                                                        
+                                                            <!-- Start One Item  -->
+                                                            <div class="rbt-vertical-inner tab-content"
+                                                                id="tab{{ $item->id }}" style="display: none;">
+                                                                <div class="rbt-vertical-single">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-12">
+                                                                            <div class="vartical-nav-content-menu">
+                                                                                <h3 class="rbt-short-title">Kurslar
+                                                                                </h3>
+                                                                                <ul
+                                                                                    class="rbt-vertical-nav-list-wrapper">
 
-                                                        <!-- Start One Item  -->
-                                                        <div class="rbt-vertical-inner tab-content" id="tab{{$item->id}}" style="display: none;">
-                                                            <div class="rbt-vertical-single">
-                                                                <div class="row">
-                                                                    <div class="col-lg-12">
-                                                                        <div class="vartical-nav-content-menu">
-                                                                            <h3 class="rbt-short-title">Kurslar</h3>
-                                                                            <ul class="rbt-vertical-nav-list-wrapper">
+                                                                                    @foreach ($item->Course() as $kur)
+                                                                                        <li><a
+                                                                                                href="{{ route('front.course.detail', $kur->id) }}">
+                                                                                                {{ $kur->title }}
+                                                                                            </a>
+                                                                                        </li>
+                                                                                    @endforeach
 
-                                                                                @foreach ($item->Course() as $kur)
-
-                                                                                <li><a href="{{route('front.course.detail',$kur->id)}}"> {{$kur->title}} </a></li>
-                                                                                
-                                                                                @endforeach
-
-                                                                            </ul>
+                                                                                </ul>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <!-- End One Item  -->
-
+                                                            <!-- End One Item  -->
                                                         @endforeach
-            
+
                                                     </div>
                                                 </div>
                                             </div>

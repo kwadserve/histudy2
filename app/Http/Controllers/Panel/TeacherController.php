@@ -27,6 +27,13 @@ class TeacherController extends Controller
             "phone"=>"required",
             "job"=>"required",
             "description"=>"required",
+        ],[
+            "name.required" => "İsim boş bırakıldı!",
+            "surname.required" => "Soy isim boş bırakıldı!",
+            "email.required" => "Email boş bırakıldı!",
+            "phone.required" => "Telefon boş bırakıldı!",
+            "job.required" => "Meslek boş bırakıldı!",
+            "description.required" => "Açıklama boş bırakıldı!",
         ]);
 
         if($valid){

@@ -10,9 +10,10 @@ use Illuminate\Http\Request;
 class CourseController extends Controller
 {
     public function course_list(){
+        $count = Course::count();
         $course = Course::get();
         $course_content = CourseContent::get();
-        return view('frontend.course.list',compact('course','course_content'));
+        return view('frontend.course.list',compact('course','course_content','count'));
     }
 
     public function detail($id){

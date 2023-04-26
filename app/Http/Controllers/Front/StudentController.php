@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Ogrenci;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class StudentController extends Controller
@@ -27,12 +30,41 @@ class StudentController extends Controller
         ]);
 
         if($valid){
-            Alert::success('başarılı','devam');
-            return back();
+            $create = Ogrenci::create([
+                "name" => $request->name,
+                "surname" => $request->surname,
+                "email" => $request->email,
+                "phone" => $request->phone,
+                "password" => Hash::make($request->password),
+            ]);
+
+            if($create){
+                return redirect()->route('front.home');
+
+            }
         }
-        else{
-            Alert::error('hata','hata');
-            return back();
+    }
+
+    public function login_post(Request $request){
+        $valid = $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ],[
+            "email.required" => "Email boş bırakıldı",
+            "password.required" => "Şifre boş bırakıldı",
+        ]);
+
+        if($valid){
+            if(Auth::guard('ogrenci')->attempt(['email' => $request->email, 'password' => $request->password])){
+                return redirect()->route('front.home');
+            }else{
+                return back()->withErrors("Email ya da şifre hatalı");
+            }
         }
+    }
+
+    public function logout(){
+        Auth::guard('ogrenci')->logout();
+        return redirect()->route('front.login');
     }
 }

@@ -21,14 +21,14 @@
                                 <li>
                                     <div class="icon-right"><i class="feather-chevron-right"></i></div>
                                 </li>
-                                <li class="rbt-breadcrumb-item active">Seminerler</li>
+                                <li class="rbt-breadcrumb-item active"> {{$cat->name}} </li>
                             </ul>
                             <!-- End Breadcrumb Area  -->
 
                             <div class=" title-wrapper">
-                                <h1 class="title mb--0">Tüm Seminerler</h1>
-                                <a href="{{route('front.course')}}" class="rbt-badge-2">
-                                    <div class="image">🎉</div> 12 Seminer
+                                <h1 class="title mb--0">'{{$cat->name}}' Seminerleri</h1>
+                                <a class="rbt-badge-2">
+                                    <div class="image">🎉</div> {{$cat->course_count()}} Seminer
                                 </a>
                             </div>
 
