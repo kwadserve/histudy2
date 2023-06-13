@@ -528,7 +528,7 @@
 
                                     <div class="add-to-card-button mt--15">
                                         <a class="rbt-btn btn-gradient icon-hover w-100 d-block text-center"
-                                            href="{{ route('ogrenci.kurs', $data->id) }}">
+                                            href="{{ route('kurs.sepet', $data->id) }}">
                                             <span class="btn-text">Şimdi Katıl</span>
                                             <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                                         </a>

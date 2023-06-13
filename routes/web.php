@@ -7,6 +7,7 @@ use App\Http\Controllers\Front\OneriController;
 use App\Http\Controllers\Front\StudentController;
 use App\Http\Controllers\Front\TeacherBasvuru;
 use App\Http\Controllers\Front\TeacherController as FrontTeacherController;
+use App\Http\Controllers\OdemeController;
 use App\Http\Controllers\Panel\CategoryController;
 use App\Http\Controllers\Panel\CourseController;
 use App\Http\Controllers\Panel\OneriController as PanelOneriController;
@@ -91,4 +92,10 @@ Route::prefix('/')->group(function(){
 
     Route::post('kayit-ol',[StudentController::class,'store'])->name('front.register.store');
     Route::get('ogrenci/kurs/ekle/{id?}',[FrontController::class,'ogrenci_kurs_ekle'])->middleware('auth:ogrenci')->name('ogrenci.kurs');
+    Route::get('kurs/sepet/{id?}',[FrontCourseController::class,'kurs_sepet'])->name('kurs.sepet');
+
+    Route::post('odeme',[OdemeController::class,'odeme'])->name('front.course.odeme');
+    Route::post('odemeyap',[OdemeController::class,'odemeyap'])->name('front.course.bildirim');
+    Route::get('basarili',[OdemeController::class,'basarili'])->name('front.course.basarili');
+    Route::get('hatali',[OdemeController::class,'hatali'])->name('front.course.hatali');
 });

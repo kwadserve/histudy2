@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\CourseContent;
+use App\Models\Ogrenci;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
@@ -25,5 +27,14 @@ class CourseController extends Controller
 
     public function oner(){
         return view('frontend.course.oneri');
+    }
+
+    public function kurs_sepet($id){
+
+        $o_id = Auth::guard('ogrenci')->user()->id;
+        
+        $kisi = Ogrenci::where('id',$o_id)->get();
+        $kurs = Course::where('id',$id)->get();
+        return view('frontend.course.kurs_sepet',compact('kisi','kurs'));
     }
 }

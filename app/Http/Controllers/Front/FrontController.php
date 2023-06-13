@@ -23,6 +23,10 @@ class FrontController extends Controller
         return view('frontend.about');
     }
 
+    public function contact(){
+        return view('frontend.iletisim');
+    }
+
     public function ogr_basvuru(){
         return view('frontend.teacher.basvuru');
     }
