@@ -1,7 +1,6 @@
 @extends('frontend.body.master')
 @section('css')
-    
-@include('sweetalert::alert')    
+    @include('sweetalert::alert')
 @endsection
 @section('content')
     <a class="close_side_menu" href="javascript:void(0);"></a>
@@ -14,12 +13,11 @@
                     <div class="content">
                         <div class="inner">
                             <div class="rbt-new-badge rbt-new-badge-one">
-                                <span class="rbt-new-badge-icon">🏆</span> TÜRKİYE'DE İLK
+                                <span class="rbt-new-badge-icon">🏆</span> ONLİNE SEMİNER
                             </div>
-                            <h1 class="title">Türkiye'de ilk <span class="color-primary">Online</span> Seminer Randevu
+                            <h1 class="title">Türkiye'de <span class="color-primary">Online</span> Seminer Randevu
                                 Platformu</h1>
-                            <p class="description">This template includes all the necessary pages of the onlineLorem.
-                                And you can be build a <strong>education template easily</strong>.
+                            <p class="description">ArtElegans Academy ile seminerlere katılarak hayalindeki mesleğe bir adım at.
                             </p>
                             <div class="slider-btn">
                                 <a class="rbt-btn btn-gradient hover-icon-reverse" href="{{ route('front.course') }}">
@@ -35,7 +33,8 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="content">
-                        <div class="banner-card pb--60 swiper rbt-dot-bottom-center banner-swiper-active">
+                        <div class="banner-card pb--60 swiper rbt-dot-bottom-center banner-swiper-active"
+                            style="margin-top:2%">
                             <div class="swiper-wrapper">
 
                                 @foreach ($uc_kurs as $item)
@@ -43,20 +42,17 @@
                                     <div class="swiper-slide">
                                         <div class="rbt-card variation-01 rbt-hover">
                                             <div class="rbt-card-img">
-                                                <a href="{{route('front.course.detail',$item->id)}}">
+                                                <a href="{{ route('front.course.detail', $item->id) }}">
                                                     <img src="{{ $item->image == null ? url('assets/images/course/course-online-01.jpg') : url('assets' . $item->image) }}"
                                                         alt="Card image">
-                                                    <div class="rbt-badge-3 bg-white">
-                                                        <span>40%</span>
-                                                        <span>İndirim</span>
-                                                    </div>
                                                 </a>
                                             </div>
                                             <div class="rbt-card-body">
                                                 <ul class="rbt-meta">
-                                                    <li><i class="feather-book"></i>{{$item->kategori->name}}</li>
+                                                    <li><i class="feather-book"></i>{{ $item->kategori->name }}</li>
                                                 </ul>
-                                                <h4 class="rbt-card-title"><a href="{{route('front.course.detail',$item->id)}}">
+                                                <h4 class="rbt-card-title"><a
+                                                        href="{{ route('front.course.detail', $item->id) }}">
                                                         {{ $item->title }} </a>
                                                 </h4>
                                                 <p class="rbt-card-text"> {{ $item->short_description }} </p>
@@ -71,8 +67,7 @@
                                                 </div>
                                                 <div class="rbt-card-bottom">
                                                     <div class="rbt-price">
-                                                        <span class="current-price">{{$item->price}} TL</span>
-                                                        <span class="off-price">8000 TL</span>
+                                                        <span class="current-price">{{ $item->price }} TL <span style="font-size:15px">+KDV/SEANS</span></span>
                                                     </div>
                                                     <a class="rbt-btn-link"
                                                         href="{{ route('front.course.detail', $item->id) }}"> Detay Gör <i
@@ -117,20 +112,20 @@
             <div class="row g-5">
 
                 @foreach ($categories as $item)
-
-                
                     <!-- Start Category Box Layout  -->
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                        <a class="rbt-cat-box rbt-cat-box-1 list-style" href="{{route('front.category.detail',$item->id)}}">
+                        <a class="rbt-cat-box rbt-cat-box-1 list-style"
+                            href="{{ route('front.category.detail', $item->id) }}">
                             <div class="inner">
                                 <div class="thumbnail">
                                     <img src="{{ $item->image == null ? url('/assets/images/category/image/web-design.jpg') : url('/assets' . $item->image) }}  "
                                         alt="Icons Images">
                                 </div>
                                 <div class="content">
-                                    <h5 class="title"> {{$item->name}} </h5>
+                                    <h5 class="title"> {{ $item->name }} </h5>
                                     <div class="read-more-btn">
-                                        <span class="rbt-btn-link">{{$item->course_count()}}  Seminer<i class="feather-arrow-right"></i></span>
+                                        <span class="rbt-btn-link">{{ $item->course_count() }} Seminer<i
+                                                class="feather-arrow-right"></i></span>
                                     </div>
                                 </div>
                             </div>
@@ -200,7 +195,7 @@
                         data-sal-duration="800">
                         <div class="rbt-card variation-01 rbt-hover">
                             <div class="rbt-card-img">
-                                <a href="{{route('front.course.detail',$item->id)}}">
+                                <a href="{{ route('front.course.detail', $item->id) }}">
                                     <img src="{{ $item->image != null ? url('/assets' . $item->image) : url('/assets/images/course/classic-lms-01.jpg') }}"
                                         alt="Card image">
                                     <div class="rbt-badge-3 bg-white">
@@ -225,7 +220,8 @@
                                 </div>
                                 <br>
 
-                                <h4 class="rbt-card-title"><a href="{{route('front.course.detail',$item->id)}}"> {{ $item->title }} </a></h4>
+                                <h4 class="rbt-card-title"><a href="{{ route('front.course.detail', $item->id) }}">
+                                        {{ $item->title }} </a></h4>
 
                                 <ul class="rbt-meta">
                                     <li><i class="feather-book"></i> {{ $item->kategori->name }} </li>
@@ -234,8 +230,9 @@
                                 <p class="rbt-card-text"> {{ $item->short_description }} </p>
                                 <div class="rbt-author-meta mb--10">
                                     <div class="rbt-avater">
-                                        <a href="{{route('front.teacher.detail',$item->id)}}">
-                                            <img src="{{$item->ogretmen->photo != null ? url("assets".$item->ogretmen->photo) : url("/assets/images/client/avatar-02.png")}}" alt="{{$item->ogretmen->name}}">
+                                        <a href="{{ route('front.teacher.detail', $item->id) }}">
+                                            <img src="{{ $item->ogretmen->photo != null ? url('assets' . $item->ogretmen->photo) : url('/assets/images/client/avatar-02.png') }}"
+                                                alt="{{ $item->ogretmen->name }}">
                                         </a>
                                     </div>
                                     <div class="rbt-author-info">
@@ -245,11 +242,10 @@
                                 </div>
                                 <div class="rbt-card-bottom">
                                     <div class="rbt-price">
-                                        <span class="current-price"> {{ $item->price }} TL</span>
-                                        <span class="off-price">$120</span>
+                                        <span class="current-price">{{ $item->price }} TL <span style="font-size:15px">+KDV/SEANS</span></span>
                                     </div>
-                                    <a class="rbt-btn-link" href="{{ route('front.course.detail', $item->id) }}"> Detay <i
-                                            class="feather-arrow-right"></i></a>
+                                    <a class="rbt-btn-link" href="{{ route('front.course.detail', $item->id) }}"> Detay
+                                        <i class="feather-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -283,143 +279,145 @@
             </div>
             <div class="row g-5">
 
-                <?php 
-                $son1 = \App\Models\Teacher::latest()->take(1)->get();
+                <?php
+                $son1 = \App\Models\Teacher::latest()
+                    ->take(1)
+                    ->get();
                 
                 ?>
 
-    
+
                 <div class="col-lg-7">
                     <!-- Start Tab Content  -->
                     <div class="rbt-team-tab-content tab-content" id="myTabContent">
 
-                        @foreach($son1 as $son)
-
-
-                        <div class="tab-pane fade active show" id="team-tab" role="tabpanel" aria-labelledby="team-tab-tab">
-                            <div class="inner">
-                                <div class="rbt-team-thumbnail">
-                                    <div class="thumb">
-                                        <img src="{{"/assets".$son->photo}}" alt="{{$son->name}}">
+                        @foreach ($son1 as $son)
+                            <div class="tab-pane fade active show" id="team-tab" role="tabpanel"
+                                aria-labelledby="team-tab-tab">
+                                <div class="inner">
+                                    <div class="rbt-team-thumbnail">
+                                        <div class="thumb">
+                                            <img src="{{ '/assets' . $son->photo }}" alt="{{ $son->name }}">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="rbt-team-details">
-                                    <div class="author-info">
-                                        <h4 class="title">{{$son->name}} {{$son->surname}}</h4>
-                                        <span class="designation theme-gradient"> {{$son->job}} </span>
-                                        <span class="team-form">
-                                            <span class="location"> {{$son->description}} </span>
-                                        </span>
+                                    <div class="rbt-team-details">
+                                        <div class="author-info">
+                                            <h4 class="title">{{ $son->name }} {{ $son->surname }}</h4>
+                                            <span class="designation theme-gradient"> {{ $son->job }} </span>
+                                            <span class="team-form">
+                                                <span class="location"> {!! $son->description !!} </span>
+                                            </span>
+                                        </div>
+                                        <p> {{ $son->short_description }} </p>
+                                        <ul class="social-icon social-default mt--20 justify-content-start">
+
+                                            @if ($son->facebook != null)
+                                                <li><a href="https://www.facebook.com/{{ $son->facebook }}">
+                                                        <i class="feather-facebook"></i>
+                                                    </a>
+                                                </li>
+                                            @endif
+
+                                            @if ($son->twitter != null)
+                                                <li><a href="https://www.twitter.com/{{ $son->twitter }}">
+                                                        <i class="feather-twitter"></i>
+                                                    </a>
+                                                </li>
+                                            @endif
+
+                                            @if ($son->instagram != null)
+                                                <li><a href="https://www.instagram.com/{{ $son->instagram }}">
+                                                        <i class="feather-instagram"></i>
+                                                    </a>
+                                                </li>
+                                            @endif
+
+                                            @if ($son->linkedin != null)
+                                                <li><a href="https://www.linkedin.com/{{ $son->linkedin }}">
+                                                        <i class="feather-linkedin"></i>
+                                                    </a>
+                                                </li>
+                                            @endif
+
+                                        </ul>
+                                        <ul class="rbt-information-list mt--25">
+                                            <li>
+                                                <a href="tel:+90{{ $son->phone }}"><i class="feather-phone"></i>
+                                                    {{ $son->phone }} </a>
+                                            </li>
+                                            <li>
+                                                <a href="mailto:{{ $son->email }}"><i
+                                                        class="feather-mail"></i>{{ $son->email }}</a>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <p> {{$son->short_description}} </p>
-                                    <ul class="social-icon social-default mt--20 justify-content-start">
-
-                                        @if($son->facebook != null)
-                                        <li><a href="https://www.facebook.com/{{$son->facebook}}">
-                                                <i class="feather-facebook"></i>
-                                            </a>
-                                        </li>
-                                        @endif
-
-                                        @if($son->twitter != null)
-                                        <li><a href="https://www.twitter.com/{{$son->twitter}}">
-                                                <i class="feather-twitter"></i>
-                                            </a>
-                                        </li>
-                                        @endif
-
-                                        @if($son->instagram != null)
-                                        <li><a href="https://www.instagram.com/{{$son->instagram}}">
-                                                <i class="feather-instagram"></i>
-                                            </a>
-                                        </li>
-                                        @endif
-
-                                        @if($son->linkedin != null)
-                                        <li><a href="https://www.linkedin.com/{{$son->linkedin}}">
-                                                <i class="feather-linkedin"></i>
-                                            </a>
-                                        </li>
-                                        @endif
-
-                                    </ul>
-                                    <ul class="rbt-information-list mt--25">
-                                        <li>
-                                            <a href="tel:+90{{$son->phone}}"><i class="feather-phone"></i> {{$son->phone}} </a>
-                                        </li>
-                                        <li>
-                                            <a href="mailto:{{$son->email}}"><i
-                                                    class="feather-mail"></i>{{$son->email}}</a>
-                                        </li>
-                                    </ul>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
 
 
                         @foreach ($son_alti as $item)
-                            
-                        <div class="tab-pane fade" id="team-tab{{$item->id}}" role="tabpanel" aria-labelledby="team-tab{{$item->id}}-tab">
-                            <div class="inner">
-                                <div class="rbt-team-thumbnail">
-                                    <div class="thumb">
-                                        <img src="{{"/assets".$item->photo}}" alt="{{$item->name}}">
+                            <div class="tab-pane fade" id="team-tab{{ $item->id }}" role="tabpanel"
+                                aria-labelledby="team-tab{{ $item->id }}-tab">
+                                <div class="inner">
+                                    <div class="rbt-team-thumbnail">
+                                        <div class="thumb">
+                                            <img src="{{ '/assets' . $item->photo }}" alt="{{ $item->name }}">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="rbt-team-details">
-                                    <div class="author-info">
-                                        <h4 class="title">{{$item->name}} {{$item->surname}}</h4>
-                                        <span class="designation theme-gradient"> {{$item->job}} </span>
-                                        <span class="team-form">
-                                            <span class="location"> {{$item->description}} </span>
-                                        </span>
+                                    <div class="rbt-team-details">
+                                        <div class="author-info">
+                                            <h4 class="title">{{ $item->name }} {{ $item->surname }}</h4>
+                                            <span class="designation theme-gradient"> {{ $item->job }} </span>
+                                            <span class="team-form">
+                                                <span class="location"> {!! $item->description !!} </span>
+                                            </span>
+                                        </div>
+                                        <p> {{ $item->short_description }} </p>
+                                        <ul class="social-icon social-default mt--20 justify-content-start">
+
+                                            @if ($item->facebook != null)
+                                                <li><a href="https://www.facebook.com/{{ $item->facebook }}">
+                                                        <i class="feather-facebook"></i>
+                                                    </a>
+                                                </li>
+                                            @endif
+
+                                            @if ($item->twitter != null)
+                                                <li><a href="https://www.twitter.com/{{ $item->twitter }}">
+                                                        <i class="feather-twitter"></i>
+                                                    </a>
+                                                </li>
+                                            @endif
+
+                                            @if ($item->instagram != null)
+                                                <li><a href="https://www.instagram.com/{{ $item->instagram }}">
+                                                        <i class="feather-instagram"></i>
+                                                    </a>
+                                                </li>
+                                            @endif
+
+                                            @if ($item->linkedin != null)
+                                                <li><a href="https://www.linkedin.com/{{ $item->linkedin }}">
+                                                        <i class="feather-linkedin"></i>
+                                                    </a>
+                                                </li>
+                                            @endif
+
+                                        </ul>
+                                        <ul class="rbt-information-list mt--25">
+                                            <li>
+                                                <a href="tel:{{ $item->phone }}"><i class="feather-phone"></i>
+                                                    {{ $item->phone }} </a>
+                                            </li>
+                                            <li>
+                                                <a href="mailto:{{ $item->email }}"><i
+                                                        class="feather-mail"></i>{{ $item->email }}</a>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <p> {{$item->short_description}} </p>
-                                    <ul class="social-icon social-default mt--20 justify-content-start">
-
-                                        @if($item->facebook != null)
-                                        <li><a href="https://www.facebook.com/{{$item->facebook}}">
-                                                <i class="feather-facebook"></i>
-                                            </a>
-                                        </li>
-                                        @endif
-
-                                        @if($item->twitter != null)
-                                        <li><a href="https://www.twitter.com/{{$item->twitter}}">
-                                                <i class="feather-twitter"></i>
-                                            </a>
-                                        </li>
-                                        @endif
-
-                                        @if($item->instagram != null)
-                                        <li><a href="https://www.instagram.com/{{$item->instagram}}">
-                                                <i class="feather-instagram"></i>
-                                            </a>
-                                        </li>
-                                        @endif
-
-                                        @if($item->linkedin != null)
-                                        <li><a href="https://www.linkedin.com/{{$item->linkedin}}">
-                                                <i class="feather-linkedin"></i>
-                                            </a>
-                                        </li>
-                                        @endif
-
-                                    </ul>
-                                    <ul class="rbt-information-list mt--25">
-                                        <li>
-                                            <a href="tel:{{$item->phone}}"><i class="feather-phone"></i> {{$item->phone}} </a>
-                                        </li>
-                                        <li>
-                                            <a href="mailto:{{$item->email}}"><i
-                                                    class="feather-mail"></i>{{$item->email}}</a>
-                                        </li>
-                                    </ul>
                                 </div>
                             </div>
-                        </div>
-
                         @endforeach
 
                         <div class="top-circle-shape"></div>
@@ -660,4 +658,3 @@
     <!-- End Blog Style -->
     <br><br>
 @endsection
-

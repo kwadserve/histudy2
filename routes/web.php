@@ -51,6 +51,7 @@ Route::prefix('panel/')->group(function(){
         Route::get('ekle',[CourseController::class,'add'])->name('panel.course.add');
         Route::post('store',[CourseController::class,'store'])->name('panel.course.store');
         Route::get('listele',[CourseController::class,'list'])->name('panel.course.list');
+        Route::get('aktiflik/{id?}',[CourseController::class,'aktiflik'])->name('panel.aktiflik');
     });
 
 
@@ -65,6 +66,9 @@ Route::prefix('/')->group(function(){
     Route::get('',[FrontController::class,'homepage'])->name('front.home');
     Route::get('hakkimizda',[FrontController::class,'about'])->name('front.about');
     Route::get('blog',[FrontController::class,'blog_list'])->name('front.blog');
+    Route::get('gizlilik/sozlesmesi',[FrontController::class,'gizlilik'])->name('front.gizlilik');
+    Route::get('kullanim/kosullari',[FrontController::class,'kullanim'])->name('front.kullanim');
+    Route::get('mesafeli/satis',[FrontController::class,'mesafeli'])->name('front.mesafeli');
 
     Route::get('seminer',[FrontCourseController::class,'course_list'])->name('front.course');
     Route::get('seminer/oner',[FrontCourseController::class,'oner'])->name('front.oner');

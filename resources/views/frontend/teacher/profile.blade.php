@@ -133,7 +133,7 @@
                                         <div class="rbt-profile-content b2">Kısa Açıklama</div>
                                     </div>
                                     <div class="col-lg-8 col-md-8">
-                                        <div class="rbt-profile-content b2">{{$data->description}}</div>
+                                        <div class="rbt-profile-content b2">{!!$data->description!!}</div>
                                     </div>
                                 </div>
                                 <!-- End Profile Row  -->

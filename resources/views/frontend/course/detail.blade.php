@@ -86,12 +86,12 @@
                                     <h4 class="rbt-title-style-3">KURS HAKKINDA</h4>
                                 </div>
                                 <p>
-                                    {{ $data->long_description }}
+                                    {!! $data->long_description !!}
                                 </p>
 
 
                             </div>
-                            <div class="rbt-show-more-btn">Show More</div>
+                            <div class="rbt-show-more-btn">Daha fazla göster</div>
                         </div>
                         <!-- End Course Feature Box  -->
 
@@ -110,7 +110,7 @@
                                             <div class="accordion-item card">
                                                 <h2 class="accordion-header card-header"
                                                     id="headingTwo{{ $item->id }}">
-                                                    <button class="accordion-button" type="button"
+                                                    <button class="accordion-button collapsed" type="button"
                                                         data-bs-toggle="collapse"
                                                         data-bs-target="#collapseTwo{{ $item->id }}"
                                                         aria-expanded="true"
@@ -125,8 +125,8 @@
                                                     <div class="accordion-body card-body pr--0">
                                                         <ul class="rbt-course-main-content liststyle">
                                                             <div class="course-content-left">
-                                                                <i class="feather-file-text"></i> <span class="text">
-                                                                    {{ $item->description }} </span>
+                                                               <span class="text">
+                                                                    {!! $item->description !!} </span>
                                                             </div>
                                                             </li>
 
@@ -172,7 +172,7 @@
                                         </div>
                                         <br>
                                         <div class="content">
-                                            <p class="description"> {{ $data->ogretmen->description }} </p>
+                                            <p class="description"> {!! $data->ogretmen->description !!} </p>
 
                                             <ul
                                                 class="social-icon social-default transparent-with-border justify-content-center">

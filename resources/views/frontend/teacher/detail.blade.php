@@ -129,7 +129,6 @@
                                                                         <i class="fas fa-star"></i>
                                                                         <i class="fas fa-star"></i>
                                                                     </div>
-                                                                    <span class="rating-count"> (15 Reviews)</span>
                                                                 </div>
                                                                 <div class="rbt-bookmark-btn">
                                                                     <a class="rbt-round-btn" title="Bookmark"
@@ -145,25 +144,6 @@
                                                                 <li><i class="feather-users"></i>40 Students</li>
                                                             </ul>
 
-                                                            <div class="rbt-progress-style-1 mb--20 mt--10">
-                                                                <div class="single-progress">
-                                                                    <h6 class="rbt-title-style-2 mb--10">Complete</h6>
-                                                                    <div class="progress">
-                                                                        <div class="progress-bar wow fadeInLeft bar-color-success"
-                                                                            data-wow-duration="0.5s" data-wow-delay=".3s"
-                                                                            role="progressbar" style="width: 90%"
-                                                                            aria-valuenow="90" aria-valuemin="0"
-                                                                            aria-valuemax="100">
-                                                                        </div>
-                                                                        <span
-                                                                            class="rbt-title-style-2 progress-number">90%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="rbt-card-bottom">
-                                                                <a class="rbt-btn btn-sm bg-primary-opacity w-100 text-center"
-                                                                    href="#">Download Certificate</a>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -204,25 +184,7 @@
                                                                 <li><i class="feather-users"></i>30 Students</li>
                                                             </ul>
 
-                                                            <div class="rbt-progress-style-1 mb--20 mt--10">
-                                                                <div class="single-progress">
-                                                                    <h6 class="rbt-title-style-2 mb--10">Complete</h6>
-                                                                    <div class="progress">
-                                                                        <div class="progress-bar wow fadeInLeft bar-color-success"
-                                                                            data-wow-duration="0.5s" data-wow-delay=".3s"
-                                                                            role="progressbar" style="width: 40%"
-                                                                            aria-valuenow="40" aria-valuemin="0"
-                                                                            aria-valuemax="100">
-                                                                        </div>
-                                                                        <span
-                                                                            class="rbt-title-style-2 progress-number">40%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="rbt-card-bottom">
-                                                                <a class="rbt-btn btn-sm bg-primary-opacity w-100 text-center"
-                                                                    href="#">Download Certificate</a>
-                                                            </div>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -264,25 +226,7 @@
                                                                 <li><i class="feather-users"></i>26 Students</li>
                                                             </ul>
 
-                                                            <div class="rbt-progress-style-1 mb--20 mt--10">
-                                                                <div class="single-progress">
-                                                                    <h6 class="rbt-title-style-2 mb--10">Complete</h6>
-                                                                    <div class="progress">
-                                                                        <div class="progress-bar wow fadeInLeft bar-color-success"
-                                                                            data-wow-duration="0.5s" data-wow-delay=".3s"
-                                                                            role="progressbar" style="width: 65%"
-                                                                            aria-valuenow="65" aria-valuemin="0"
-                                                                            aria-valuemax="100">
-                                                                        </div>
-                                                                        <span
-                                                                            class="rbt-title-style-2 progress-number">65%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="rbt-card-bottom">
-                                                                <a class="rbt-btn btn-sm bg-primary-opacity w-100 text-center"
-                                                                    href="#">Download Certificate</a>
-                                                            </div>
+                                                            
 
                                                         </div>
                                                     </div>
@@ -480,25 +424,6 @@
                                                                 <li><i class="feather-users"></i>40 Students</li>
                                                             </ul>
 
-                                                            <div class="rbt-progress-style-1 mb--20 mt--10">
-                                                                <div class="single-progress">
-                                                                    <h6 class="rbt-title-style-2 mb--10">Complete</h6>
-                                                                    <div class="progress">
-                                                                        <div class="progress-bar wow fadeInLeft bar-color-success"
-                                                                            data-wow-duration="0.5s" data-wow-delay=".3s"
-                                                                            role="progressbar" style="width: 100%"
-                                                                            aria-valuenow="100" aria-valuemin="0"
-                                                                            aria-valuemax="100">
-                                                                        </div>
-                                                                        <span
-                                                                            class="rbt-title-style-2 progress-number">100%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="rbt-card-bottom">
-                                                                <a class="rbt-btn btn-sm bg-primary-opacity w-100 text-center"
-                                                                    href="#">Download Certificate</a>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -539,25 +464,7 @@
                                                                 <li><i class="feather-users"></i>30 Students</li>
                                                             </ul>
 
-                                                            <div class="rbt-progress-style-1 mb--20 mt--10">
-                                                                <div class="single-progress">
-                                                                    <h6 class="rbt-title-style-2 mb--10">Complete</h6>
-                                                                    <div class="progress">
-                                                                        <div class="progress-bar wow fadeInLeft bar-color-success"
-                                                                            data-wow-duration="0.5s" data-wow-delay=".3s"
-                                                                            role="progressbar" style="width: 100%"
-                                                                            aria-valuenow="100" aria-valuemin="0"
-                                                                            aria-valuemax="100">
-                                                                        </div>
-                                                                        <span
-                                                                            class="rbt-title-style-2 progress-number">100%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="rbt-card-bottom">
-                                                                <a class="rbt-btn btn-sm bg-primary-opacity w-100 text-center"
-                                                                    href="#">Download Certificate</a>
-                                                            </div>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -599,25 +506,7 @@
                                                                 <li><i class="feather-users"></i>26 Students</li>
                                                             </ul>
 
-                                                            <div class="rbt-progress-style-1 mb--20 mt--10">
-                                                                <div class="single-progress">
-                                                                    <h6 class="rbt-title-style-2 mb--10">Complete</h6>
-                                                                    <div class="progress">
-                                                                        <div class="progress-bar wow fadeInLeft bar-color-success"
-                                                                            data-wow-duration="0.5s" data-wow-delay=".3s"
-                                                                            role="progressbar" style="width: 100%"
-                                                                            aria-valuenow="100" aria-valuemin="0"
-                                                                            aria-valuemax="100">
-                                                                        </div>
-                                                                        <span
-                                                                            class="rbt-title-style-2 progress-number">100%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="rbt-card-bottom">
-                                                                <a class="rbt-btn btn-sm bg-primary-opacity w-100 text-center"
-                                                                    href="#">Download Certificate</a>
-                                                            </div>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>

@@ -13,7 +13,7 @@ class CourseController extends Controller
 {
     public function course_list(){
         $count = Course::count();
-        $course = Course::get();
+        $course = Course::inRandomOrder()->get();
         $course_content = CourseContent::get();
         return view('frontend.course.list',compact('course','course_content','count'));
     }

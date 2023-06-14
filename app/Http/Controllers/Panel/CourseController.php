@@ -112,4 +112,13 @@ class CourseController extends Controller
         $data = Course::get();
         return view('backend.course.list',compact('data'));
     }
+
+    public function aktiflik($id){
+        $data = Course::find($id);
+        $data->update([
+            'aktiflik' => !$data->aktiflik
+        ]);
+        Alert::success('Başarılı','Aktiflik değiştirildi');
+        return back();
+    }
 }

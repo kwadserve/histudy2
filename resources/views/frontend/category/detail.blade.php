@@ -27,9 +27,6 @@
 
                             <div class=" title-wrapper">
                                 <h1 class="title mb--0">'{{$cat->name}}' Seminerleri</h1>
-                                <a class="rbt-badge-2">
-                                    <div class="image">🎉</div> {{$cat->course_count()}} Seminer
-                                </a>
                             </div>
 
                             <p class="description">Kendinizi geliştirmek için doğru adrestesiniz. </p>
@@ -57,112 +54,9 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-7 col-md-12">
-                            <div
-                                class="rbt-sorting-list d-flex flex-wrap align-items-center justify-content-start justify-content-lg-end">
-                                <div class="rbt-short-item">
-                                    <form action="#" class="rbt-search-style me-0">
-                                        <input type="text" placeholder="Seminer ara..">
-                                        <button type="submit" class="rbt-search-btn rbt-round-btn">
-                                            <i class="feather-search"></i>
-                                        </button>
-                                    </form>
-                                </div>
-
-                                <div class="rbt-short-item">
-                                    <div class="view-more-btn text-start text-sm-end">
-                                        <button
-                                            class="discover-filter-button discover-filter-activation rbt-btn btn-white btn-md radius-round">Filter<i
-                                                class="feather-filter"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
-                    <!-- Start Filter Toggle  -->
-                    <div class="default-exp-wrapper default-exp-expand">
-                        <div class="filter-inner">
-                            <div class="filter-select-option">
-                                <div class="filter-select rbt-modern-select">
-                                    <span class="select-label d-block">Short By</span>
-                                    <select>
-                                        <option>Default</option>
-                                        <option>Latest</option>
-                                        <option>Popularity</option>
-                                        <option>Trending</option>
-                                        <option>Price: low to high</option>
-                                        <option>Price: high to low</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="filter-select-option">
-                                <div class="filter-select rbt-modern-select">
-                                    <span class="select-label d-block">Short By Author</span>
-                                    <select data-live-search="true" title="Select Author" multiple data-size="7"
-                                        data-actions-box="true" data-selected-text-format="count > 2">
-                                        <option data-subtext="Experts">Janin Afsana</option>
-                                        <option data-subtext="Experts">Joe Biden</option>
-                                        <option data-subtext="Experts">Fatima Asrafy</option>
-                                        <option data-subtext="Experts">Aysha Baby</option>
-                                        <option data-subtext="Experts">Mohamad Ali</option>
-                                        <option data-subtext="Experts">Jone Li</option>
-                                        <option data-subtext="Experts">Alberd Roce</option>
-                                        <option data-subtext="Experts">Zeliski Noor</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="filter-select-option">
-                                <div class="filter-select rbt-modern-select">
-                                    <span class="select-label d-block">Short By Offer</span>
-                                    <select>
-                                        <option>Free</option>
-                                        <option>Paid</option>
-                                        <option>Premium</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="filter-select-option">
-                                <div class="filter-select rbt-modern-select">
-                                    <span class="select-label d-block">Short By Category</span>
-                                    <select data-live-search="true">
-                                        <option>Web Design</option>
-                                        <option>Graphic</option>
-                                        <option>App Development</option>
-                                        <option>Figma Design</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="filter-select-option">
-                                <div class="filter-select">
-                                    <span class="select-label d-block">Price Range</span>
-
-                                    <div class="price_filter s-filter clear">
-                                        <form action="#" method="GET">
-                                            <div id="slider-range"></div>
-                                            <div class="slider__range--output">
-                                                <div class="price__output--wrap">
-                                                    <div class="price--output">
-                                                        <span>Price :</span><input type="text" id="amount">
-                                                    </div>
-                                                    <div class="price--filter">
-                                                        <a class="rbt-btn btn-gradient btn-sm" href="#">Filter</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Filter Toggle  -->
+                  
                 </div>
             </div>
             <!-- End Course Top  -->
@@ -184,10 +78,6 @@
                             <div class="rbt-card-img">
                                 <a href="{{route('front.course.detail',$item->id)}}">
                                     <img src="{{($item->image ==  null) ? url("assets/images/course/course-online-01.jpg") : url("assets".$item->image)}}" alt="{{$item->name}}">
-                                    <div class="rbt-badge-3 bg-white">
-                                        <span>40%</span>
-                                        <span>İndirim</span>
-                                    </div>
                                 </a>
                             </div>
                             <div class="rbt-card-body">
@@ -224,8 +114,7 @@
                                 </div>
                                 <div class="rbt-card-bottom">
                                     <div class="rbt-price">
-                                        <span class="current-price"> {{$item->price}} </span>
-                                        <span class="off-price"> 3000 </span>
+                                        <span class="current-price"> {{$item->price}} TL <span style="font-size:15px">+KDV/SEANS</span></span>
                                     </div>
                                     <a class="rbt-btn-link" href="{{route('front.course.detail',$item->id)}}">Detay<i class="feather-arrow-right"></i></a>
                                 </div>

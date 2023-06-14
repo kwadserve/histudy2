@@ -13,9 +13,9 @@ use RealRashid\SweetAlert\Facades\Alert;
 class FrontController extends Controller
 {
     public function homepage(){
-        $uc_kurs = Course::latest()->get();
+        $uc_kurs = Course::orderBy('price','asc')->take(5)->get();
         $categories = Category::get();
-        $son_kurslar = Course::latest()->take(6)->get();
+        $son_kurslar = Course::inRandomOrder()->take(6)->get();
         return view('frontend.home',compact('uc_kurs','categories','son_kurslar'));
     }
 
@@ -52,5 +52,15 @@ class FrontController extends Controller
         ]);
         Alert::success('Başaılı',"Kurs başarıyla eklendi.");
         return back();
+    }
+
+    public function gizlilik(){
+        return view('frontend.gizlilik');
+    }
+    public function kullanim(){
+        return view('frontend.kullanim_kosul');
+    }
+    public function mesafeli(){
+        return view('frontend.mesafeli_satis');
     }
 }

@@ -150,7 +150,7 @@
 </div>
 
 <div class="rbt-google-map bg-color-white rbt-section-gapTop">
-    <iframe class="w-100" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2965.0824050173574!2d-93.63905729999999!3d41.998507000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sWebFilings%2C+University+Boulevard%2C+Ames%2C+IA!5e0!3m2!1sen!2sus!4v1390839289319" height="600" style="border:0"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1570410.2152222446!2d27.206224664548188!3d39.75745041878098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bbd90dc28ce5b1%3A0xca42910a941734b0!2sArtElegans%20Foto%C4%9Fraf%20Akademisi!5e0!3m2!1str!2str!4v1686697211947!5m2!1str!2str" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 
 @endsection

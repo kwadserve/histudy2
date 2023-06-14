@@ -107,7 +107,7 @@
 
                 <div class="col-lg-4">
                     <div class="thumbnail">
-                        <img class="radius-10 w-100" src="/assets/images/tabs-10.jpg" alt="Corporate Template">
+                        <img class="radius-10 w-100" src="{{asset('assets/images/öğretmen_ve_seminer.png')}}" alt="Corporate Template">
                     </div>
                 </div>
 

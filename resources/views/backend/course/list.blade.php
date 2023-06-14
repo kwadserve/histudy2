@@ -26,6 +26,7 @@
                                             <th>Kategori</th>
                                             <th>Öğretmen</th>
                                             <th>Fiyat</th>
+                                            <th>Aktiflik</th>
                                             <th>İşlem</th>
                                         </tr>
                                     </thead>
@@ -35,7 +36,8 @@
                                             <tr class="odd">
 
                                                 <td>
-                                                    <img style="width:100px" src="{{ $item->image == null ? url('/assets/images/course/course-online-01.jpg') : url('/assets' . $item->image) }}"
+                                                    <img style="width:100px"
+                                                        src="{{ $item->image == null ? url('/assets/images/course/course-online-01.jpg') : url('/assets' . $item->image) }}"
                                                         alt="Card image">
 
                                                 </td>
@@ -43,6 +45,13 @@
                                                 <td> {{ $item->kategori->name }} </td>
                                                 <td> {{ $item->ogretmen->name }} {{ $item->ogretmen->surname }}</td>
                                                 <td> {{ $item->price }} </td>
+                                                <td>
+                                                    <a onclick="degis({{$item->id}})">
+                                                        <button type="button"
+                                                            style="background-color: {{ $item->aktiflik == 1 ? 'lightgreen' : 'red' }}"
+                                                            class="btn btn-success">Değiştir</button>
+                                                    </a>
+                                                </td>
                                                 <td>
                                                     <a href=""><button class="btn btn-info">Düzenle</button></a>
                                                     <a href=""><button class="btn btn-danger">Sil</button></a>
@@ -60,6 +69,25 @@
             </div>
         </div> <!-- end col -->
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        function degis(id) {
+            Swal.fire({
+                title: 'Emin misiniz?',
+                text: "Aktifliği değiştirmek istediğinize emin misiniz?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Değiştir!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "{{route('panel.aktiflik')}}/"+id;
+                }
+            })
+        }
+    </script>
 
 
 @endsection

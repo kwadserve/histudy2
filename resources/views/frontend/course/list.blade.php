@@ -221,8 +221,7 @@
                                 </div>
                                 <div class="rbt-card-bottom">
                                     <div class="rbt-price">
-                                        <span class="current-price"> {{$item->price}} </span>
-                                        <span class="off-price"> 3000 </span>
+                                        <span class="current-price"> {{$item->price}} TL <span style="font-size:15px">+KDV/SEANS</span></span>
                                     </div>
                                     <a class="rbt-btn-link" href="{{route('front.course.detail',$item->id)}}">Detay<i class="feather-arrow-right"></i></a>
                                 </div>

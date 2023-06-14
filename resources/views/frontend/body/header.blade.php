@@ -91,11 +91,11 @@
                             <div class="header-info">
                                 <div class="rbt-search-field">
                                     <div class="search-field">
-                                        <form action="{{route('front.search')}}" method="get">
-                                        <input type="text" name="search" placeholder="Seminer Ara...">
-                                        <button class="rbt-round-btn serach-btn" type="submit"><i
-                                                class="feather-search"></i></button>
-                                            </form>
+                                        <form action="{{ route('front.search') }}" method="get">
+                                            <input type="text" name="search" placeholder="Seminer Ara...">
+                                            <button class="rbt-round-btn serach-btn" type="submit"><i
+                                                    class="feather-search"></i></button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -146,11 +146,11 @@
             class=" {{ !Route::is('front.course.detail') ? 'rbt-header-wrapper' : '' }}  header-not-transparent header-sticky">
             <div class="container">
                 <div class="mainbar-row rbt-navigation-end align-items-center">
-                    <div class="header-left rbt-header-content" style="height:85px;">
-                        <div class="header-info" style="height:80px; width:150px">
+                    <div class="header-left rbt-header-content" >
+                        <div class="header-info" >
                             <a href="{{ route('front.home') }}">
-                                <img src="/assets/images/artelegans.png" style="width: 85%;"
-                                    alt="Education Logo Images">
+                                <img src="/assets/images/artelegans.png" style="width:90%"
+                                 alt="Education Logo Images">
                             </a>
                         </div>
                     </div>

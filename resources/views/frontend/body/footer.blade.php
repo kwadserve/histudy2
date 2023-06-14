@@ -10,13 +10,21 @@
     <div class="copyright-area copyright-style-1 ptb--20">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-12">
-                    <p class="rbt-link-hover text-center text-lg-start">Copyright © 2023 <a href="{{route('front.home')}}">ArtElegans Academy.</a> Tüm Hakları Saklıdır</p>
+                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-12">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="{{asset('assets/images/od1.png')}}" alt="">
+                        </div>
+                        <div class="col-md-9">
+                            <img style="margin-top:3%" src="{{asset('assets/images/od2.jpg')}}" alt="">
+                        </div>
+                    </div>
                 </div>
-                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-12">
+                <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-12 col-12">
                     <ul class="copyright-link rbt-link-hover justify-content-center justify-content-lg-end mt_sm--10 mt_md--10">
-                        <li><a href="{{route('front.home')}}">ANASAYFA</a></li>
-                        <li><a href="{{route('front.about')}}">HAKKIMIZDA</a></li>
+                        <li><a href="{{route('front.gizlilik')}}">GİZLİLİK SÖZLEŞMESİ</a></li>
+                        <li><a href="{{route('front.kullanim')}}">KULLANIM KOŞULLARI</a></li>
+                        <li><a href="{{route('front.mesafeli')}}">MESAFELİ SATIŞ SÖZLEŞMESİ</a></li>
                         <li><a href="#">BLOG</a></li>
                         <li><a href="login.html">İLETİŞİM</a></li>
                     </ul>
