@@ -181,10 +181,6 @@
                             <div class="rbt-card-img">
                                 <a href="{{route('front.course.detail',$item->id)}}">
                                     <img src="{{($item->image ==  null) ? url("/assets/images/course/course-online-01.jpg") : url("/assets".$item->image)}}" alt="Card image">
-                                    <div class="rbt-badge-3 bg-white">
-                                        <span>-40%</span>
-                                        <span>İndirim</span>
-                                    </div>
                                 </a>
                             </div>
                             <div class="rbt-card-body">

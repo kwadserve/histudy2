@@ -24,13 +24,13 @@
 
                         <div class="rbt-author-meta mb--20">
                             <div class="rbt-avater">
-                                <a href="#">
+                                <a href="{{ route('front.teacher.detail', $data->ogretmen->id) }}">
                                     <img src=" {{ $data->ogretmen->photo == null ? url('/assets/images/icons/card-icon-1.png') : url('/assets' . $data->ogretmen->photo) }} "
                                         alt="{{ $data->ogretmen->name }}">
                                 </a>
                             </div>
                             <div class="rbt-author-info">
-                                <a href="profile.html"> {{ $data->ogretmen->name }} {{ $data->ogretmen->surname }} </a>
+                                <a href="{{ route('front.teacher.detail', $data->ogretmen->id) }}"> {{ $data->ogretmen->name }} {{ $data->ogretmen->surname }} </a>
                             </div>
 
                         </div>
@@ -125,7 +125,7 @@
                                                     <div class="accordion-body card-body pr--0">
                                                         <ul class="rbt-course-main-content liststyle">
                                                             <div class="course-content-left">
-                                                               <span class="text">
+                                                                <span class="text">
                                                                     {!! $item->description !!} </span>
                                                             </div>
                                                             </li>
@@ -152,7 +152,7 @@
                                 </div>
                                 <div class="media align-items-center">
                                     <div class="thumbnail">
-                                        <a href="#">
+                                        <a href="{{ route('front.teacher.detail', $data->ogretmen->id) }}">
                                             <img src="{{ $data->ogretmen->photo == null ? url('/assets/images/testimonial/testimonial-7.jpg') : url('/assets' . $data->ogretmen->photo) }}  "
                                                 alt="Author Images">
                                         </a>
@@ -160,7 +160,7 @@
                                     <div class="media-body">
                                         <div class="author-info">
                                             <h5 class="title">
-                                                <a class="hover-flip-item-wrapper" href="author.html">
+                                                <a class="hover-flip-item-wrapper" href="{{ route('front.teacher.detail', $data->ogretmen->id) }}">
                                                     {{ $data->ogretmen->name }} {{ $data->ogretmen->surname }}</a>
                                             </h5>
                                             <span class="b3 subtitle"> {{ $data->ogretmen->job }} </span>
@@ -176,22 +176,30 @@
 
                                             <ul
                                                 class="social-icon social-default transparent-with-border justify-content-center">
+                                                @if($data->ogretmen->facebook != null)
                                                 <li><a href="https://www.facebook.com/{{ $data->ogretmen->facebook }}">
                                                         <i class="feather-facebook"></i>
                                                     </a>
                                                 </li>
+                                                @endif
+                                                @if($data->ogretmen->twitter != null)
                                                 <li><a href="https://www.twitter.com/{{ $data->ogretmen->twitter }}">
                                                         <i class="feather-twitter"></i>
                                                     </a>
                                                 </li>
+                                                @endif
+                                                @if($data->ogretmen->instagram != null)
                                                 <li><a href="https://www.instagram.com/{{ $data->ogretmen->instagram }}">
                                                         <i class="feather-instagram"></i>
                                                     </a>
                                                 </li>
+                                                @endif
+                                                @if($data->ogretmen->linkedin != null)
                                                 <li><a href="https://www.linkdin.com/{{ $data->ogretmen->linkedin }}">
                                                         <i class="feather-linkedin"></i>
                                                     </a>
                                                 </li>
+                                                @endif
                                             </ul>
 
                                         </div>
@@ -411,14 +419,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="rbt-show-more-btn">Show More</div>
+                            <div class="rbt-show-more-btn">Daha fazla göster</div>
                         </div>
                     </div>
                     <div class="related-course mt--60">
                         <div class="row g-5 align-items-end mb--40">
                             <div class="col-lg-8 col-md-8 col-12">
                                 <div class="section-title">
-                                    <span class="subtitle bg-pink-opacity">Top Course</span>
+                                    <span class="subtitle bg-pink-opacity">POPÜLER</span>
                                     <h4 class="title"><strong class="color-primary"> {{ $data->ogretmen->name }}
                                             {{ $data->ogretmen->surname }} </strong> Diğer Kurslar</h4>
                                 </div>
@@ -443,10 +451,6 @@
                                             <a href="course-details.html">
                                                 <img src=" {{ $kurs->image != null ? url('/assets' . $kurs->image) : url('/assets/images/course/course-online-01.jpg') }} "
                                                     alt="{{ $kurs->title }}">
-                                                <div class="rbt-badge-3 bg-white">
-                                                    <span>40%</span>
-                                                    <span>İndirim</span>
-                                                </div>
                                             </a>
                                         </div>
                                         <div class="rbt-card-body">
@@ -488,8 +492,8 @@
                                             </div>
                                             <div class="rbt-card-bottom">
                                                 <div class="rbt-price">
-                                                    <span class="current-price"> {{ $kurs->price }} </span>
-                                                    <span class="off-price"> 3000 </span>
+                                                    <span class="current-price"> {{ $kurs->price }} TL <span
+                                                            style="font-size:15px">+KDV/SEANS</span></span>
                                                 </div>
                                                 <a class="rbt-btn-link"
                                                     href="{{ route('front.course.detail', $kurs->id) }}">Detay<i
@@ -517,8 +521,8 @@
                             <div class="content-item-content">
                                 <div class="rbt-price-wrapper d-flex flex-wrap align-items-center justify-content-between">
                                     <div class="rbt-price">
-                                        <span class="current-price"> {{ $data->price }} TL</span>
-                                        <span class="off-price">8400 TL</span>
+                                        <span class="current-price"> {{ $data->price }} TL <span
+                                                style="font-size:15px">+KDV/SEANS</span></span>
                                     </div>
                                     <div class="discount-time">
                                         <span class="rbt-badge color-danger bg-color-danger-opacity"><i
@@ -526,16 +530,22 @@
                                     </div>
                                 </div>
 
-                                    <div class="add-to-card-button mt--15">
-                                        <a class="rbt-btn btn-gradient icon-hover w-100 d-block text-center"
-                                            href="{{ route('kurs.sepet', $data->id) }}">
-                                            <span class="btn-text">Şimdi Katıl</span>
-                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                        </a>
-                                    </div>
+                                <div class="add-to-card-button mt--15">
+                                    <a class="rbt-btn btn-gradient icon-hover w-100 d-block text-center"
+                                        href="{{ route('kurs.sepet', ['id'=>$data->id,'back_url' => $back_url]) }}">
+                                        <span class="btn-text">Şimdi Katıl</span>
+                                        <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                    </a>
+                                </div>
 
+                                <?php
+                                    $yeni_kitle = [];
 
-                                
+                                if ($data->kitle_min != null) {
+                                    $yeni_kitle = explode(',',$data->kitle_min);
+                                }
+                                ?>
+
 
                                 <span class="subtitle"><i class="feather-rotate-ccw"></i>Seminer tarih ve kontenjanlar
                                     aşağıdadır.</span>
@@ -543,23 +553,46 @@
 
                                 <div class="rbt-widget-details has-show-more">
                                     <ul class="has-show-more-inner-content rbt-course-details-list-wrapper">
-                                        <li><span>Başlangıç Tarihi</span><span
-                                                class="rbt-feature-value rbt-badge-5">{{ $data->start }}</span>
-                                        </li>
-                                        <li><span>Bitiş Tarihi</span><span
-                                                class="rbt-feature-value rbt-badge-5">{{ $data->finish }}</span></li>
-                                        <li><span>MİN :</span><span
-                                                class="rbt-feature-value rbt-badge-5">{{ $data->min_person }} KİŞİ</span>
-                                            <span>MAKS :</span><span
-                                                class="rbt-feature-value rbt-badge-5">{{ $data->max_person }} KİŞİ
-                                        </li>
-                                        <li><span>Toplam Gün</span><span
-                                                class="rbt-feature-value rbt-badge-5">{{ $data->toplam_gun }} GÜN</span>
-                                        </li>
-                                        <li><span>Toplam Saat</span><span
-                                                class="rbt-feature-value rbt-badge-5">{{ $data->toplam_saat }} SAAT</span>
-                                        </li>
+                                        <div class="container">
+                                            <li><span>Başlangıç Tarihi</span><span
+                                                    class="rbt-feature-value rbt-badge-5">{{ $data->start }}</span>
+                                            </li>
+                                            <li><span>Bitiş Tarihi</span><span
+                                                    class="rbt-feature-value rbt-badge-5">{{ $data->finish }}</span></li>
+                                            <li><span>MİN :</span><span
+                                                    class="rbt-feature-value rbt-badge-5">{{ $data->min_person }}
+                                                    KİŞİ</span>
+                                                <span>MAKS :</span><span
+                                                    class="rbt-feature-value rbt-badge-5">{{ $data->max_person }} KİŞİ
+                                            </li>
 
+                                            <li><span>Gün: </span><span class="rbt-feature-value rbt-badge-5">
+                                                    {{ $data->toplam_gun }} GÜN </span>
+                                                <span>Seans: </span><span class="rbt-feature-value rbt-badge-5">
+                                                    {{ $data->toplam_saat }} SEANS </span>
+
+                                            </li>
+                                            <li><span>Kitle: </span><span class="rbt-feature-value rbt-badge-5">
+                                                    @foreach($yeni_kitle as $key => $value)
+                                                    @if($value == 0)
+                                                        İlkokul
+                                                    @endif
+                                                    @if($value == 1)
+                                                        Ortaokul
+                                                    @endif
+                                                    @if($value == 2)
+                                                        Lise
+                                                    @endif
+                                                    @if($value == 3)
+                                                        Üniversite
+                                                    @endif
+                                                    @if($value == 4)
+                                                        Yetişkin
+                                                    @endif
+                                                    @endforeach </span>
+
+                                            </li>
+                                        </div>
                                     </ul>
                                 </div>
 
@@ -608,10 +641,6 @@
                                             <img src="{{ $item->image == null ? url('/assets/images/course/course-online-01.jpg') : url('/assets' . $item->image) }}"
                                                 alt="Card image">
 
-                                            <div class="rbt-badge-3 bg-white">
-                                                <span>40%</span>
-                                                <span>İndirim</span>
-                                            </div>
                                         </a>
                                     </div>
                                     <div class="rbt-card-body">
@@ -653,8 +682,8 @@
                                         </div>
                                         <div class="rbt-card-bottom">
                                             <div class="rbt-price">
-                                                <span class="current-price"> {{ $item->price }} </span>
-                                                <span class="off-price"> 3000 </span>
+                                                <span class="current-price"> {{ $item->price }} TL <span
+                                                        style="font-size:15px">+KDV/SEANS</span></span>
                                             </div>
                                             <a class="rbt-btn-link"
                                                 href="{{ route('front.course.detail', $item->id) }}">Detay<i

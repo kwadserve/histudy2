@@ -15,7 +15,7 @@
                             <div class="rbt-new-badge rbt-new-badge-one">
                                 <span class="rbt-new-badge-icon">🏆</span> ONLİNE SEMİNER
                             </div>
-                            <h1 class="title">Türkiye'de <span class="color-primary">Online</span> Seminer Randevu
+                            <h1 class="title">Yüz Yüze & Online <span class="color-primary">Seminer Randevu</span> 
                                 Platformu</h1>
                             <p class="description">ArtElegans Academy ile seminerlere katılarak hayalindeki mesleğe bir adım at.
                             </p>
@@ -198,10 +198,6 @@
                                 <a href="{{ route('front.course.detail', $item->id) }}">
                                     <img src="{{ $item->image != null ? url('/assets' . $item->image) : url('/assets/images/course/classic-lms-01.jpg') }}"
                                         alt="Card image">
-                                    <div class="rbt-badge-3 bg-white">
-                                        <span>40%</span>
-                                        <span>İndirim</span>
-                                    </div>
                                 </a>
                             </div>
                             <div class="rbt-card-body">
@@ -305,7 +301,7 @@
                                             <h4 class="title">{{ $son->name }} {{ $son->surname }}</h4>
                                             <span class="designation theme-gradient"> {{ $son->job }} </span>
                                             <span class="team-form">
-                                                <span class="location"> {!! $son->description !!} </span>
+                                                <span class="location">  {!!substr($son->description,0,200) !!}... </span>
                                             </span>
                                         </div>
                                         <p> {{ $son->short_description }} </p>
@@ -370,7 +366,7 @@
                                             <h4 class="title">{{ $item->name }} {{ $item->surname }}</h4>
                                             <span class="designation theme-gradient"> {{ $item->job }} </span>
                                             <span class="team-form">
-                                                <span class="location"> {!! $item->description !!} </span>
+                                                <span class="location"> {!!substr($item->description,0,200) !!}... </span>
                                             </span>
                                         </div>
                                         <p> {{ $item->short_description }} </p>

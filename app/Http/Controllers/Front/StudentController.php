@@ -54,6 +54,8 @@ class StudentController extends Controller
             "password.required" => "Şifre boş bırakıldı",
         ]);
 
+        $back = url()->previous();
+        dd($back);
         if($valid){
             if(Auth::guard('ogrenci')->attempt(['email' => $request->email, 'password' => $request->password])){
                 return redirect()->route('front.home');

@@ -20,7 +20,7 @@ class Course extends Model
     }
 
     public function OgretmeninKurslari(){
-        $data = Course::where('teacher_id',$this->id)->latest()->take(2)->get();
+        $data = Course::where('teacher_id',$this->ogretmen->id)->latest()->take(2)->get();
         return $data;
     }
 
@@ -29,5 +29,7 @@ class Course extends Model
         $data = OgrenciKurs::where('kurs_id',$this->id)->where('ogr_id',$ogr_id)->get();
         return $data;
     }
+
+    
     
 }

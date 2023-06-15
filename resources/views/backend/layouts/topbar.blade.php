@@ -3,31 +3,8 @@
         <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-                <a href="index" class="logo logo-dark">
-                    <span class="logo-sm">
-                        <div style="margin-top:10%">
-                        <h4 style="font-family:Georgia, 'Times New Roman', Times, serif"> <span style="color:orange">A R</span> <span style="color:darkorange">T</span> <span style="color:purple">E L E</span> <span style="color:darkpurple">G A</span> <span style="color:darkblue">N S</span>  </h4>
-                        </div>
-                    </span>
-                    <span class="logo-lg">
-                        <div style="margin-top:10%">
-                        <h4 style="font-family:Georgia, 'Times New Roman', Times, serif"><span style="color:orange">A R</span> <span style="color:darkorange">T</span> <span style="color:purple">E L E</span> <span style="color:darkpurple">G A</span> <span style="color:darkblue">N S</span> </h4>
-                        </div>
-                    </span>
-                </a>
-
-                <a href="index" class="logo logo-light">
-                    <span class="logo-sm">
-                        <div style="margin-top:10%">
-                        <h4 style="font-family:Georgia, 'Times New Roman', Times, serif"><span style="color:orange">A R</span> <span style="color:darkorange">T</span> <span style="color:purple">E L E</span> <span style="color:darkpurple">G A</span> <span style="color:darkblue">N S</span> </h4>
-                        </div>
-                    </span>
-                    <span class="logo-lg">
-                        <div style="margin-top:10%">
-                        <h4 style="font-family:Georgia, 'Times New Roman', Times, serif"><span style="color:orange">A R</span> <span style="color:darkorange">T</span> <span style="color:purple">E L E</span> <span style="color:darkpurple">G A</span> <span style="color:darkblue">N S</span> </h4>
-                        </div>
-                    </span>
-                </a>
+                <img src="/assets/images/artelegans.png" style="width:90%"
+                alt="Education Logo Images">
             </div>
 
             <button type="button" class="btn btn-sm px-3 font-size-16 header-item" id="vertical-menu-btn">

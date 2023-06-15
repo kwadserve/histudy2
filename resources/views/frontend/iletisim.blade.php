@@ -20,7 +20,7 @@
                     </div>
                     <div class="inner">
                         <h4 class="title">Telefon Numarası</h4>
-                        <p><a href="tel:+905444669099">0 544 466 90 99</a></p>
+                        <p><a href="tel:+905444669099">0 535 345 80 81</a></p>
                     </div>
                 </div>
             </div>
