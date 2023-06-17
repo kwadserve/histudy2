@@ -34,11 +34,12 @@
                                         @foreach ($data as $item)
                                             <tr class="odd">
                                                 <td> {{ $item->kisi->name }} {{ $item->kisi->surname }}  </td>
-                                                <td> {{$item->kisi->}} </td>
-                                                <td> {{ $item->teacher_id }} </td>
-                                                <td> {{ $item->price }} </td>
+                                                <td> {{$item->kisi->email}} </td>
+                                                <td> {{ $item->kisi->phone }} </td>
+                                                <td> {{ $item->kisi->job }} </td>
+                                                <td> {{ $item->title }} </td>
                                                 <td>
-                                                    <a href=""><button class="btn btn-danger">Sil</button></a>
+                                                    <a href="#"><button class="btn btn-danger">Sil</button></a>
                                                 </td>
                                             </tr>
                                         @endforeach

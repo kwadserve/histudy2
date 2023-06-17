@@ -97,8 +97,18 @@
                                 <label for="">TOPLAM SAAT</label>
                                 <input type="number" class="form-control" name="toplam_gun" id="">
                             </div>
+                            <div class="col-md-2">
+                                <label for="">KİTLE</label>
+                                <select name="kitle" multiple class="form-control" id="">
+                                    <option value="0">OKUL ÖNCESİ</option>
+                                    <option value="1">İLKOKUL</option>
+                                    <option value="2">ORTAOKUL</option>
+                                    <option value="3">LİSE</option>
+                                    <option value="4">YETİŞKİN</option>
+                                </select>
+                            </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <label for="">KISA AÇIKLAMA</label>
                                 <textarea placeholder="Açıklama..." name="short_description" id="" class="form-control" cols="30" rows="2"></textarea>
                                 

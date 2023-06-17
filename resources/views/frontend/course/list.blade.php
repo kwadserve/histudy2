@@ -204,7 +204,7 @@
                                     <li><i class="feather-book"></i> {{$item->kategori->name}} </li>
                                 </ul>
 
-                                <p class="rbt-card-text"> {{$item->short_description}} </p>
+                                <p class="rbt-card-text"> {{substr($item->short_description,0,100)}}... </p>
                                 <div class="rbt-author-meta mb--10">
                                     <div class="rbt-avater">
                                         <a href="{{route('front.teacher.detail',$item->ogretmen->id)}}">
@@ -217,7 +217,7 @@
                                 </div>
                                 <div class="rbt-card-bottom">
                                     <div class="rbt-price">
-                                        <span class="current-price"> {{$item->price}} TL <span style="font-size:15px">+KDV/SEANS</span></span>
+                                        <span class="current-price"> {{$item->price}} TL <span style="font-size:15px">+ KDV / SEANS</span></span>
                                     </div>
                                     <a class="rbt-btn-link" href="{{route('front.course.detail',$item->id)}}">Detay<i class="feather-arrow-right"></i></a>
                                 </div>

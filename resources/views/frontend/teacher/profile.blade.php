@@ -38,7 +38,7 @@
                         </div>
                         <div class="rbt-tutor-information-right">
                             <div class="tutor-btn">
-                                <a class="rbt-btn btn-md hover-icon-reverse" href="{{route('front.teacher.course',$data->id)}}">
+                                <a class="rbt-btn btn-md hover-icon-reverse" href="{{route('front.teacher.detail',$data->id)}}">
                                     <span class="icon-reverse-wrapper">
                                     <span class="btn-text">Seminerleri Gör</span>
                                     <span class="btn-icon"><i class="feather-arrow-right"></i></span>
@@ -64,7 +64,7 @@
                                             <ul class="dashboard-mainmenu rbt-default-sidebar-list">
                                                 <li><a href="#"><i class="feather-user"></i><span>Profil</span></a></li>
                                                 <li><a href="#"><i class="feather-message-square"></i><span>Yorumlar</span></a></li>
-                                                <li><a href="{{route('front.teacher.course',$data->id)}}"><i class="feather-book-open"></i><span>Seminerler</span></a></li>
+                                                <li><a href="{{route('front.teacher.detail',$data->id)}}"><i class="feather-book-open"></i><span>Seminerler</span></a></li>
                                                 </ul>
                                         </nav>
 

@@ -31,7 +31,7 @@
                                         
                                     </div>
 
-                                    @dd($back_url)
+                                    <input type="hidden" name="url" value="{{$back_url}}" id="">
 
                                     <div class="row">
                                         <div class="col-md-12">

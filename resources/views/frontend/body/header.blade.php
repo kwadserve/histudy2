@@ -42,6 +42,19 @@
 
     @yield('css')
 </head>
+<style>
+    @media only screen and (max-width: 700px) {
+        #tel {
+            display: none;
+        }
+    }
+
+    @media only screen and (min-width: 700px) {
+        #mobb {
+            display: none;
+        }
+    }
+</style>
 
 
 
@@ -60,28 +73,35 @@
                     <div class="rbt-header-sec-col rbt-header-left">
                         <center>
                             <div class="row">
+                                <div class="col-2"></div>
 
 
-
-                                <div class="col-md-1"></div>
-
-                                <div class="col-md-1">
+                                <div class="col-1" id="mobb">
                                     <a href="tel:+905353458081">
-
-                                        <i class="fa-solid fa-phone"></i>
+                                        <i style="font-size:20px" class="fa-solid fa-phone"></i>
                                     </a>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <a href="tel:+905353458081">
-
-                                        <p>0535 345 80 81</p>
-                                    </a>
-
                                 </div>
 
+                                <div class="col-6" id="tel">
+                                    <a href="tel:+905353458081">
+                                        <div class="row">
+                                            <div class="col-1">
+                                                <i style="font-size:20px" class="fa-solid fa-phone"></i>
+                                            </div>
 
+                                            <div class="col-10">
+                                                <p>&nbsp;0535 345 80 81</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-1"></div>
 
+                                <div class="col-1">
+                                    <a href="https://www.instagram.com/artelegans_academy/">
+                                        <i style="font-size:25px; color:black" class="fa-brands fa-instagram"></i>
+                                    </a>
+                                </div>
                             </div>
                         </center>
                     </div>
@@ -101,42 +121,38 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row rbt-header-sec-col rbt-header-right">
 
-                    <div class="col-md-1"></div>
-                    @if (!Auth::guard('ogrenci')->check())
-                        <div>
-                            <a href="{{ route('front.register') }}">
-                                <p>Kayıt Ol</p>
-                            </a>
-                        </div>
-                        <div class="col-md-1">
-
-                        </div>
-                        <div>
-                            <a href="{{ route('front.login') }}">
-                                <p>Giriş Yap</p>
-                            </a>
-                        </div>
-                    @endif
-
-                    @if (Auth::guard('ogrenci')->check())
-                        <div class="row">
-                            <div class="col-md-11">
-                                {{ Auth::guard('ogrenci')->user()->name }} {{ Auth::guard('ogrenci')->user()->surname }}
-                            </div>
-                            <div class="col-md-1">
-                                <a href="{{ route('front.logout') }}">
-                                    <i class="fa-solid fa-right-from-bracket"></i>
+                        @if (!Auth::guard('ogrenci')->check())
+                            <div class="col-6">
+                                <a href="{{ route('front.register') }}">
+                                    <p>Kayıt Ol</p>
                                 </a>
                             </div>
 
+                            <div class="col-6">
+                                <a href="{{ route('front.login') }}">
+                                    <p>Giriş Yap</p>
+                                </a>
+                            </div>
+                        @endif
+
+                        @if (Auth::guard('ogrenci')->check())
+                            <div class="row">
+                                <div class="col-10">
+                                    {{ Auth::guard('ogrenci')->user()->name }}
+                                    {{ Auth::guard('ogrenci')->user()->surname }}
+                                </div>
+                                <div class="col-2">
+                                    <a href="{{ route('front.logout') }}">
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        @endif
 
 
-                        </div>
-                    @endif
-
-
-
+                    </div>
                 </div>
             </div>
         </div>
@@ -146,11 +162,11 @@
             class=" {{ !Route::is('front.course.detail') ? 'rbt-header-wrapper' : '' }}  header-not-transparent header-sticky">
             <div class="container">
                 <div class="mainbar-row rbt-navigation-end align-items-center">
-                    <div class="header-left rbt-header-content" >
-                        <div class="header-info" >
+                    <div class="header-left rbt-header-content">
+                        <div class="header-info">
                             <a href="{{ route('front.home') }}">
                                 <img src="/assets/images/artelegans.png" style="width:90%"
-                                 alt="Education Logo Images">
+                                    alt="Education Logo Images">
                             </a>
                         </div>
                     </div>
@@ -189,8 +205,10 @@
 
                                                             @foreach ($cat as $item)
                                                                 <li class="vertical-nav-item">
-                                                                    <a
-                                                                        href="#tab{{ $item->id }}">{{ $item->name }}</a>
+                                                                    <a href="#tab{{ $item->id }}">{{ $item->name }}
+                                                                        </>
+                                                                    </a>
+
                                                                 </li>
                                                             @endforeach
 
@@ -280,17 +298,11 @@
                             <div class="rbt-btn-wrapper d-none d-xl-block">
                                 <a class="rbt-btn rbt-switch-btn btn-gradient btn-sm hover-transform-none"
                                     href="{{ route('front.teacher.basvuru') }}">
-                                    <span>ÖĞRETMEN BAŞVURU</span>
+                                    <span data-text="BAŞVURU">ÖĞRETMEN </span>
                                 </a>
                             </div>
                             <!-- Start Mobile-Menu-Bar -->
-                            <div class="mobile-menu-bar d-block d-xl-none">
-                                <div class="hamberger">
-                                    <button class="hamberger-button rbt-round-btn">
-                                        <i class="feather-menu"></i>
-                                    </button>
-                                </div>
-                            </div>
+
                             <!-- Start Mobile-Menu-Bar -->
                         </div>
                     </div>
@@ -299,7 +311,7 @@
                             <div class="rbt-btn-wrapper d-none d-xl-block">
                                 <a class="rbt-btn rbt-switch-btn btn-gradient btn-sm hover-transform-none"
                                     href="{{ route('front.oner') }}">
-                                    <span>SEMİNER ÖNERİ</span>
+                                    <span data-text="ÖNERİ">SEMİNER</span>
                                 </a>
                             </div>
                             <!-- Start Mobile-Menu-Bar -->
@@ -436,15 +448,7 @@
                         <button class="close-button rbt-round-btn"><i class="feather-x"></i></button>
                     </div>
                 </div>
-                <p class="description">Histudy is a education website template. You can customize all.</p>
-                <ul class="navbar-top-left rbt-information-list justify-content-start">
-                    <li>
-                        <a href="mailto:hello@example.com"><i class="feather-mail"></i>example@gmail.com</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="feather-phone"></i>(302) 555-0107</a>
-                    </li>
-                </ul>
+                <p class="description">Yüz yüze & online seminer platformu</p>
             </div>
 
             <nav class="mainmenu-nav">

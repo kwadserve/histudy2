@@ -35,7 +35,7 @@ class CourseController extends Controller
 
     public function kurs_sepet($id)
     {
-        if (Auth::check()) {
+        if (Auth::guard('ogrenci')->check()) {
             $o_id = Auth::guard('ogrenci')->user()->id;
             $kisi = Ogrenci::where('id', $o_id)->get();
             $kurs = Course::where('id', $id)->get();

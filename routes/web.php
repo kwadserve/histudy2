@@ -8,8 +8,11 @@ use App\Http\Controllers\Front\StudentController;
 use App\Http\Controllers\Front\TeacherBasvuru;
 use App\Http\Controllers\Front\TeacherController as FrontTeacherController;
 use App\Http\Controllers\OdemeController;
+use App\Http\Controllers\Panel\AdminController;
+use App\Http\Controllers\Panel\BasvuruController;
 use App\Http\Controllers\Panel\CategoryController;
 use App\Http\Controllers\Panel\CourseController;
+use App\Http\Controllers\Panel\OgrenciController;
 use App\Http\Controllers\Panel\OneriController as PanelOneriController;
 use App\Http\Controllers\Panel\TeacherController;
 use Illuminate\Support\Facades\Route;
@@ -28,9 +31,7 @@ use Illuminate\Support\Facades\Route;
 // BACKEND (PANEL) ROUTE'LARI
 Route::prefix('panel/')->group(function(){
 
-    Route::get('anasayfa',function(){
-        return view('backend.home');
-    });
+    Route::get('anasayfa',[AdminController::class,'anasayfa'])->name('backend.home');
 
     // CATEGORY
     Route::prefix('kategori/')->group(function(){
@@ -44,6 +45,7 @@ Route::prefix('panel/')->group(function(){
         Route::get('ekle',[TeacherController::class,'add'])->name('panel.teacher.add');
         Route::post('store',[TeacherController::class,'store'])->name('panel.teacher.store');
         Route::get('listele',[TeacherController::class,'list'])->name('panel.teacher.list');
+        Route::get('basvuru/listesi',[BasvuruController::class,'list'])->name('panel.teacher.basvuru');
     });
 
     // COURSE 
@@ -51,7 +53,13 @@ Route::prefix('panel/')->group(function(){
         Route::get('ekle',[CourseController::class,'add'])->name('panel.course.add');
         Route::post('store',[CourseController::class,'store'])->name('panel.course.store');
         Route::get('listele',[CourseController::class,'list'])->name('panel.course.list');
+        Route::get('duzenle/{id?}',[CourseController::class,'edit'])->name('panel.course.edit');
         Route::get('aktiflik/{id?}',[CourseController::class,'aktiflik'])->name('panel.aktiflik');
+    });
+
+    Route::prefix('ogrenci/')->group(function(){
+        Route::get('listele',[OgrenciController::class,'list'])->name('panel.student.list');
+        Route::get('seminerleri/{id?}',[OgrenciController::class,'ogrenci_kurslari'])->name('panel.ogrenci.seminerler');
     });
 
 

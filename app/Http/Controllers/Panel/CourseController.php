@@ -42,6 +42,8 @@ class CourseController extends Controller
             "finish.required" => "Bitiş tarihi boş bırakılamaz."
         ]);
 
+        
+
         if ($valid) {
             if ($request->file('image') == null) {
 
@@ -121,4 +123,9 @@ class CourseController extends Controller
         Alert::success('Başarılı','Aktiflik değiştirildi');
         return back();
     }
+
+     public function edit($id){
+        $data = Course::where('id',$id)->get();
+        return view('backend.course.edit',compact('data'))
+     }
 }

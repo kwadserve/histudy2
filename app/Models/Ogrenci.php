@@ -11,4 +11,8 @@ class Ogrenci extends Authenticatable
 {
     use HasFactory, HasApiTokens;
     protected $guarded = [];
+
+    public function kurs_sayac(){
+        return OgrenciKurs::where('ogr_id',$this->id)->count();
+    }
 }

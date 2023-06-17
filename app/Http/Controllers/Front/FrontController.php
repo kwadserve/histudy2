@@ -32,8 +32,8 @@ class FrontController extends Controller
     }
 
     public function login(){
-        
-        return view('frontend.login');
+        $back_url = url()->previous();
+        return view('frontend.login',compact('back_url'));
     }
 
     public function register(){

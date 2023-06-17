@@ -13,9 +13,9 @@
                     <div class="content">
                         <div class="inner">
                             <div class="rbt-new-badge rbt-new-badge-one">
-                                <span class="rbt-new-badge-icon">🏆</span> ONLİNE SEMİNER
+                                <span class="rbt-new-badge-icon">🏆</span> Yüz Yüze & Online
                             </div>
-                            <h1 class="title">Yüz Yüze & Online <span class="color-primary">Seminer Randevu</span> 
+                            <h1 class="title"><span class="color-primary">Yüz Yüze & Online </span>  Seminer
                                 Platformu</h1>
                             <p class="description">ArtElegans Academy ile seminerlere katılarak hayalindeki mesleğe bir adım at.
                             </p>
@@ -67,7 +67,7 @@
                                                 </div>
                                                 <div class="rbt-card-bottom">
                                                     <div class="rbt-price">
-                                                        <span class="current-price">{{ $item->price }} TL <span style="font-size:15px">+KDV/SEANS</span></span>
+                                                        <span class="current-price">{{ $item->price }} TL <span style="font-size:15px">+ KDV / SEANS</span></span>
                                                     </div>
                                                     <a class="rbt-btn-link"
                                                         href="{{ route('front.course.detail', $item->id) }}"> Detay Gör <i
@@ -223,7 +223,7 @@
                                     <li><i class="feather-book"></i> {{ $item->kategori->name }} </li>
                                 </ul>
 
-                                <p class="rbt-card-text"> {{ $item->short_description }} </p>
+                                <p class="rbt-card-text"> {{ substr($item->short_description,0,100) }}... </p>
                                 <div class="rbt-author-meta mb--10">
                                     <div class="rbt-avater">
                                         <a href="{{ route('front.teacher.detail', $item->id) }}">
@@ -238,7 +238,7 @@
                                 </div>
                                 <div class="rbt-card-bottom">
                                     <div class="rbt-price">
-                                        <span class="current-price">{{ $item->price }} TL <span style="font-size:15px">+KDV/SEANS</span></span>
+                                        <span class="current-price">{{ $item->price }} TL <span style="font-size:15px">+ KDV / SEANS</span></span>
                                     </div>
                                     <a class="rbt-btn-link" href="{{ route('front.course.detail', $item->id) }}"> Detay
                                         <i class="feather-arrow-right"></i></a>
@@ -369,7 +369,7 @@
                                                 <span class="location"> {!!substr($item->description,0,200) !!}... </span>
                                             </span>
                                         </div>
-                                        <p> {{ $item->short_description }} </p>
+                                        <p> {{ substr($item->short_description,0,100) }}... </p>
                                         <ul class="social-icon social-default mt--20 justify-content-start">
 
                                             @if ($item->facebook != null)

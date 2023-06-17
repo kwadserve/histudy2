@@ -30,12 +30,12 @@ class AdminController extends Controller
 	
 	
 	public function anasayfa(){
-		$student = Ogrenci::latest()->get();
-		$teacher = Teacher::latest()->get();
-		$course = Course::latest()->get();
+		$ogrenciler = Ogrenci::latest()->get();
+		$ogretmenler = Teacher::latest()->get();
+		$kurslar = Course::latest()->get();
 		$kurs_sayac = Course::count();
 		$ogretmen_sayac = Teacher::count();
 		$ogrenci_sayac = Ogrenci::count();
-		return view('backend.home',compact('student','teacher','course','kurs_sayac','ogrenci_sayac','ogretmen_sayac'));
+		return view('backend.home',compact('ogrenciler','ogretmenler','kurslar','kurs_sayac','ogrenci_sayac','ogretmen_sayac'));
 	}
 }

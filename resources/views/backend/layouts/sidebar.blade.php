@@ -12,7 +12,6 @@
                 <li>
                     <a href="index">
                         <i data-feather="home"></i>
-                        <span class="badge rounded-pill bg-soft-success text-success float-end">9+</span>
                         <span data-key="t-dashboard">ANASAYFA</span>
                     </a>
                 </li>
@@ -46,11 +45,11 @@
                     <a href="javascript: void(0);" class="has-arrow">
                         <i data-feather="message-square"></i>
 
-                        <span data-key="t-ecommerce">KURSLAR</span>
+                        <span data-key="t-ecommerce">SEMİNER</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('panel.course.add')}}" key="t-products">KURS EKLE</a></li>
-                        <li><a href="{{route('panel.course.list')}}" data-key="t-product-detail">KURSLAR</a></li>
+                        <li><a href="{{route('panel.course.add')}}" key="t-products">SEMİNER EKLE</a></li>
+                        <li><a href="{{route('panel.course.list')}}" data-key="t-product-detail">SEMİNER LİSTESİ</a></li>
                     </ul>
                 </li>
 
@@ -60,15 +59,34 @@
                 <li>
                     <a href="{{route('panel.oneriler')}}">
                         <i data-feather="calendar"></i>
-                        <span data-key="t-calendar">ÖNERİLER</span>
+                        <span data-key="t-calendar">SEMİNER ÖNERİLERİ</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="javascript: void(0);" >
+                    <a href="{{route('panel.teacher.basvuru')}}" >
                         <i data-feather="users"></i>
-                        <span data-key="t-contacts">BAŞVURULAR</span>
+                        <span data-key="t-contacts">ÖĞR. BAŞVURULARI</span>
                     </a>
+                </li>
+
+                <li>
+                    <a href="{{route('panel.student.list')}}" >
+                        <i data-feather="users"></i>
+                        <span data-key="t-contacts">ÖĞRENCİLER</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i data-feather="mail"></i>
+                        <span data-key="t-email">BLOG</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('panel.teacher.add')}}" data-key="t-inbox">BLOG EKLE</a></li>
+                        <li><a href="{{route('panel.teacher.list')}}" data-key="t-read-email">BLOG LİSTESİ</a></li>
+                        <li><a href="{{route('panel.teacher.list')}}" data-key="t-read-email">BAŞVURULAR</a></li>
+                    </ul>
                 </li>
 
             <!--
