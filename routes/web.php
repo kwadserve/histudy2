@@ -108,6 +108,6 @@ Route::prefix('/')->group(function(){
 
     Route::post('odeme',[OdemeController::class,'odeme'])->name('front.course.odeme');
     Route::post('odemeyap',[OdemeController::class,'odemeyap'])->name('front.course.bildirim');
-    Route::get('basarili',[OdemeController::class,'basarili'])->name('front.course.basarili');
+    Route::get('basarili',[OdemeController::class,'bildirim'])->name('front.course.basarili');
     Route::get('hatali',[OdemeController::class,'hatali'])->name('front.course.hatali');
 });

@@ -128,8 +128,8 @@ class OdemeController extends Controller
 		####################### DÜZENLEMESİ ZORUNLU ALANLAR #######################
 		#
 		## API Entegrasyon Bilgileri - Mağaza paneline giriş yaparak BİLGİ sayfasından alabilirsiniz.
-		$merchant_key   = 'YYYYYYYYYYYYYY';
-		$merchant_salt  = 'ZZZZZZZZZZZZZZ';
+		$merchant_key   = 'P1qb8iuwEYzLamiB';
+		$merchant_salt  = 'aWoxi7YpSTR6MHo7';
 		###########################################################################
 
 		####### Bu kısımda herhangi bir değişiklik yapmanıza gerek yoktur. #######
@@ -200,4 +200,6 @@ class OdemeController extends Controller
 	{
 		dd($request);
 	}
+
+	public function 
 }
