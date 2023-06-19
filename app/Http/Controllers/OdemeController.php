@@ -57,7 +57,7 @@ class OdemeController extends Controller
 		$user_ip = $ip;
 		$timeout_limit = "5";	//zaman aşımı süresi 5dk
 		$debug_on = 1;	//hata gösterimi modu acık
-		$test_mode = 1;	//test modu için 1
+		$test_mode = 0;	//test modu için 1
 		$no_installment = 0; //taksit yok
 		$currency = "TL";
 

@@ -126,6 +126,6 @@ class CourseController extends Controller
 
      public function edit($id){
         $data = Course::where('id',$id)->get();
-        return view('backend.course.edit',compact('data'))
+        return view('backend.course.edit',compact('data'));
      }
 }
