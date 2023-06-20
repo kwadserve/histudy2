@@ -17,7 +17,7 @@ class AdminController extends Controller
 	
 	public function admin_login_post(Request $request){
 		if(Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])){
-			return redirect()->route('panel.home');
+			return redirect()->route('backend.home');
 		}else{
 			return back()->withErrors('Email veya şifre hatalı.');	
 		}
@@ -25,7 +25,7 @@ class AdminController extends Controller
 	
 	public function logout(){
 	Auth::guard('admin')->logout();	
-	return redirect()->route('panel.login');
+	return redirect()->route('panel.giris');
 	}
 	
 	

@@ -80,12 +80,12 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i data-feather="mail"></i>
-                        <span data-key="t-email">BLOG</span>
+                        <span data-key="t-blog">BLOG</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('panel.teacher.add')}}" data-key="t-inbox">BLOG EKLE</a></li>
-                        <li><a href="{{route('panel.teacher.list')}}" data-key="t-read-email">BLOG LİSTESİ</a></li>
-                        <li><a href="{{route('panel.teacher.list')}}" data-key="t-read-email">BAŞVURULAR</a></li>
+                        <li><a href="#" data-key="t-blog-add">BLOG EKLE</a></li>
+                        <li><a href="#" data-key="t-blog-list">BLOG LİSTESİ</a></li>
+                        <li><a href="#" data-key="t-blog-form">BAŞVURULAR</a></li>
                     </ul>
                 </li>
 

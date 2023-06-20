@@ -83,7 +83,7 @@
 		  confirmButtonText: 'Sil!'
 		}).then((result) => {
 		  if (result.isConfirmed) {
-			window.location.href="/panel/seminer/icerik/silindi/"+id;
+			window.location.href="/panel/seminer/icerik/sil/"+id;
 		  }
 		});
 	}

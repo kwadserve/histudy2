@@ -55,4 +55,47 @@ class CategoryController extends Controller
         return view('backend.category.list',compact('data'));
 
     }
+
+    public function edit($id){
+        $data = Category::where('id',$id)->get();
+        return view('backend.category.edit',compact('data'));
+    }
+
+    public function upgrade(Request $request){
+        $request->validate([
+            "name" => "required",
+            "description" => "required",
+        ],[
+            "name.required" => "Kategori ismi boş bırakılamaz.",
+            "description.required" => "Kategori açıklaması boş bırakılamaz.",
+        ]);
+
+        if($request->file('image') != null){
+            $image = $request->file('image');
+            $image_name = hexdec(uniqid()).".".$image->getClientOriginalExtension();
+            $save_url = "/images/uploads/category_images/".$image_name;
+            Image::make($image)->resize(550,300)->save('assets/images/uploads/category_images/'.$image_name);
+            $create = Category::where('id',$request->cat_id)->update([
+                "name" => $request->name,
+                "description" => $request->description,
+                "image" => $save_url
+            ]);
+        }
+        if($request->file('image') == null){
+            $create = Category::where('id',$request->cat_id)->update([
+                "name" => $request->name,
+                "description" => $request->description,
+            ]);
+        }
+        if($create){
+            Alert::success('Başarılı','Kategori ekleme işlemi başarılı.');
+            return redirect()->route('panel.category.list');
+        }
+    }
+
+    public function destroy($id){
+        Category::where('id',$id)->delete();
+        Alert::success('Başarılı','Silme işlemi başarılı.');
+        return back();
+    }
 }

@@ -3,8 +3,9 @@
 
 @section('content')
 
-    @if($errors->any())
-        @foreach($errors->all() as $message){
+    @if ($errors->any())
+        @foreach ($errors->all() as $message)
+            {
 
             <script>
                 swal("Hata", "{{ $message }}", 'error', {
@@ -12,11 +13,11 @@
                     button: "Tamam",
                 });
             </script>
-        }
+            }
         @endforeach
     @endif
 
-    <form action="{{route('panel.course.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('panel.course.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-12">
@@ -49,17 +50,15 @@
                                 <select name="teacher" class="form-select" id="">
                                     <option value="">Lütfen öğretmen seçin</option>
                                     @foreach ($teach as $item)
-
-                                        <option value="{{ $item->id }}">{{ $item->name }} {{ $item->surname }}</option>
-                                        
+                                        <option value="{{ $item->id }}">{{ $item->name }} {{ $item->surname }}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>
 
                             <div class="col-md-1">
                                 <label for="">FİYATI</label>
-                                <input type="number"  name="price" class="form-control"
-                                    id="">
+                                <input type="number" name="price" class="form-control" id="">
                             </div>
 
                             <div class="col-md-1">
@@ -74,11 +73,11 @@
                                 <label for="">FOTOĞRAF</label>
                                 <input type="file" class="form-control" name="image" id="">
                             </div>
-                            
+
                         </div>
                         <br><br>
 
-                        
+
 
                         <div class="row">
                             <div class="col-md-2">
@@ -98,8 +97,8 @@
                                 <input type="number" class="form-control" name="toplam_gun" id="">
                             </div>
                             <div class="col-md-2">
-                                <label for="">KİTLE</label>
-                                <select name="kitle" multiple class="form-control" id="">
+                                <label for="kitle">KİTLE</label>
+                                <select multiple name="kitle[]"  class="form-control" id="kitle" >
                                     <option value="0">OKUL ÖNCESİ</option>
                                     <option value="1">İLKOKUL</option>
                                     <option value="2">ORTAOKUL</option>
@@ -110,22 +109,23 @@
 
                             <div class="col-md-4">
                                 <label for="">KISA AÇIKLAMA</label>
-                                <textarea placeholder="Açıklama..." name="short_description" id="" class="form-control" cols="30" rows="2"></textarea>
-                                
+                                <textarea placeholder="Açıklama..." name="short_description" id="" class="form-control" cols="30"
+                                    rows="2"></textarea>
+
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="">UZUN AÇIKLAMA</label>
-                                <textarea name="long_description" placeholder="Açıklama..." id="long_description" class="ckeditor form-control" cols="30"
-                                    rows="2"></textarea>
+                                <textarea name="long_description" placeholder="Açıklama..." id="long_description" class="ckeditor form-control"
+                                    cols="30" rows="2"></textarea>
                             </div>
                         </div>
 
-                                
-                            
-                            
+
+
+
                         <br><br>
 
                         <hr>
@@ -136,14 +136,15 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label for="">İçerik Başlık</label>
-                                        <input type="text" placeholder="Başlık..." class="form-control" name="content_title[]"
-                                            id="">
+                                        <input type="text" placeholder="Başlık..." class="form-control"
+                                            name="content_title[]" id="">
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <label for="">İçerik Açıklama</label>
-                                    <textarea name="content_description[]" placeholder="Açıklama..." class="form-control" id="" rows="5"></textarea>
+                                    <textarea name="content_description[]" placeholder="Açıklama..." class="ckeditor form-control" id=""
+                                        rows="5"></textarea>
                                 </div>
                                 <br>
                                 <div class="buton">
@@ -160,7 +161,8 @@
             </div> <!-- end col -->
         </div>
         <div style="text-align: right">
-            <input type="submit" class="btn" style="background-color:gray; color:white;" name="" value="KAYDET">
+            <input type="submit" class="btn" style="background-color:gray; color:white;" name=""
+                value="KAYDET">
         </div>
     </form>
 
@@ -168,30 +170,37 @@
 @endsection
 
 @section('script-bottom')
-<script src="/ckeditor/ckeditor.js"></script>
+    <script src="/ckeditor/ckeditor.js"></script>
     <script>
         $(document).ready(function() {
+
             $(".add_item_buton").click(function(e) {
+                var degis = Math.floor(Math.random() * 1000);
                 e.preventDefault();
-                $("#show_item").prepend('<br><div class="show">\
-                                <div class="row">\
-                                    <div class="col-md-12">\
-                                        <label for="">İçerik Başlık</label>\
-                                        <input type="text" placeholder="Başlık..." class="form-control" name="content_title[]"\
-                                            id="">\
+                $("#show_item").prepend(
+                    '<br><div class="show">\
+                                    <div class="row">\
+                                        <div class="col-md-12">\
+                                            <label for="">İçerik Başlık</label>\
+                                            <input type="text" placeholder="Başlık..." class="form-control" name="content_title[]"\
+                                                id="">\
+                                        </div>\
                                     </div>\
-                                </div>\
-                                <br>\
-                                <div class="row">\
-                                    <label for="">İçerik Açıklama</label>\
-                                    <textarea name="content_description[]" placeholder="Açıklama..." class="form-control" id="" rows="5"></textarea>\
-                                </div>\
-                                <br>\
-                                <div class="buton">\
-                                    <button type="button" class="btn btn-danger delete_item_buton">-1 SATIR SİL</button>\
-                                </div>\
-                            </div><br><br>');
+                                    <br>\
+                                    <div class="row">\
+                                        <label for="">İçerik Açıklama</label>\
+                                        <textarea name="content_description[]" placeholder="Açıklama..." class="ckeditor form-control" id="e' +
+                    degis + '" rows="5"></textarea>\
+                                    </div>\
+                                    <br>\
+                                    <div class="buton">\
+                                        <button type="button" class="btn btn-danger delete_item_buton">-1 SATIR SİL</button>\
+                                    </div>\
+                                </div><br><br>');
+                                CKEDITOR.replace('e'+degis);
+
             });
+
 
             $(document).on('click', '.delete_item_buton', function(e) {
                 e.preventDefault();

@@ -31,12 +31,15 @@
 
                                         @foreach ($data as $item)
                                             <tr class="odd">
-                                                <td> <img style="width:100px" src="/assets{{$item->image}}" alt=""> </td>
+                                                <td> <img style="width:100px" src="/assets{{ $item->image }}"
+                                                        alt=""> </td>
                                                 <td> {{ $item->name }} </td>
                                                 <td> {{ $item->description }} </td>
                                                 <td>
-                                                    <a href=""><button class="btn btn-info">Düzenle</button></a>
-                                                    <a href=""><button class="btn btn-danger">Sil</button></a>
+                                                    <a href="{{ route('panel.category.edit', $item->id) }}"><button
+                                                            class="btn btn-info">Düzenle</button></a>
+                                                    <a><button onclick="silme({{ $item->id }})"
+                                                            class="btn btn-danger">Sil</button></a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -51,6 +54,24 @@
             </div>
         </div> <!-- end col -->
     </div>
-
-
+@endsection
+@section('script-bottom')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function silme(id) {
+            Swal.fire({
+                title: 'Emin misiniz?',
+                text: "Silmek istediğinize emin misiniz?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sil!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/panel/kategori/sil/" + id;
+                }
+            });
+        }
+    </script>
 @endsection

@@ -44,6 +44,10 @@ return [
             'driver' => 'session',
             'provider' => 'ogrenci',
         ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
     ],
 
     /*
@@ -71,6 +75,10 @@ return [
         'ogrenci' => [
             'driver' => 'eloquent',
             'model' => App\Models\Ogrenci::class,
+        ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
         ],
 
         // 'users' => [

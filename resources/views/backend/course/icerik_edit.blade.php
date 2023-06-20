@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title', 'Seminer Ekle')
+@section('title', 'İçerik Düzenle')
 
 @section('content')
 
@@ -27,7 +27,7 @@
                     </div>
                     <div class="card-body p-4">
 						@foreach($data as $item)
-						<input type="hidden" value="{{$item->id}}" name="gelen_id">
+						<input type="hidden" value="{{$item->id}}" name="content_id">
 						<input type="hidden" value="{{$item->course_id}}" name="kurs_id">
 
                         <div id="show_item">

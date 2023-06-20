@@ -18,7 +18,7 @@
                                     @endforeach
                                 @endif
 
-                                <form action="{{route('panel.login.post')}}" method="POST" class="max-width-auto">
+                                <form action="{{route('panel.giris.post')}}" method="POST" class="max-width-auto">
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-12">

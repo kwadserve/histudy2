@@ -53,7 +53,8 @@
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <a href=""><button class="btn btn-info">Düzenle</button></a>
+                                                    <a href="{{route('panel.icerik.liste',$item->id)}}"><button class="btn btn-success">İçerik</button></a>
+                                                    <a href="{{route('panel.course.edit',$item->id)}}"><button class="btn btn-info">Düzenle</button></a>
                                                     <a href=""><button class="btn btn-danger">Sil</button></a>
                                                 </td>
                                             </tr>

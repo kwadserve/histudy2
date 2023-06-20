@@ -31,13 +31,21 @@ use Illuminate\Support\Facades\Route;
 // BACKEND (PANEL) ROUTE'LARI
 Route::prefix('panel/')->group(function () {
 
-    Route::get('anasayfa', [AdminController::class, 'anasayfa'])->name('backend.home');
+    Route::get('anasayfa', [AdminController::class, 'anasayfa'])->middleware('admin')->name('backend.home');
+    Route::get('giris', [AdminController::class, 'admin_login'])->name('panel.giris');
+    Route::post('giris/yap', [AdminController::class, 'admin_login_post'])->name('panel.giris.post');
+    Route::get('cikis/yap', [AdminController::class, 'logout'])->name('panel.logout');
 
     // CATEGORY
     Route::prefix('kategori/')->group(function () {
         Route::get('ekle', [CategoryController::class, 'add'])->name('panel.category.add');
         Route::post('store', [CategoryController::class, 'store'])->name('panel.category.store');
         Route::get('listele', [CategoryController::class, 'list'])->name('panel.category.list');
+        Route::get('duzenle/{id?}', [CategoryController::class, 'edit'])->name('panel.category.edit');
+        Route::post('duzenle', [CategoryController::class, 'upgrade'])->name('panel.category.uggrade');
+        Route::get('sil/{id?}', [CategoryController::class, 'destroy'])->name('panel.category.destroy');
+        
+        
     });
 
     // TEACHER
@@ -45,6 +53,9 @@ Route::prefix('panel/')->group(function () {
         Route::get('ekle', [TeacherController::class, 'add'])->name('panel.teacher.add');
         Route::post('store', [TeacherController::class, 'store'])->name('panel.teacher.store');
         Route::get('listele', [TeacherController::class, 'list'])->name('panel.teacher.list');
+        Route::get('duzenle/{id?}', [TeacherController::class, 'edit'])->name('panel.teacher.edit');
+        Route::post('guncelle', [TeacherController::class, 'upgrade'])->name('panel.teacher.upgrade');
+        Route::get('sil/{id?}', [TeacherController::class, 'destroy'])->name('panel.teacher.sil');
         Route::get('basvuru/listesi', [BasvuruController::class, 'list'])->name('panel.teacher.basvuru');
     });
 
@@ -54,7 +65,14 @@ Route::prefix('panel/')->group(function () {
         Route::post('store', [CourseController::class, 'store'])->name('panel.course.store');
         Route::get('listele', [CourseController::class, 'list'])->name('panel.course.list');
         Route::get('duzenle/{id?}', [CourseController::class, 'edit'])->name('panel.course.edit');
+        Route::post('guncelle/{id?}', [CourseController::class, 'upgrade'])->name('panel.course.upgrade');
         Route::get('aktiflik/{id?}', [CourseController::class, 'aktiflik'])->name('panel.aktiflik');
+        Route::get('icerik/listele/{id?}', [CourseController::class, 'icerikler'])->name('panel.icerik.liste');
+        Route::get('icerik/ekle/{id?}', [CourseController::class, 'icerik_ekle'])->name('panel.course.edit_icerik_ekle');
+        Route::post('icerik/ekle/{id?}', [CourseController::class, 'icerik_store'])->name('panel.course.edit_icerik_store');
+        Route::get('icerik/duzenle/{id?}', [CourseController::class, 'icerik_edit'])->name('panel.course.icerik_edit');
+        Route::post('icerik/update', [CourseController::class, 'icerik_update'])->name('panel.course.icerik_update');
+        Route::get('icerik/sil/{id?}', [CourseController::class, 'icerik_destroy'])->name('panel.course.icerik_destroy');
     });
 
     Route::prefix('ogrenci/')->group(function () {

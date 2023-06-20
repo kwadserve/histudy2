@@ -24,8 +24,6 @@
                                             <th>Seminer Başlığı</th>
                                             <th>Seminer Hocası</th>
                                             <th>Katılma Tarihi</th>
-                                            <th>Ödeme Durumu</th>
-                                            <th>İşlem</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -34,11 +32,7 @@
                                             <tr class="odd">
                                                 <td> {{ $item->title }} </td>
                                                 <td> {{ $item->ogretmen->name }} {{ $item->ogretmen->surname }} </td>
-                                                <td>  </td>
-                                                <td>  </td>
-                                                <td>
-                                                    <a href=""><button class="btn btn-danger">Sil</button></a>
-                                                </td>
+                                                <td> </td>
                                             </tr>
                                         @endforeach
 
