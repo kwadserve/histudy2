@@ -110,7 +110,6 @@
                                         name="toplam_gun" id="">
                                 </div>
 
-                                
 
 
                                 <div class="col-md-2">

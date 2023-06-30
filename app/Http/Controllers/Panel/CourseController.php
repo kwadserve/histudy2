@@ -41,9 +41,11 @@ class CourseController extends Controller
             "start.required" => "Başlangıç tarihi boş bırakılamaz.",
             "finish.required" => "Bitiş tarihi boş bırakılamaz."
         ]);
-        $liste = implode(',', $request->kitle);
 
 
+        if (isset($request->kitle)) {
+            $liste = implode(',', $request->kitle);
+        }
 
         if ($valid) {
             if ($request->file('image') == null) {
@@ -157,6 +159,7 @@ class CourseController extends Controller
             "start.required" => "Başlangıç tarihi boş bırakılamaz.",
             "finish.required" => "Bitiş tarihi boş bırakılamaz."
         ]);
+
         $liste = implode(',', $request->kitle);
         if ($request->file('image') == null) {
             $create = Course::where('id', $id)->update([
@@ -261,9 +264,18 @@ class CourseController extends Controller
         return redirect()->route('panel.icerik.liste', $id);
     }
 
-    public function icerik_destroy($id){
-        CourseContent::where('id',$id)->delete();
-        Alert::success('Başarılı','İçerik silme işlemi başarılı.');
+    public function icerik_destroy($id)
+    {
+        CourseContent::where('id', $id)->delete();
+        Alert::success('Başarılı', 'İçerik silme işlemi başarılı.');
+        return back();
+    }
+
+    public function destroy($id)
+    {
+        CourseContent::where('course_id', $id)->delete();
+        Course::where('id', $id)->delete();
+        Alert::success('Seminer Silindi');
         return back();
     }
 }

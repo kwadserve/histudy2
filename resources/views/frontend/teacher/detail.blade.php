@@ -235,7 +235,7 @@
                                                             <div class="rbt-card-top">
                                                                 
                                                             </div>
-                                                            <h4 class="rbt-card-title"><a href="course-details.html">{{$item->title}}</a>
+                                                            <h4 class="rbt-card-title"><a href="{{route('front.course.detail',$item->id)}}">{{$item->title}}</a>
                                                             </h4>
                                                             <ul class="rbt-meta">
                                                                 <li><i class="feather-book"></i>{{$item->kategori->name}}</li>

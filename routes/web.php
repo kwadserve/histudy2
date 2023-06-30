@@ -65,6 +65,7 @@ Route::prefix('panel/')->group(function () {
         Route::post('store', [CourseController::class, 'store'])->name('panel.course.store');
         Route::get('listele', [CourseController::class, 'list'])->name('panel.course.list');
         Route::get('duzenle/{id?}', [CourseController::class, 'edit'])->name('panel.course.edit');
+        Route::get('sil/{id?}', [CourseController::class, 'destroy'])->name('panel.kurs.sil');
         Route::post('guncelle/{id?}', [CourseController::class, 'upgrade'])->name('panel.course.upgrade');
         Route::get('aktiflik/{id?}', [CourseController::class, 'aktiflik'])->name('panel.aktiflik');
         Route::get('icerik/listele/{id?}', [CourseController::class, 'icerikler'])->name('panel.icerik.liste');

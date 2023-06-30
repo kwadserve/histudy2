@@ -97,7 +97,7 @@
                                 <input type="number" class="form-control" name="toplam_gun" id="">
                             </div>
                             <div class="col-md-2">
-                                <label for="kitle">KİTLE</label>
+                                <label for="kitle">KİTLE <span style="color:red" title="ZORUNLU">*</span></label>
                                 <select multiple name="kitle[]"  class="form-control" id="kitle" >
                                     <option value="0">OKUL ÖNCESİ</option>
                                     <option value="1">İLKOKUL</option>

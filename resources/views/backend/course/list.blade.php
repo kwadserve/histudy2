@@ -55,7 +55,7 @@
                                                 <td>
                                                     <a href="{{route('panel.icerik.liste',$item->id)}}"><button class="btn btn-success">İçerik</button></a>
                                                     <a href="{{route('panel.course.edit',$item->id)}}"><button class="btn btn-info">Düzenle</button></a>
-                                                    <a href=""><button class="btn btn-danger">Sil</button></a>
+                                                    <a onclick="kurs_sil({{$item->id}})"><button class="btn btn-danger">Sil</button></a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -85,6 +85,22 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = "{{route('panel.aktiflik')}}/"+id;
+                }
+            })
+        }
+
+        function kurs_sil(id) {
+            Swal.fire({
+                title: 'Silinsin mi?',
+                text: "Semineri silmek istediğinize emin misiniz?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sil!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "{{route('panel.kurs.sil')}}/"+id;
                 }
             })
         }

@@ -51,9 +51,15 @@ class StudentController extends Controller
         $valid = $request->validate([
             'email' => 'required',
             'password' => 'required',
+            'g-recaptcha-response' => 'required|captcha'
+
         ], [
             "email.required" => "Email boş bırakıldı",
             "password.required" => "Şifre boş bırakıldı",
+            'g-recaptcha-response' => [
+                'required' => 'Lütfen robot olmadığınızı doğrulayın.',
+                'captcha' => 'CAPTCHA hatası! daha sonra tekrar deneyin veya site yöneticisi ile iletişime geçin.',
+            ]
         ]);
 
         $data = explode('/', $request->url);
@@ -61,7 +67,7 @@ class StudentController extends Controller
         if ($valid) {
             if (Auth::guard('ogrenci')->attempt(['email' => $request->email, 'password' => $request->password])) {
                 if ($data[3] == "seminer" && $data[4] == "detay") {
-                    return redirect()->route('kurs.sepet',$data[5]);
+                    return redirect()->route('kurs.sepet', $data[5]);
                 } else {
                     return redirect($request->url);
                 }

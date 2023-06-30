@@ -44,7 +44,12 @@
 
                                     
 
-                                    
+                                    <center>
+
+                                        {!! NoCaptcha::renderJs() !!}
+                                        {!! NoCaptcha::display() !!}
+
+                                    </center><br>
 
                                     
 
