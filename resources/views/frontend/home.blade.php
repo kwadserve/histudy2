@@ -232,7 +232,7 @@
                                         </a>
                                     </div>
                                     <div class="rbt-author-info">
-                                        <a href="{{ route('front.teacher.detail', $item->id) }}">
+                                        <a href="{{ route('front.teacher.detail', $item->ogretmen->id) }}">
                                             {{ $item->ogretmen->name }} {{ $item->ogretmen->surname }} </a>
                                     </div>
                                 </div>
