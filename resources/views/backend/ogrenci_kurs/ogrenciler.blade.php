@@ -41,7 +41,6 @@
 														<button class="btn btn-primary">
 														Seminerler
 														</button></a>
-                                                    <a href=""><button class="btn btn-info">Düzenle</button></a>
                                                     <a href=""><button class="btn btn-danger">Sil</button></a>
                                                 </td>
                                             </tr>

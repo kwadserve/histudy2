@@ -25,7 +25,7 @@
                         <li><a href="{{route('front.gizlilik')}}">GİZLİLİK SÖZLEŞMESİ</a></li>
                         <li><a href="{{route('front.kullanim')}}">KULLANIM KOŞULLARI</a></li>
                         <li><a href="{{route('front.mesafeli')}}">MESAFELİ SATIŞ SÖZLEŞMESİ</a></li>
-                        <li><a href="#">BLOG</a></li>
+                        <li><a href="{{route('front.blog')}}">BLOG</a></li>
                         <li><a href="login.html">İLETİŞİM</a></li>
                     </ul>
                 </div>

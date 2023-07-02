@@ -24,13 +24,13 @@
 
                         <div class="rbt-author-meta mb--20">
                             <div class="rbt-avater">
-                                <a href="{{ route('front.teacher.detail', $data->ogretmen->id) }}">
+                                <a href="{{ route('front.teacher.detail', [$data->ogretmen->id,hocaLink($data->ogretmen->id)]) }}">
                                     <img src=" {{ $data->ogretmen->photo == null ? url('/assets/images/icons/card-icon-1.png') : url('/assets' . $data->ogretmen->photo) }} "
                                         alt="{{ $data->ogretmen->name }}">
                                 </a>
                             </div>
                             <div class="rbt-author-info">
-                                <a href="{{ route('front.teacher.detail', $data->ogretmen->id) }}"> {{ $data->ogretmen->name }} {{ $data->ogretmen->surname }} </a>
+                                <a href="{{ route('front.teacher.detail', [$data->ogretmen->id,hocaLink($data->ogretmen->id)]) }}"> {{ $data->ogretmen->name }} {{ $data->ogretmen->surname }} </a>
                             </div>
 
                         </div>
@@ -71,9 +71,7 @@
                                     <li>
                                         <a href="#intructor">Öğretmen</a>
                                     </li>
-                                    <li>
-                                        <a href="#review">Yorumlar</a>
-                                    </li>
+                                    
                                 </ul>
                             </nav>
                         </div>
@@ -152,7 +150,7 @@
                                 </div>
                                 <div class="media align-items-center">
                                     <div class="thumbnail">
-                                        <a href="{{ route('front.teacher.detail', $data->ogretmen->id) }}">
+                                        <a href="{{ route('front.teacher.detail', [$data->ogretmen->id,hocaLink($data->ogretmen->id)]) }}">
                                             <img src="{{ $data->ogretmen->photo == null ? url('/assets/images/testimonial/testimonial-7.jpg') : url('/assets' . $data->ogretmen->photo) }}  "
                                                 alt="Author Images">
                                         </a>
@@ -160,12 +158,12 @@
                                     <div class="media-body">
                                         <div class="author-info">
                                             <h5 class="title">
-                                                <a class="hover-flip-item-wrapper" href="{{ route('front.teacher.detail', $data->ogretmen->id) }}">
+                                                <a class="hover-flip-item-wrapper" href="{{ route('front.teacher.detail', [$data->ogretmen->id,hocaLink($data->ogretmen->id)]) }}">
                                                     {{ $data->ogretmen->name }} {{ $data->ogretmen->surname }}</a>
                                             </h5>
                                             <span class="b3 subtitle"> {{ $data->ogretmen->job }} </span>
                                             <ul class="rbt-meta mb--20 mt--10">
-                                                <li><a href="{{ route('front.teacher.course', $data->ogretmen->id) }}"><i
+                                                <li><a href="{{ route('front.teacher.course', [$data->ogretmen->id,hocaLink($data->ogretmen->id)]) }}"><i
                                                             class="feather-video"></i>
                                                         {{ $data->ogretmen->course_count() }} Seminer </a></li>
                                             </ul>
@@ -210,217 +208,7 @@
                         </div>
                         <!-- End Intructor Area  -->
 
-                        <div class="about-author-list rbt-shadow-box featured-wrapper mt--30 has-show-more"
-                            id="review">
-                            <div class="section-title">
-                                <h4 class="rbt-title-style-3">YORUMLAR</h4>
-                            </div>
-                            <div class="has-show-more-inner-content rbt-featured-review-list-wrapper">
-                                <div class="rbt-course-review about-author">
-                                    <div class="media">
-                                        <div class="thumbnail">
-                                            <a href="#">
-                                                <img src="/assets/images/testimonial/testimonial-3.jpg"
-                                                    alt="Author Images">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="author-info">
-                                                <h5 class="title">
-                                                    <a class="hover-flip-item-wrapper" href="#">
-                                                        Farjana Bawnia
-                                                    </a>
-                                                </h5>
-                                                <div class="rating">
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="content">
-                                                <p class="description">At 29 years old, my favorite compliment is being
-                                                    told that I look like my mom. Seeing myself in her image, like this
-                                                    daughter up top.</p>
-                                                <ul
-                                                    class="social-icon social-default transparent-with-border justify-content-start">
-                                                    <li><a href="#">
-                                                            <i class="feather-thumbs-up"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li><a href="#">
-                                                            <i class="feather-thumbs-down"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="rbt-course-review about-author">
-                                    <div class="media">
-                                        <div class="thumbnail">
-                                            <a href="#">
-                                                <img src="/assets/images/testimonial/testimonial-4.jpg"
-                                                    alt="Author Images">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="author-info">
-                                                <h5 class="title">
-                                                    <a class="hover-flip-item-wrapper" href="#">Razwan Islam</a>
-                                                </h5>
-                                                <div class="rating">
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="content">
-                                                <p class="description">My favorite compliment is being
-                                                    told that I look like my mom. Seeing myself in her image, like this
-                                                    daughter up top.</p>
-                                                <ul
-                                                    class="social-icon social-default transparent-with-border justify-content-start">
-                                                    <li><a href="#">
-                                                            <i class="feather-thumbs-up"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li><a href="#">
-                                                            <i class="feather-thumbs-down"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="rbt-course-review about-author">
-                                    <div class="media">
-                                        <div class="thumbnail">
-                                            <a href="#">
-                                                <img src="/assets/images/testimonial/testimonial-1.jpg"
-                                                    alt="Author Images">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="author-info">
-                                                <h5 class="title">
-                                                    <a class="hover-flip-item-wrapper" href="#">Babor Azom</a>
-                                                </h5>
-                                                <div class="rating">
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="content">
-                                                <p class="description">My favorite compliment is being
-                                                    told that I look like my mom. Seeing myself in her image, like this
-                                                    daughter up top.</p>
-                                                <ul
-                                                    class="social-icon social-default transparent-with-border justify-content-start">
-                                                    <li><a href="#">
-                                                            <i class="feather-thumbs-up"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li><a href="#">
-                                                            <i class="feather-thumbs-down"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="rbt-course-review about-author">
-                                    <div class="media">
-                                        <div class="thumbnail">
-                                            <a href="#">
-                                                <img src="/assets/images/testimonial/testimonial-6.jpg"
-                                                    alt="Author Images">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="author-info">
-                                                <h5 class="title">
-                                                    <a class="hover-flip-item-wrapper" href="#">Mohammad Ali</a>
-                                                </h5>
-                                                <div class="rating">
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="content">
-                                                <p class="description">My favorite compliment is being
-                                                    told that I look like my mom. Seeing myself in her image, like this
-                                                    daughter up top.</p>
-                                                <ul
-                                                    class="social-icon social-default transparent-with-border justify-content-start">
-                                                    <li><a href="#">
-                                                            <i class="feather-thumbs-up"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li><a href="#">
-                                                            <i class="feather-thumbs-down"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="rbt-course-review about-author">
-                                    <div class="media">
-                                        <div class="thumbnail">
-                                            <a href="#">
-                                                <img src="/assets/images/testimonial/testimonial-8.jpg"
-                                                    alt="Author Images">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="author-info">
-                                                <h5 class="title">
-                                                    <a class="hover-flip-item-wrapper" href="#">Sakib Al Hasan</a>
-                                                </h5>
-                                                <div class="rating">
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="content">
-                                                <p class="description">My favorite compliment is being
-                                                    told that I look like my mom. Seeing myself in her image, like this
-                                                    daughter up top.</p>
-                                                <ul
-                                                    class="social-icon social-default transparent-with-border justify-content-start">
-                                                    <li><a href="#">
-                                                            <i class="feather-thumbs-up"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li><a href="#">
-                                                            <i class="feather-thumbs-down"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="rbt-show-more-btn">Daha fazla göster</div>
-                        </div>
+                      
                     </div>
                     <div class="related-course mt--60">
                         <div class="row g-5 align-items-end mb--40">
@@ -448,7 +236,7 @@
                                     data-sal-duration="800">
                                     <div class="rbt-card variation-01 rbt-hover">
                                         <div class="rbt-card-img">
-                                            <a href="course-details.html">
+                                            <a href="{{route('front.course.detail',[$kurs->ogretmen->id,hocaLink($kurs->ogretmen->id)])}}">
                                                 <img src=" {{ $kurs->image != null ? url('/assets' . $kurs->image) : url('/assets/images/course/course-online-01.jpg') }} "
                                                     alt="{{ $kurs->title }}">
                                             </a>
@@ -468,7 +256,7 @@
                                             </div>
 
                                             <h4 class="rbt-card-title"><a
-                                                    href="{{ route('front.course.detail', $kurs->id) }}">{{ $kurs->title }}</a>
+                                                    href="{{ route('front.course.detail', [$kurs->id,seminerLink($kurs->id)]) }}">{{ $kurs->title }}</a>
                                             </h4>
 
                                             <ul class="rbt-meta">
@@ -478,14 +266,14 @@
                                             <p class="rbt-card-text"> {{ $kurs->short_description }} </p>
                                             <div class="rbt-author-meta mb--10">
                                                 <div class="rbt-avater">
-                                                    <a href="#">
-                                                        <img src="{{ $kurs->ogretmen->photo != null ? url('/assets/images/client/avatar-02.png') : url('/assets' . $item->ogretmen->photo) }}"
+                                                    <a href="{{route('front.teacher.detail',[$kurs->ogretmen->id,hocaLink($kurs->ogretmen->id)])}}">
+                                                        <img src="{{ $kurs->ogretmen->photo != null ? url('/assets/images/client/avatar-02.png') : url('/assets' . $kurs->ogretmen->photo) }}"
                                                             alt="{{ $kurs->ogretmen->name }}">
 
                                                     </a>
                                                 </div>
                                                 <div class="rbt-author-info">
-                                                    <a href="profile.html"> {{ $kurs->ogretmen->name }}
+                                                    <a href="{{route('front.teacher.detail',[$kurs->ogretmen->id,hocaLink($kurs->ogretmen->id)])}}"> {{ $kurs->ogretmen->name }}
                                                         {{ $kurs->ogretmen->surname }} </a>
 
                                                 </div>
@@ -496,7 +284,7 @@
                                                             style="font-size:15px">+KDV/SEANS</span></span>
                                                 </div>
                                                 <a class="rbt-btn-link"
-                                                    href="{{ route('front.course.detail', $kurs->id) }}">Detay<i
+                                                    href="{{ route('front.course.detail', [$kurs->id,seminerLink($kurs->id)]) }}">Detay<i
                                                         class="feather-arrow-right"></i></a>
                                             </div>
                                         </div>
@@ -636,7 +424,7 @@
                                 data-sal="slide-up" data-sal-duration="800">
                                 <div class="rbt-card variation-01 rbt-hover">
                                     <div class="rbt-card-img">
-                                        <a href="{{ route('front.course.detail', $item->id) }}">
+                                        <a href="{{ route('front.course.detail', [$item->id,seminerLink($item->id)]) }}">
 
                                             <img src="{{ $item->image == null ? url('/assets/images/course/course-online-01.jpg') : url('/assets' . $item->image) }}"
                                                 alt="Card image">
@@ -658,7 +446,7 @@
                                         </div>
 
                                         <h4 class="rbt-card-title"><a
-                                                href="{{ route('front.course.detail', $item->id) }}"> {{ $item->title }}
+                                                href="{{ route('front.course.detail', [$item->id,seminerLink($item->id)]) }}"> {{ $item->title }}
                                             </a>
                                         </h4>
 
@@ -670,13 +458,13 @@
 
                                         <div class="rbt-author-meta mb--10">
                                             <div class="rbt-avater">
-                                                <a href="#">
+                                                <a href="{{route('front.teacher.detail',[$item->ogretmen->id,hocaLink($item->ogretmen->id)])}}">
                                                     <img src="{{ '/assets' . $item->ogretmen->photo }}"
                                                         alt="Sophia Jaymes">
                                                 </a>
                                             </div>
                                             <div class="rbt-author-info">
-                                                <a href="{{ route('front.teacher.detail', $item->id) }}">
+                                                <a href="{{ route('front.teacher.detail', [$item->ogretmen->id,hocaLink($item->ogretmen->id)]) }}">
                                                     {{ $item->ogretmen->name }} {{ $item->ogretmen->surname }} </a>
                                             </div>
                                         </div>
@@ -686,7 +474,7 @@
                                                         style="font-size:15px">+KDV/SEANS</span></span>
                                             </div>
                                             <a class="rbt-btn-link"
-                                                href="{{ route('front.course.detail', $item->id) }}">Detay<i
+                                                href="{{ route('front.course.detail', [$item->id,seminerLink($item->id)]) }}">Detay<i
                                                     class="feather-arrow-right"></i></a>
                                         </div>
                                     </div>

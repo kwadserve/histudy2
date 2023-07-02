@@ -39,7 +39,7 @@
                                                 <td>
 													<a href="{{route('panel.blog.comments',$item->id)}}">
 														<button class="btn btn-success">Yorumlar</button></a>
-                                                    <a href="{{route('panel.teacher.edit',$item->id)}}">
+                                                    <a href="{{route('panel.blog.edit',$item->id)}}">
 														<button class="btn btn-info">Düzenle</button></a>
                                                     <a><button onclick="sil_kurs({{$item->id}})" class="btn btn-danger">Sil</button></a>
                                                 </td>

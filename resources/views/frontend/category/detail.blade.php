@@ -76,7 +76,7 @@
                     <div class="course-grid-3">
                         <div class="rbt-card variation-01 rbt-hover">
                             <div class="rbt-card-img">
-                                <a href="{{route('front.course.detail',$item->id)}}">
+                                <a href="{{route('front.course.detail',[$item->id,seminerLink($item->id)])}}">
                                     <img src="{{($item->image ==  null) ? url("assets/images/course/course-online-01.jpg") : url("assets".$item->image)}}" alt="{{$item->name}}">
                                 </a>
                             </div>
@@ -94,7 +94,7 @@
                                     
                                 </div>
 
-                                <h4 class="rbt-card-title"><a href="{{route('front.course.detail',$item->id)}}"> {{$item->title}} </a>
+                                <h4 class="rbt-card-title"><a href="{{route('front.course.detail',[$item->id,seminerLink($item->id)])}}"> {{$item->title}} </a>
                                 </h4>
 
                                 <ul class="rbt-meta">
@@ -104,19 +104,19 @@
                                 <p class="rbt-card-text"> {{$item->short_description}} </p>
                                 <div class="rbt-author-meta mb--10">
                                     <div class="rbt-avater">
-                                        <a href="#">
+                                        <a href="{{route("front.teacher.profile",[$item->ogretmen->id,ogretmenLink($item->ogretmen->id)])}}">
                                             <img src="{{"/assets".$item->ogretmen->photo}}" alt="Sophia Jaymes">
                                         </a>
                                     </div>
                                     <div class="rbt-author-info">
-                                        <a href="{{route("front.teacher.profile",$item->ogretmen->id)}}"> {{$item->ogretmen->name}} {{$item->ogretmen->surname}} </a>
+                                        <a href="{{route("front.teacher.profile",[$item->ogretmen->id,ogretmenLink($item->ogretmen->id)])}}"> {{$item->ogretmen->name}} {{$item->ogretmen->surname}} </a>
                                     </div>
                                 </div>
                                 <div class="rbt-card-bottom">
                                     <div class="rbt-price">
                                         <span class="current-price"> {{$item->price}} TL <span style="font-size:15px">+KDV/SEANS</span></span>
                                     </div>
-                                    <a class="rbt-btn-link" href="{{route('front.course.detail',$item->id)}}">Detay<i class="feather-arrow-right"></i></a>
+                                    <a class="rbt-btn-link" href="{{route('front.course.detail',[$item->id,seminerLink($item->id)])}}">Detay<i class="feather-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>

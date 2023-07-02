@@ -15,9 +15,10 @@
                             <div class="rbt-new-badge rbt-new-badge-one">
                                 <span class="rbt-new-badge-icon">🏆</span> Yüz Yüze & Online
                             </div>
-                            <h1 class="title"><span class="color-primary">Yüz Yüze & Online </span>  Seminer
+                            <h1 class="title"><span class="color-primary">Yüz Yüze & Online </span> Seminer
                                 Platformu</h1>
-                            <p class="description">ArtElegans Academy ile seminerlere katılarak hayalindeki mesleğe bir adım at.
+                            <p class="description">ArtElegans Academy ile seminerlere katılarak hayalindeki mesleğe bir adım
+                                at.
                             </p>
                             <div class="slider-btn">
                                 <a class="rbt-btn btn-gradient hover-icon-reverse" href="{{ route('front.course') }}">
@@ -42,7 +43,7 @@
                                     <div class="swiper-slide">
                                         <div class="rbt-card variation-01 rbt-hover">
                                             <div class="rbt-card-img">
-                                                <a href="{{ route('front.course.detail', $item->id) }}">
+                                                <a href="{{ route('front.course.detail', [$item->id,seminerLink($item->id)]) }}">
                                                     <img src="{{ $item->image == null ? url('assets/images/course/course-online-01.jpg') : url('assets' . $item->image) }}"
                                                         alt="Card image">
                                                 </a>
@@ -52,7 +53,7 @@
                                                     <li><i class="feather-book"></i>{{ $item->kategori->name }}</li>
                                                 </ul>
                                                 <h4 class="rbt-card-title"><a
-                                                        href="{{ route('front.course.detail', $item->id) }}">
+                                                        href="{{ route('front.course.detail', [$item->id,seminerLink($item->id)]) }}">
                                                         {{ $item->title }} </a>
                                                 </h4>
                                                 <p class="rbt-card-text"> {{ $item->short_description }} </p>
@@ -67,10 +68,11 @@
                                                 </div>
                                                 <div class="rbt-card-bottom">
                                                     <div class="rbt-price">
-                                                        <span class="current-price">{{ $item->price }} TL <span style="font-size:15px">+ KDV / SEANS</span></span>
+                                                        <span class="current-price">{{ $item->price }} TL <span
+                                                                style="font-size:15px">+ KDV / SEANS</span></span>
                                                     </div>
                                                     <a class="rbt-btn-link"
-                                                        href="{{ route('front.course.detail', $item->id) }}"> Detay Gör <i
+                                                        href="{{ route('front.course.detail', [$item->id,seminerLink($item->id)]) }}"> Detay Gör <i
                                                             class="feather-arrow-right"></i></a>
                                                 </div>
                                             </div>
@@ -195,7 +197,7 @@
                         data-sal-duration="800">
                         <div class="rbt-card variation-01 rbt-hover">
                             <div class="rbt-card-img">
-                                <a href="{{ route('front.course.detail', $item->id) }}">
+                                <a href="{{ route('front.course.detail', [$item->id,seminerLink($item->id)]) }}">
                                     <img src="{{ $item->image != null ? url('/assets' . $item->image) : url('/assets/images/course/classic-lms-01.jpg') }}"
                                         alt="Card image">
                                 </a>
@@ -216,31 +218,32 @@
                                 </div>
                                 <br>
 
-                                <h4 class="rbt-card-title"><a href="{{ route('front.course.detail', $item->id) }}">
+                                <h4 class="rbt-card-title"><a href="{{ route('front.course.detail', [$item->id,seminerLink($item->id)]) }}">
                                         {{ $item->title }} </a></h4>
 
                                 <ul class="rbt-meta">
                                     <li><i class="feather-book"></i> {{ $item->kategori->name }} </li>
                                 </ul>
 
-                                <p class="rbt-card-text"> {{ substr($item->short_description,0,100) }}... </p>
+                                <p class="rbt-card-text"> {{ substr($item->short_description, 0, 100) }}... </p>
                                 <div class="rbt-author-meta mb--10">
                                     <div class="rbt-avater">
-                                        <a href="{{ route('front.teacher.detail', $item->id) }}">
+                                        <a href="{{ route('front.teacher.detail', [$item->ogretmen->id,hocaLink($item->ogretmen->id)]) }}">
                                             <img src="{{ $item->ogretmen->photo != null ? url('assets' . $item->ogretmen->photo) : url('/assets/images/client/avatar-02.png') }}"
                                                 alt="{{ $item->ogretmen->name }}">
                                         </a>
                                     </div>
                                     <div class="rbt-author-info">
-                                        <a href="{{ route('front.teacher.detail', $item->ogretmen->id) }}">
+                                        <a href="{{ route('front.teacher.detail', [$item->ogretmen->id,hocaLink($item->ogretmen->id)]) }}">
                                             {{ $item->ogretmen->name }} {{ $item->ogretmen->surname }} </a>
                                     </div>
                                 </div>
                                 <div class="rbt-card-bottom">
                                     <div class="rbt-price">
-                                        <span class="current-price">{{ $item->price }} TL <span style="font-size:15px">+ KDV / SEANS</span></span>
+                                        <span class="current-price">{{ $item->price }} TL <span style="font-size:15px">+
+                                                KDV / SEANS</span></span>
                                     </div>
-                                    <a class="rbt-btn-link" href="{{ route('front.course.detail', $item->id) }}"> Detay
+                                    <a class="rbt-btn-link" href="{{ route('front.course.detail', [$item->id,seminerLink($item->id)]) }}"> Detay
                                         <i class="feather-arrow-right"></i></a>
                                 </div>
                             </div>
@@ -301,7 +304,7 @@
                                             <h4 class="title">{{ $son->name }} {{ $son->surname }}</h4>
                                             <span class="designation theme-gradient"> {{ $son->job }} </span>
                                             <span class="team-form">
-                                                <span class="location">  {!!substr($son->description,0,200) !!}... </span>
+                                                <span class="location"> {!! substr($son->description, 0, 200) !!}... </span>
                                             </span>
                                         </div>
                                         <p> {{ $son->short_description }} </p>
@@ -366,10 +369,10 @@
                                             <h4 class="title">{{ $item->name }} {{ $item->surname }}</h4>
                                             <span class="designation theme-gradient"> {{ $item->job }} </span>
                                             <span class="team-form">
-                                                <span class="location"> {!!substr($item->description,0,200) !!}... </span>
+                                                <span class="location"> {!! substr($item->description, 0, 200) !!}... </span>
                                             </span>
                                         </div>
-                                        <p> {{ substr($item->short_description,0,100) }}... </p>
+                                        <p> {{ substr($item->short_description, 0, 100) }}... </p>
                                         <ul class="social-icon social-default mt--20 justify-content-start">
 
                                             @if ($item->facebook != null)
@@ -565,89 +568,134 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="load-more-btn text-start text-md-end">
-                        <a class="rbt-btn rbt-switch-btn bg-primary-opacity" href="blog.html">
-                            <span data-text="View All News">View All News</span>
+                        <a class="rbt-btn rbt-switch-btn bg-primary-opacity" href="{{route('front.blog')}}">
+                            <span data-text="Tümünü Gör">Tümünü Gör</span>
                         </a>
                     </div>
                 </div>
             </div>
             <!-- Start Card Area -->
-            <div class="row g-5">
-                <!-- Start Single Card  -->
-                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-                    <div class="rbt-card variation-02 rbt-hover">
-                        <div class="rbt-card-img">
-                            <a href="course-details.html">
-                                <img src="/assets/images/blog/blog-grid-01.jpg" alt="Card image"> </a>
-                        </div>
-                        <div class="rbt-card-body">
-                            <h5 class="rbt-card-title"><a href="course-details.html">Is lms The Most Trending
-                                    Thing Now?</a></h5>
-                            <p class="rbt-card-text">It is a long established fact that a reader.</p>
-                            <div class="rbt-card-bottom">
-                                <a class="transparent-button" href="course-details.html">Learn
-                                    More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg">
-                                            <g stroke="#27374D" fill="none" fill-rule="evenodd">
-                                                <path d="M10.614 0l5.629 5.629-5.63 5.629" />
-                                                <path stroke-linecap="square" d="M.663 5.572h14.594" />
-                                            </g>
-                                        </svg></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Card  -->
+            <div style="margin-top:5%" class="rbt-section-overlayping-top rbt-section-gapBottom">
+                <div class="container">
+                    <div class="row row--30 gy-5">
 
-                <!-- Start Single Card  -->
-                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-                    <div class="rbt-card variation-02 rbt-hover">
-                        <div class="rbt-card-img">
-                            <a href="course-details.html">
-                                <img src="/assets/images/blog/blog-grid-02.jpg" alt="Card image"> </a>
-                        </div>
-                        <div class="rbt-card-body">
-                            <h5 class="rbt-card-title"><a href="course-details.html">Learn How More Money With
-                                    lms.</a></h5>
-                            <p class="rbt-card-text">It is a long established fact that a reader.</p>
-                            <div class="rbt-card-bottom">
-                                <a class="transparent-button" href="course-details.html">Learn
-                                    More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg">
-                                            <g stroke="#27374D" fill="none" fill-rule="evenodd">
-                                                <path d="M10.614 0l5.629 5.629-5.63 5.629" />
-                                                <path stroke-linecap="square" d="M.663 5.572h14.594" />
-                                            </g>
-                                        </svg></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Card  -->
+                        <div class="col-lg-8">
 
-                <!-- Start Single Card  -->
-                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-                    <div class="rbt-card variation-02 rbt-hover">
-                        <div class="rbt-card-img">
-                            <a href="course-details.html">
-                                <img src="/assets/images/blog/blog-grid-03.jpg" alt="Card image"> </a>
-                        </div>
-                        <div class="rbt-card-body">
-                            <h5 class="rbt-card-title"><a href="course-details.html">Understand The Background Of
-                                    lms.</a></h5>
-                            <p class="rbt-card-text">It is a long established fact that a reader.</p>
-                            <div class="rbt-card-bottom">
-                                <a class="transparent-button" href="course-details.html">Learn
-                                    More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg">
-                                            <g stroke="#27374D" fill="none" fill-rule="evenodd">
-                                                <path d="M10.614 0l5.629 5.629-5.63 5.629" />
-                                                <path stroke-linecap="square" d="M.663 5.572h14.594" />
-                                            </g>
-                                        </svg></i></a>
+                            <!-- Start Card Area -->
+                            <div class="row g-5">
+
+
+                                @foreach ($dort_kategori as $item)
+                                    <!-- Start Single Card  -->
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="rbt-blog-grid rbt-card variation-02 rbt-hover">
+                                            <div class="rbt-card-img">
+                                                <a href="{{route('front.blog.detail',$item->id)}}">
+                                                    <img src="{{$item->kapak != null ? url("assets".$item->kapak) : 'assets/images/blog/blog-grid-05.jpg'}}" alt="Card image"> </a>
+                                            </div>
+                                            <div class="rbt-card-body">
+                                                <h5 class="rbt-card-title"><a href="{{route('front.blog.detail',$item->id)}}">{{$item->title}}</a></h5>
+
+                                                <ul class="blog-meta">
+                                                    <li><i class="feather-clock"></i> August 3, 2023</li>
+                                                </ul>
+                                                <p class="rbt-card-text">{{$item->short_description}}</p>
+                                                <div class="rbt-card-bottom">
+                                                    <a class="transparent-button" href="{{route('front.blog.detail',$item->id)}}">Detay Gör<i><svg width="17" height="12"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <g stroke="#27374D" fill="none" fill-rule="evenodd">
+                                                                    <path d="M10.614 0l5.629 5.629-5.63 5.629" />
+                                                                    <path stroke-linecap="square"
+                                                                        d="M.663 5.572h14.594" />
+                                                                </g>
+                                                            </svg></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Card  -->
+                                @endforeach
+
+
                             </div>
+                            <!-- End Card Area -->
+
+
                         </div>
+
+                        <div class="col-lg-4">
+                            <aside class="rbt-sidebar-widget-wrapper rbt-gradient-border">
+
+
+                                <!-- Start Widget Area  -->
+                                <div class="rbt-single-widget rbt-widget-recent">
+                                    <div class="inner">
+                                        <h4 class="rbt-widget-title">Popüler</h4>
+                                        <ul class="rbt-sidebar-list-wrapper recent-post-list">
+
+                                            @foreach ($dort_kategori as $item)
+                                                
+                                            <li>
+                                                <div class="thumbnail">
+                                                    <a href="{{route('front.blog.detail',$item->id)}}">
+                                                        <img src="{{$item->kapak != null ? url("assets".$item->kapak) : 'assets/images/event/grid-type-04.jpg'}}"
+                                                            alt="{{$item->title}}">
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h6 class="title"><a href="{{route('front.blog.detail',$item->id)}}">{{$item->title}}</a></h6>
+                                                    <ul class="rbt-meta">
+                                                        <li><i class="feather-clock"></i>{{substr($item->created_at,0,10)}}</li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+                                            @endforeach
+
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- End Widget Area  -->
+
+                                <!-- Start Widget Area  -->
+                                <div class="rbt-single-widget rbt-widget-recent">
+                                    <div class="inner">
+                                        <h4 class="rbt-widget-title">Son Eklenen</h4>
+                                        <ul class="rbt-sidebar-list-wrapper recent-post-list">
+
+                                            @foreach ($ilk_dort as $item)
+                                                
+                                            <li>
+                                                <div class="thumbnail">
+                                                    <a href="{{route('front.blog.detail',$item->id)}}">
+                                                        <img src="{{$item->kapak != null ? url("assets".$item->kapak) : 'assets/images/event/grid-type-04.jpg'}}"
+                                                            alt="{{$item->title}}">
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h6 class="title"><a href="{{route('front.blog.detail',$item->id)}}">{{$item->title}}</a></h6>
+                                                    <ul class="rbt-meta">
+                                                        <li><i class="feather-clock"></i>{{substr($item->created_at,0,10)}}</li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+                                            @endforeach
+
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                               
+                            </aside>
+                        </div>
+
                     </div>
                 </div>
-                <!-- End Single Card  -->
             </div>
+
+            
             <!-- End Card Area -->
         </div>
     </div>

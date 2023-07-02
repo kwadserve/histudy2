@@ -226,7 +226,7 @@
                                                 <div class="col-lg-4 col-md-6 col-12">
                                                     <div class="rbt-card variation-01 rbt-hover">
                                                         <div class="rbt-card-img">
-                                                            <a href="course-details.html">
+                                                            <a href="{{route('front.course.detail',[$item->id,seminerLink($item->id)])}}">
                                                                 <img src="{{asset('assets'.$item->image)}}"
                                                                     alt="Card image">
                                                             </a>
@@ -235,7 +235,7 @@
                                                             <div class="rbt-card-top">
                                                                 
                                                             </div>
-                                                            <h4 class="rbt-card-title"><a href="{{route('front.course.detail',$item->id)}}">{{$item->title}}</a>
+                                                            <h4 class="rbt-card-title"><a href="{{route('front.course.detail',[$item->id,seminerLink($item->id)])}}">{{$item->title}}</a>
                                                             </h4>
                                                             <ul class="rbt-meta">
                                                                 <li><i class="feather-book"></i>{{$item->kategori->name}}</li>

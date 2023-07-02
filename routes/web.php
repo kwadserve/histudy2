@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Front\BlogCommentController;
+use App\Http\Controllers\Front\BlogController as FrontBlogController;
 use App\Http\Controllers\Front\CategoryController as FrontCategoryController;
 use App\Http\Controllers\Front\CourseController as FrontCourseController;
 use App\Http\Controllers\Front\FrontController;
@@ -10,11 +12,13 @@ use App\Http\Controllers\Front\TeacherController as FrontTeacherController;
 use App\Http\Controllers\OdemeController;
 use App\Http\Controllers\Panel\AdminController;
 use App\Http\Controllers\Panel\BasvuruController;
+use App\Http\Controllers\Panel\BlogController;
 use App\Http\Controllers\Panel\CategoryController;
 use App\Http\Controllers\Panel\CourseController;
 use App\Http\Controllers\Panel\OgrenciController;
 use App\Http\Controllers\Panel\OneriController as PanelOneriController;
 use App\Http\Controllers\Panel\TeacherController;
+use App\Models\BlogComment;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -79,10 +83,23 @@ Route::prefix('panel/')->group(function () {
     Route::prefix('ogrenci/')->group(function () {
         Route::get('listele', [OgrenciController::class, 'list'])->name('panel.student.list');
         Route::get('seminerleri/{id?}', [OgrenciController::class, 'ogrenci_kurslari'])->name('panel.ogrenci.seminerler');
+        Route::get('seminer/sil/{id?}', [OgrenciController::class, 'ogrenci_seminer_sil'])->name('panel.ogrenci.kurs.sil');
+        
     });
 
 
     Route::get('oneriler', [PanelOneriController::class, 'list'])->name('panel.oneriler');
+
+    // BLOG CONTROLLER
+    Route::controller(BlogController::class)->prefix('blog')->group(function(){
+        Route::get('ekle','add')->name('panel.blog.add');
+        Route::post('ekle','store')->name('panel.blog.store');
+        Route::get('liste','list')->name('panel.blog.list');
+        Route::get('duzenle/{id?}','edit')->name('panel.blog.edit');
+        Route::get('sil/{id?}','blog_sil')->name('panel.blog.sil');
+        Route::post('guncelle','update')->name('panel.blog.update');
+        Route::get('yorumlar/{id?}','yorumlar')->name('panel.blog.comments');
+    });
 });
 
 
@@ -92,18 +109,20 @@ Route::prefix('panel/')->group(function () {
 Route::prefix('/')->group(function () {
     Route::get('', [FrontController::class, 'homepage'])->name('front.home');
     Route::get('hakkimizda', [FrontController::class, 'about'])->name('front.about');
-    Route::get('blog', [FrontController::class, 'blog_list'])->name('front.blog');
+    Route::get('blog', [FrontBlogController::class, 'list'])->name('front.blog');
+    Route::post('yorum/ekle', [BlogCommentController::class, 'store'])->name('front.comment.store');
+    Route::get('blog/detay/{id?}', [FrontBlogController::class, 'blog_detail'])->name('front.blog.detail');
     Route::get('gizlilik/sozlesmesi', [FrontController::class, 'gizlilik'])->name('front.gizlilik');
     Route::get('kullanim/kosullari', [FrontController::class, 'kullanim'])->name('front.kullanim');
     Route::get('mesafeli/satis', [FrontController::class, 'mesafeli'])->name('front.mesafeli');
 
     Route::get('seminer', [FrontCourseController::class, 'course_list'])->name('front.course');
     Route::get('seminer/oner', [FrontCourseController::class, 'oner'])->name('front.oner');
-    Route::get('seminer/detay/{id?}', [FrontCourseController::class, 'detail'])->name('front.course.detail');
+    Route::get('seminer/detay/{id?}/{link?}', [FrontCourseController::class, 'detail'])->name('front.course.detail');
 
     Route::get('ogretmen', [FrontTeacherController::class, 'teacher_list'])->name('front.teacher');
     Route::get('ogretmen/basvuru', [FrontController::class, 'ogr_basvuru'])->name('front.teacher.basvuru');
-    Route::get('ogretmen/detay/{id?}', [FrontTeacherController::class, 'teacher_detail'])->name('front.teacher.detail');
+    Route::get('ogretmen/detay/{id?}/{link?}', [FrontTeacherController::class, 'teacher_detail'])->name('front.teacher.detail');
     Route::get('ogretmen/profil/{id?}', [FrontTeacherController::class, 'teacher_profile'])->name('front.teacher.profile');
     Route::get('ogretmen/seminer/{id?}', [FrontTeacherController::class, 'teacher_course'])->name('front.teacher.course');
 

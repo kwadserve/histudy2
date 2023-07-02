@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\OgrenciKurs;
@@ -13,10 +14,12 @@ use RealRashid\SweetAlert\Facades\Alert;
 class FrontController extends Controller
 {
     public function homepage(){
-        $uc_kurs = Course::orderBy('price','asc')->take(5)->get();
+        $dort_kategori = Blog::latest()->take(4)->get();
+        $ilk_dort = Blog::orderBy('id','asc')->take(4)->get();
+        $uc_kurs = Course::orderBy('price','asc')->take(3)->get();
         $categories = Category::get();
         $son_kurslar = Course::inRandomOrder()->take(6)->get();
-        return view('frontend.home',compact('uc_kurs','categories','son_kurslar'));
+        return view('frontend.home',compact('uc_kurs','categories','son_kurslar','dort_kategori','ilk_dort'));
     }
 
     public function about(){

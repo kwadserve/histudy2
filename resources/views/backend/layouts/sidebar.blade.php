@@ -10,7 +10,7 @@
                 <li class="menu-title" data-key="t-menu">MENU</li>
 
                 <li>
-                    <a href="index">
+                    <a href="{{route('backend.home')}}">
                         <i data-feather="home"></i>
                         <span data-key="t-dashboard">ANASAYFA</span>
                     </a>
@@ -83,9 +83,8 @@
                         <span data-key="t-blog">BLOG</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#" data-key="t-blog-add">BLOG EKLE</a></li>
-                        <li><a href="#" data-key="t-blog-list">BLOG LİSTESİ</a></li>
-                        <li><a href="#" data-key="t-blog-form">BAŞVURULAR</a></li>
+                        <li><a href="{{route('panel.blog.add')}}" data-key="t-blog-add">BLOG EKLE</a></li>
+                        <li><a href="{{route('panel.blog.list')}}" data-key="t-blog-list">BLOG LİSTESİ</a></li>
                     </ul>
                 </li>
 
