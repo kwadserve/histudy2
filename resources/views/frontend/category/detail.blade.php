@@ -104,12 +104,12 @@
                                 <p class="rbt-card-text"> {{$item->short_description}} </p>
                                 <div class="rbt-author-meta mb--10">
                                     <div class="rbt-avater">
-                                        <a href="{{route("front.teacher.profile",[$item->ogretmen->id,ogretmenLink($item->ogretmen->id)])}}">
+                                        <a href="{{route("front.teacher.profile",[$item->ogretmen->id,hocaLink($item->ogretmen->id)])}}">
                                             <img src="{{"/assets".$item->ogretmen->photo}}" alt="Sophia Jaymes">
                                         </a>
                                     </div>
                                     <div class="rbt-author-info">
-                                        <a href="{{route("front.teacher.profile",[$item->ogretmen->id,ogretmenLink($item->ogretmen->id)])}}"> {{$item->ogretmen->name}} {{$item->ogretmen->surname}} </a>
+                                        <a href="{{route("front.teacher.profile",[$item->ogretmen->id,hocaLink($item->ogretmen->id)])}}"> {{$item->ogretmen->name}} {{$item->ogretmen->surname}} </a>
                                     </div>
                                 </div>
                                 <div class="rbt-card-bottom">
