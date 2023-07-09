@@ -84,7 +84,7 @@
 								@php
 									$item = $kurs[0];
 									$tutar = ($item->toplam_saat) * ($item->price);
-									$kdv = $tutar * (0.18);
+									$kdv = $tutar * (0.20);
 									$total = $tutar + $kdv;
 								@endphp
 								
@@ -92,7 +92,7 @@
 							<ul>
 								<li>Seans : <span>{{$item->toplam_saat}} SEANS</span></li>
 								<li>Seans Fiyat : <span>{{$item->price}} TL</span></li>
-								<li>KDV (%18) : <span>{{$kdv}} TL</span></li>
+								<li>KDV (%20) : <span>{{$kdv}} TL</span></li>
 							</ul>
 							
 							<h4 class="mt--30">Total <span>{{$total}} TL</span></h4>

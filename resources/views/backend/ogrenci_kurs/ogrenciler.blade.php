@@ -25,6 +25,8 @@
                                             <th>Email</th>
                                             <th>Telefon</th>
                                             <th>Katıldığı Seminerler</th>
+                                            <th>Katılma Tarihi</th>
+
                                             <th>İşlem</th>
                                         </tr>
                                     </thead>
@@ -36,12 +38,13 @@
                                                 <td> {{ $item->email }} </td>
                                                 <td> {{ $item->phone }} </td>
                                                 <td> {{ $item->kurs_sayac() }} </td>
+                                                <td> {{ substr($item->created_at,0,10) }} </td>
                                                 <td>
                                                     <a href="{{route('panel.ogrenci.seminerler',$item->id)}}">
 														<button class="btn btn-primary">
 														Seminerler
 														</button></a>
-                                                    <a href=""><button class="btn btn-danger">Sil</button></a>
+                                                    <button onclick="silme({{$item->id}})" class="btn btn-danger">Sil</button>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -59,4 +62,25 @@
 
 
 
+@endsection
+
+@section('script-bottom')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function silme(id) {
+            Swal.fire({
+                title: 'Emin misiniz?',
+                text: "Silmek istediğinize emin misiniz?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sil!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/panel/ogrenci/sil/" + id;
+                }
+            });
+        }
+    </script>
 @endsection

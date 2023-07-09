@@ -27,4 +27,10 @@ class OgrenciController extends Controller
 		Alert::success('Başarılı');
 		return back();
 	}
+
+	public function sil($id){
+		Ogrenci::find($id)->delete();
+		Alert::success('Silme Başarılı');
+		return back();
+	}
 }

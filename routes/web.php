@@ -82,6 +82,7 @@ Route::prefix('panel/')->group(function () {
 
     Route::prefix('ogrenci/')->group(function () {
         Route::get('listele', [OgrenciController::class, 'list'])->name('panel.student.list');
+        Route::get('sil/{id?}', [OgrenciController::class, 'sil'])->name('panel.student.destroy');
         Route::get('seminerleri/{id?}', [OgrenciController::class, 'ogrenci_kurslari'])->name('panel.ogrenci.seminerler');
         Route::get('seminer/sil/{id?}', [OgrenciController::class, 'ogrenci_seminer_sil'])->name('panel.ogrenci.kurs.sil');
         
